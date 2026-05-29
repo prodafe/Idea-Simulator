@@ -1518,6 +1518,118 @@
       "reason": "价格过高+隐私恐慌+应用场景不明→但后来在企业市场成功",
       "industry": "AR/VR",
       "lesson": "有时候失败只是时机不对,换个市场就行"
+    },
+    {
+      "company": "Google",
+      "industry": "科技",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "内部转岗AI团队，需主动networking+内部开源贡献，外招成功率更低",
+      "scenario_type": "career_job"
+    },
+    {
+      "company": "McKinsey",
+      "industry": "咨询",
+      "year": 2023,
+      "outcome": "成功",
+      "lesson": "案例面试准备3个月，每天刷2个case，最终从2000人中录取40人(2%)",
+      "scenario_type": "career_job"
+    },
+    {
+      "company": "字节跳动",
+      "industry": "AI",
+      "year": 2024,
+      "outcome": "失败",
+      "lesson": "985博士面试AI研究岗，技术面通过但HR面因期望薪资过高被拒",
+      "scenario_type": "career_job"
+    },
+    {
+      "company": "Tesla",
+      "industry": "AI/自动驾驶",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "PhD研究方向与岗位高度匹配+顶会论文+开源项目Star 2000+，5轮面试通过",
+      "scenario_type": "career_job"
+    },
+    {
+      "company": "清华大学",
+      "industry": "教育",
+      "year": 2024,
+      "outcome": "失败",
+      "lesson": "考研二战依然失败，原因是英语单科差2分，总分足够但单科线未过",
+      "scenario_type": "education"
+    },
+    {
+      "company": "Stanford",
+      "industry": "教育",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "申请CS PhD，3篇一作顶会+强推荐信+研究计划与导师方向高度契合",
+      "scenario_type": "education"
+    },
+    {
+      "company": "个人投资者",
+      "industry": "金融",
+      "year": 2022,
+      "outcome": "失败",
+      "lesson": "追高买入AI概念股，3个月跌60%，情绪化交易+无止损策略",
+      "scenario_type": "investment"
+    },
+    {
+      "company": "巴菲特/Berkshire",
+      "industry": "金融",
+      "year": 2023,
+      "outcome": "成功",
+      "lesson": "价值投资+长期持有，标普500年化10%+，避开热门投机",
+      "scenario_type": "investment"
+    },
+    {
+      "company": "字节跳动",
+      "industry": "科技",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "有competing offer情况下薪资谈判，最终base+30%，总包+50%",
+      "scenario_type": "negotiation"
+    },
+    {
+      "company": "某创业公司",
+      "industry": "SaaS",
+      "year": 2023,
+      "outcome": "失败",
+      "lesson": "与大客户谈判时过早让步，最终合同条款严重不利，公司亏损",
+      "scenario_type": "negotiation"
+    },
+    {
+      "company": "个人",
+      "industry": "科技",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "北京→杭州，远程办公+生活成本降40%，但社交圈需重建",
+      "scenario_type": "relocation"
+    },
+    {
+      "company": "个人",
+      "industry": "金融",
+      "year": 2023,
+      "outcome": "失败",
+      "lesson": "上海→伦敦，因签证问题和当地资质认证不认可，6个月后返回",
+      "scenario_type": "relocation"
+    },
+    {
+      "company": "北京协和医院",
+      "industry": "医疗",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "早期肺癌发现+微创手术成功，关键在年度体检+及时干预",
+      "scenario_type": "health"
+    },
+    {
+      "company": "N/A",
+      "industry": "日常",
+      "year": 2024,
+      "outcome": "成功",
+      "lesson": "日常行为的成功率接近100%，失败通常仅因极低概率意外",
+      "scenario_type": "daily_life"
     }
   ],
   "match_keywords": {

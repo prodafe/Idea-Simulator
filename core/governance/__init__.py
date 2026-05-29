@@ -34,13 +34,20 @@ class GovernanceLayer:
         }
 
     def _load_anchors(self) -> dict:
-        path = Path(__file__).parent.parent.parent / "data" / "governance_anchors.json"
-        if path.exists():
-            try:
-                return json.loads(path.read_text(encoding="utf-8"))
-            except Exception as e:
-                logger.warning(f"Failed to load governance anchors: {e}")
-        return {}
+        """加载锚定数据库(优先综合库，兜底治理库)"""
+        paths = [
+            Path(__file__).parent.parent.parent / "data" / "reality_anchors.json",
+            Path(__file__).parent.parent.parent / "data" / "governance_anchors.json",
+        ]
+        merged = {}
+        for path in paths:
+            if path.exists():
+                try:
+                    data = json.loads(path.read_text(encoding="utf-8"))
+                    merged = {**merged, **data}
+                except Exception as e:
+                    logger.warning(f"Failed to load anchors from {path}: {e}")
+        return merged
 
     def evaluate(self, idea: str, profile: dict, agent_outputs: dict) -> dict:
         """运行全部5子Agent，聚合治理结果"""

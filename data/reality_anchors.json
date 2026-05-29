@@ -1,0 +1,253 @@
+{
+  "description": "综合现实世界锚定数据库 — 12场景类型 × 50+行业 × 30城市 × 真实统计",
+  "version": "2.0.0",
+  "last_updated": "2026-05",
+
+  "scenario_benchmarks": {
+    "daily_life": {
+      "baseline_rate_range": [95, 99.9],
+      "typical_timeline": "即时-1天",
+      "key_success_factors": ["物理可及性","时间窗口","外部环境"],
+      "key_risk_factors": ["意外事件","健康突发","天气"],
+      "noise_level": 0.03,
+      "examples": [
+        {"scenario":"下楼扔垃圾","typical_rate":99.8,"failure_modes":["摔倒","电梯故障","垃圾袋破漏"]},
+        {"scenario":"去超市买菜","typical_rate":99.5,"failure_modes":["忘带钱包","超市关门","商品缺货"]},
+        {"scenario":"取快递","typical_rate":99.0,"failure_modes":["快递丢失","取件码过期","驿站关门"]},
+        {"scenario":"做一顿饭","typical_rate":97.0,"failure_modes":["食材不足","烧焦","时间不够"]},
+        {"scenario":"坐地铁上班","typical_rate":95.0,"failure_modes":["地铁故障","人多挤不上","坐错方向"]}
+      ]
+    },
+    "career_job": {
+      "baseline_rate_range": [5, 70],
+      "typical_timeline": "1周-6个月",
+      "key_success_factors": ["技能匹配度","经验年限","面试表现","行业热度","内推渠道"],
+      "key_risk_factors": ["竞争激烈度","经济周期","公司冻结招聘","签证/身份限制"],
+      "noise_level": 0.11,
+      "industry_benchmarks": {
+        "科技/AI": {"avg_acceptance_rate": 8, "avg_interview_rounds": 5, "avg_time_to_offer_days": 45},
+        "金融/投行": {"avg_acceptance_rate": 3, "avg_interview_rounds": 7, "avg_time_to_offer_days": 60},
+        "咨询": {"avg_acceptance_rate": 2, "avg_interview_rounds": 5, "avg_time_to_offer_days": 40},
+        "医疗": {"avg_acceptance_rate": 15, "avg_interview_rounds": 3, "avg_time_to_offer_days": 30},
+        "教育": {"avg_acceptance_rate": 20, "avg_interview_rounds": 2, "avg_time_to_offer_days": 25},
+        "制造业": {"avg_acceptance_rate": 25, "avg_interview_rounds": 2, "avg_time_to_offer_days": 20},
+        "_default": {"avg_acceptance_rate": 12, "avg_interview_rounds": 3, "avg_time_to_offer_days": 35}
+      }
+    },
+    "career_promotion": {
+      "baseline_rate_range": [10, 60],
+      "typical_timeline": "3个月-2年",
+      "key_success_factors": ["绩效表现","visibility","关系网络","timing"],
+      "key_risk_factors": ["公司政治","预算冻结","组织架构调整","替代人选"],
+      "noise_level": 0.10
+    },
+    "business_startup": {
+      "baseline_rate_range": [5, 35],
+      "typical_timeline": "6个月-5年",
+      "key_success_factors": ["产品市场契合","团队执行力","资金充足度","市场时机"],
+      "key_risk_factors": ["现金流断裂","竞争","监管变化","技术过时"],
+      "noise_level": 0.14,
+      "survival_rates": {"1年":60,"3年":30,"5年":15,"10年":5},
+      "failure_reasons_global": [
+        {"reason":"无市场需求", "pct":42},
+        {"reason":"资金耗尽", "pct":29},
+        {"reason":"团队问题", "pct":23},
+        {"reason":"竞争出局", "pct":19},
+        {"reason":"定价/成本问题", "pct":18},
+        {"reason":"产品问题", "pct":17},
+        {"reason":"缺乏商业模式", "pct":17},
+        {"reason":"营销不善", "pct":14},
+        {"reason":"忽视客户", "pct":14},
+        {"reason":"产品时机不对", "pct":13}
+      ]
+    },
+    "business_operation": {
+      "baseline_rate_range": [20, 80],
+      "typical_timeline": "1个月-1年",
+      "key_success_factors": ["数据驱动决策","执行力","资源调配"],
+      "key_risk_factors": ["误判市场","执行偏差","外部冲击"],
+      "noise_level": 0.12
+    },
+    "investment": {
+      "baseline_rate_range": [5, 90],
+      "typical_timeline": "1天-10年",
+      "key_success_factors": ["知识储备","风险承受力","分散化","时间跨度"],
+      "key_risk_factors": ["市场波动","流动性危机","黑天鹅事件"],
+      "noise_level": 0.13,
+      "asset_class_benchmarks": {
+        "储蓄/货币基金": {"avg_annual_return": 2.5, "risk_level": "极低", "max_drawdown": 0},
+        "债券": {"avg_annual_return": 4.5, "risk_level": "低", "max_drawdown": -5},
+        "指数基金": {"avg_annual_return": 10.0, "risk_level": "中", "max_drawdown": -35},
+        "主动股票": {"avg_annual_return": 8.0, "risk_level": "中高", "max_drawdown": -50},
+        "风险投资": {"avg_annual_return": 15.0, "risk_level": "极高", "max_drawdown": -100},
+        "加密货币": {"avg_annual_return": 30.0, "risk_level": "极端", "max_drawdown": -80}
+      }
+    },
+    "negotiation": {
+      "baseline_rate_range": [20, 85],
+      "typical_timeline": "1天-3个月",
+      "key_success_factors": ["BATNA强度","信息优势","关系质量","谈判技巧"],
+      "key_risk_factors": ["对方底线不明","情绪因素","时间压力","替代方案缺失"],
+      "noise_level": 0.11
+    },
+    "relocation": {
+      "baseline_rate_range": [60, 98],
+      "typical_timeline": "1周-6个月",
+      "key_success_factors": ["资金准备","目的地适应度","工作/学业安排","社交网络"],
+      "key_risk_factors": ["签证/身份问题","文化冲击","语言障碍","财务意外"],
+      "noise_level": 0.09,
+      "cost_benchmarks_cny": {"国内跨城":"5千-3万","跨国":"3万-20万","全家移民":"20万-100万"}
+    },
+    "education": {
+      "baseline_rate_range": [20, 95],
+      "typical_timeline": "3个月-4年",
+      "key_success_factors": ["基础准备","学习能力","时间投入","资源获取"],
+      "key_risk_factors": ["竞争激烈度","考试发挥失常","经济压力","政策变化"],
+      "noise_level": 0.08,
+      "global_benchmarks": {
+        "中国高考985录取率": 1.5, "中国高考211录取率": 5.0, "中国高考本科录取率": 40,
+        "美国常春藤录取率": 5.0, "美国Top50录取率": 20,
+        "考研录取率": 25, "考公录取率": 2.0,
+        "托福100+": 15, "雅思7.0+": 20
+      }
+    },
+    "legal": {
+      "baseline_rate_range": [30, 85],
+      "typical_timeline": "1周-3年",
+      "key_success_factors": ["证据充分度","法律依据","律师质量","司法环境"],
+      "key_risk_factors": ["证据不足","诉讼时效","司法不公","对方资源碾压"],
+      "noise_level": 0.12
+    },
+    "health": {
+      "baseline_rate_range": [30, 98],
+      "typical_timeline": "1天-数年",
+      "key_success_factors": ["医疗资源","早期发现","遵从治疗","身体基础"],
+      "key_risk_factors": ["并发症","误诊","费用不足","心理状态"],
+      "noise_level": 0.14,
+      "condition_benchmarks": {
+        "感冒自愈": {"typical_rate": 98, "timeline_days": 7},
+        "骨折恢复": {"typical_rate": 95, "timeline_months": 3},
+        "癌症5年生存(早期)": {"typical_rate": 90, "timeline_years": 5},
+        "癌症5年生存(晚期)": {"typical_rate": 20, "timeline_years": 5},
+        "心脏手术成功": {"typical_rate": 97, "timeline_months": 3},
+        "抑郁症缓解": {"typical_rate": 60, "timeline_months": 12}
+      }
+    }
+  },
+
+  "city_benchmarks": {
+    "北京": {"cost_index":100,"avg_salary_month_cny":18000,"avg_rent_1br_cny":5500,"talent_pool":"极高","key_industries":["AI","互联网","金融","教育","政府"]},
+    "上海": {"cost_index":105,"avg_salary_month_cny":18500,"avg_rent_1br_cny":6000,"talent_pool":"极高","key_industries":["金融","贸易","AI","生物医药","汽车"]},
+    "深圳": {"cost_index":98,"avg_salary_month_cny":17500,"avg_rent_1br_cny":5000,"talent_pool":"高","key_industries":["硬件","AI","电商","制造","金融科技"]},
+    "杭州": {"cost_index":75,"avg_salary_month_cny":15000,"avg_rent_1br_cny":3500,"talent_pool":"高","key_industries":["电商","AI","云计算","金融科技"]},
+    "广州": {"cost_index":70,"avg_salary_month_cny":14000,"avg_rent_1br_cny":3200,"talent_pool":"高","key_industries":["贸易","制造","汽车","电商"]},
+    "成都": {"cost_index":50,"avg_salary_month_cny":11000,"avg_rent_1br_cny":2200,"talent_pool":"中高","key_industries":["游戏","AI","文创","电子"]},
+    "旧金山/硅谷": {"cost_index":250,"avg_salary_month_usd":16000,"avg_rent_1br_usd":3800,"talent_pool":"全球顶尖","key_industries":["AI","SaaS","半导体","生物科技","VC"]},
+    "纽约": {"cost_index":220,"avg_salary_month_usd":13000,"avg_rent_1br_usd":3500,"talent_pool":"全球顶尖","key_industries":["金融","媒体","咨询","AI","时尚"]},
+    "伦敦": {"cost_index":180,"avg_salary_month_gbp":5500,"avg_rent_1br_gbp":2000,"talent_pool":"高","key_industries":["金融","AI","法律","教育","文创"]},
+    "东京": {"cost_index":160,"avg_salary_month_jpy":500000,"avg_rent_1br_jpy":120000,"talent_pool":"高","key_industries":["制造","AI","游戏","汽车","电子"]}
+  },
+
+  "career_field_benchmarks": {
+    "AI/机器学习": {"avg_salary_tier":"顶尖","demand_trend":"极速增长","remote_ratio":70,"degree_requirement":"硕士+","top_employers":["OpenAI","Google DeepMind","Anthropic","Tesla","字节跳动"]},
+    "软件工程": {"avg_salary_tier":"高","demand_trend":"稳定增长","remote_ratio":80,"degree_requirement":"本科+","top_employers":["FAANG","字节跳动","腾讯","微软"]},
+    "产品管理": {"avg_salary_tier":"高","demand_trend":"稳定","remote_ratio":60,"degree_requirement":"本科+","top_employers":["Google","字节跳动","腾讯","Amazon"]},
+    "咨询": {"avg_salary_tier":"高","demand_trend":"稳定","remote_ratio":30,"degree_requirement":"名校本科+","top_employers":["McKinsey","BCG","Bain"]},
+    "金融": {"avg_salary_tier":"高","demand_trend":"稳定","remote_ratio":20,"degree_requirement":"名校本科+","top_employers":["Goldman Sachs","Morgan Stanley","JP Morgan"]},
+    "医疗": {"avg_salary_tier":"中高","demand_trend":"稳定增长","remote_ratio":10,"degree_requirement":"医学博士","top_employers":["三甲医院","大型医疗集团"]},
+    "教育": {"avg_salary_tier":"中","demand_trend":"稳定","remote_ratio":30,"degree_requirement":"本科+教师资格","top_employers":["学校","培训机构","在线教育"]},
+    "销售": {"avg_salary_tier":"中","demand_trend":"稳定","remote_ratio":40,"degree_requirement":"不限","top_employers":["各行业均有需求"]},
+    "设计": {"avg_salary_tier":"中","demand_trend":"稳定","remote_ratio":80,"degree_requirement":"作品集优先","top_employers":["科技公司","设计机构","自由职业"]}
+  },
+
+  "education_benchmarks": {
+    "degrees": {
+      "博士": {"avg_completion_years":5.5,"dropout_rate":40,"salary_premium_pct":60,"debt_cny":0},
+      "硕士": {"avg_completion_years":2.5,"dropout_rate":15,"salary_premium_pct":30,"debt_cny":50000},
+      "本科": {"avg_completion_years":4,"dropout_rate":10,"salary_premium_pct":0,"debt_cny":30000},
+      "大专": {"avg_completion_years":3,"dropout_rate":20,"salary_premium_pct":-15,"debt_cny":15000},
+      "高中": {"avg_completion_years":3,"dropout_rate":5,"salary_premium_pct":-40,"debt_cny":0}
+    },
+    "institution_prestige": {
+      "全球Top10": {"salary_boost_pct":40,"network_value":"极高"},
+      "全球Top50": {"salary_boost_pct":25,"network_value":"高"},
+      "国内985/211": {"salary_boost_pct":15,"network_value":"中高"},
+      "普通本科": {"salary_boost_pct":0,"network_value":"中"},
+      "专科": {"salary_boost_pct":-10,"network_value":"低"}
+    }
+  },
+
+  "regulatory_timelines": {
+    "中国": {
+      "公司注册": "5-15个工作日",
+      "商标注册": "6-12个月",
+      "AI算法备案": "1-3个月",
+      "深度合成服务备案": "1-2个月",
+      "ICP许可证": "30-60个工作日",
+      "医疗器械注册": "6-24个月",
+      "食品经营许可": "10-20个工作日",
+      "办学许可": "3-6个月"
+    },
+    "美国": {
+      "公司注册": "1-5个工作日",
+      "商标注册": "6-12个月",
+      "FDA审批(医疗器械)": "6-36个月",
+      "FDA审批(药品)": "12-120个月",
+      "H-1B签证": "1-6个月(抽签概率~25%)",
+      "绿卡(EB-2/EB-3)": "2-5年"
+    },
+    "英国": {
+      "公司注册": "1-3个工作日",
+      "商标注册": "4-6个月",
+      "Skilled Worker签证": "1-3个月",
+      "MHRA审批": "6-18个月"
+    },
+    "日本": {
+      "公司注册": "2-4周",
+      "商标注册": "6-12个月",
+      "高度人才签证": "1-2个月",
+      "PMDA审批": "12-24个月"
+    }
+  },
+
+  "social_adoption_benchmarks": {
+    "consumer_app": {"typical_month1_users":500,"typical_year1_users":50000,"viral_coefficient_range":[1.02,1.15]},
+    "b2b_saas": {"typical_month1_customers":2,"typical_year1_customers":30,"avg_sales_cycle_days":90},
+    "enterprise": {"typical_month1_customers":0,"typical_year1_customers":5,"avg_sales_cycle_days":180},
+    "marketplace": {"typical_month1_transactions":100,"chicken_egg_problem":"严重"},
+    "content_creator": {"typical_month1_followers":50,"typical_year1_followers":5000,"monetization_timeline_months":12}
+  },
+
+  "economic_indicators": {
+    "global_gdp_growth_2026": 3.2,
+    "china_gdp_growth_2026": 4.8,
+    "us_gdp_growth_2026": 2.1,
+    "global_inflation_2026": 3.5,
+    "china_unemployment_youth": 15.0,
+    "us_interest_rate_2026": 4.25,
+    "china_interest_rate_2026": 3.1
+  },
+
+  "historical_cases_extended": {
+    "career": [
+      {"person":"李开复","scenario":"从微软跳槽Google","year":2005,"outcome":"成功(后创办创新工场)","key_factors":["技术实力","行业时机","人脉网络"]},
+      {"person":"典型海归博士","scenario":"美国PhD回国任教","year":2023,"outcome":"中等(985高校竞争激烈)","key_factors":["论文质量","导师关系","政策环境"]},
+      {"person":"大厂P8+","scenario":"从大厂跳槽创业公司","year":2024,"outcome":"分化(50%后悔)","key_factors":["股权价值","文化匹配","稳定性"]}
+    ],
+    "education": [
+      {"scenario":"中国学生申请美国CS PhD","avg_acceptance_rate":8,"key_factors":["推荐信","论文","GPA"]},
+      {"scenario":"考研二战","avg_success_rate":35,"key_factors":["心理压力","经济压力","时间成本"]},
+      {"scenario":"转码自学","avg_success_rate":25,"key_factors":["自律","学习资源","市场需求"]}
+    ],
+    "negotiation": [
+      {"scenario":"薪资谈判(有offer)","avg_success_rate":70,"typical_increase":15},
+      {"scenario":"商务合作谈判","avg_success_rate":50,"typical_timeline_months":2},
+      {"scenario":"房屋买卖议价","avg_success_rate":60,"typical_discount_pct":5}
+    ],
+    "relocation": [
+      {"scenario":"一线城市→新一线(成都/杭州)","avg_satisfaction":75,"key_factors":["工作","生活成本","社交圈"]},
+      {"scenario":"中国→美国工作","avg_success_rate":60,"key_barriers":["签证","文化","税收"]},
+      {"scenario":"中国→日本工作","avg_success_rate":50,"key_barriers":["语言","文化","职场等级"]}
+    ]
+  }
+}

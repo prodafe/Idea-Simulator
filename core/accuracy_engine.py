@@ -67,15 +67,18 @@ class AccuracyEngine:
     # 3. 历史回测
     # ═══════════════════════════════════════════
     def back_test(self, predicted_rate: float, industry: str, profile: dict) -> dict:
-        """用历史案例验证预测的合理性"""
+        """用历史案例验证预测的合理性（支持行业+场景类型双匹配）"""
         cases = self.hc.get("cases", [])
+        sc_type = profile.get("_scenario_type", "")
         matches = []
         for c in cases:
-            if not c.get("outcome") or not c.get("industry"):
+            if not c.get("outcome"):
                 continue
-            # Industry match
+            # 匹配: 场景类型优先, 行业其次
             score = 0
-            if industry and (industry in c.get("industry", "") or c.get("industry", "") in industry):
+            if sc_type and c.get("scenario_type") == sc_type:
+                score += 3
+            elif industry and c.get("industry") and (industry in c.get("industry", "") or c.get("industry", "") in industry):
                 score += 2
             if score >= 2:
                 outcomes = {"成功": 1, "IPO": 1, "超级成功": 1, "高速增长": 1, "成功退出": 1, "超级IPO": 1, "盈利超级成功": 1, "全球霸主": 1}

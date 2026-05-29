@@ -76,6 +76,20 @@ class FeasibilityCheck:
                         })
                 break
 
+        # 3.5 城市成本锚定(使用综合锚定库，支持多币种)
+        city_name = profile.get("city", "")
+        city_data = (anchors or {}).get("city_benchmarks", {}).get(city_name, {})
+        if city_data and sc_type in ("career_job", "relocation", "business_startup"):
+            avg_salary = city_data.get("avg_salary_month_cny") or city_data.get("avg_salary_month_usd") or city_data.get("avg_salary_month_gbp") or city_data.get("avg_salary_month_jpy") or 0
+            avg_rent = city_data.get("avg_rent_1br_cny") or city_data.get("avg_rent_1br_usd") or city_data.get("avg_rent_1br_gbp") or city_data.get("avg_rent_1br_jpy") or 0
+            if avg_salary > 0 and avg_rent > 0:
+                rent_ratio = avg_rent / avg_salary
+                if rent_ratio > 0.4:
+                    violations.append({
+                        "type": "city_cost_pressure", "severity": "medium",
+                        "message": f"{city_name} 房租收入比 {rent_ratio:.1%} (月租{avg_rent}/月薪{avg_salary})，生活成本压力大",
+                    })
+
         # 4. 经济合理性
         if sc_type in ("business_startup", "business_operation", "investment"):
             strategies = strategy.get("strategies", [])

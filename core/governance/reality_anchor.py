@@ -37,13 +37,23 @@ class RealityAnchor:
         market = agent_outputs.get("market", {})
         scenario = agent_outputs.get("scenario", {})
 
-        # 1. 基准成功率锚定
+        # ✅ 从综合锚定库读取场景基准
+        sb = (anchors or {}).get("scenario_benchmarks", {}).get(sc_type, {})
+        rate_range = sb.get("baseline_rate_range", [5, 99])
+
+        # 1. 基准成功率锚定（使用场景专属范围）
         llm_baseline = profile.get("_llm_baseline", 50)
-        max_rate = self.MAX_SUCCESS_RATE.get(sc_type, 80)
-        if llm_baseline > max_rate + 10:
+        max_rate = rate_range[1] if rate_range else self.MAX_SUCCESS_RATE.get(sc_type, 80)
+        min_rate = rate_range[0] if rate_range else 0.5
+        if llm_baseline > max_rate + 5:
             violations.append({
                 "type": "rate_anchor", "severity": "high",
-                "message": f"LLM估算基准成功率 {llm_baseline}%，超过 {sc_type} 场景上限 {max_rate}%。已自动锚定。",
+                "message": f"LLM估算基准成功率 {llm_baseline}%，超过 {sc_type} 场景合理上限 {max_rate}%。建议锚定到 {max_rate}%。",
+            })
+        if llm_baseline < min_rate - 5 and min_rate > 10:
+            violations.append({
+                "type": "rate_anchor_low", "severity": "medium",
+                "message": f"LLM估算基准成功率 {llm_baseline}%，低于 {sc_type} 场景合理下限 {min_rate}%。可能是保守估计。",
             })
 
         # 2. 行业增长率锚定
