@@ -78,7 +78,28 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 .status{text-align:center;padding:10px;color:var(--dim);font-size:12px;display:none}
 .status .dot{display:inline-block;width:5px;height:5px;background:var(--ac);border-radius:50%;animation:pulse 1s infinite;margin-right:6px}
 @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
-@media(max-width:640px){.g3,.g4{grid-template-columns:1fr}.grid-p{grid-template-columns:1fr}.top-r{flex-direction:column}.cc-grid{grid-template-columns:1fr 1fr}}
+.gov-wrap{background:linear-gradient(135deg,rgba(139,124,247,.08),rgba(0,210,160,.04));border:1px solid rgba(139,124,247,.15);border-radius:14px;padding:18px;margin-bottom:18px}
+.gov-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.gov-header h2{font-weight:300;font-size:15px;color:var(--ac);margin:0}
+.gov-badge{font-size:10px;padding:4px 10px;border-radius:6px;font-weight:600}
+.gov-badge.approve{background:rgba(0,210,160,.15);color:var(--gr)}
+.gov-badge.warn{background:rgba(255,184,48,.15);color:var(--yl)}
+.gov-badge.reject{background:rgba(255,94,94,.15);color:var(--rd)}
+.gov-score-row{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.gov-score-card{flex:1;min-width:80px;background:rgba(255,255,255,.02);border:1px solid var(--bor);border-radius:10px;padding:8px;text-align:center}
+.gov-score-card .gsc-label{font-size:9px;color:var(--dim);text-transform:uppercase;margin-bottom:4px}
+.gov-score-card .gsc-val{font-size:20px;font-weight:100}
+.gov-violation{margin:6px 0;padding:8px 12px;border-radius:8px;font-size:11px;display:flex;gap:8px;align-items:flex-start}
+.gov-violation.critical{background:rgba(255,94,94,.06);border-left:2px solid var(--rd)}
+.gov-violation.high{background:rgba(255,123,66,.04);border-left:2px solid var(--or)}
+.gov-violation.medium{background:rgba(255,184,48,.04);border-left:2px solid var(--yl)}
+.gov-violation.low{background:rgba(255,255,255,.02);border-left:2px solid var(--dim)}
+.gov-violation .gv-sev{font-size:8px;padding:1px 5px;border-radius:3px;flex-shrink:0;margin-top:1px;text-transform:uppercase}
+.gov-violation .gv-sev.critical{background:rgba(255,94,94,.2);color:var(--rd)}
+.gov-violation .gv-sev.high{background:rgba(255,123,66,.2);color:var(--or)}
+.gov-violation .gv-sev.medium{background:rgba(255,184,48,.2);color:var(--yl)}
+.gov-correction{margin:4px 0;padding:6px 10px;background:rgba(0,210,160,.04);border-radius:6px;font-size:10px;color:var(--gr)}
+@media(max-width:640px){.g3,.g4{grid-template-columns:1fr}.grid-p{grid-template-columns:1fr}.top-r{flex-direction:column}.cc-grid{grid-template-columns:1fr 1fr}.gov-score-row{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
 <div class="mx">
@@ -135,6 +156,12 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 <div class="sec">四条策略路径</div><div class="grid-p" id="pg"></div>
 <div class="sec">全球更适合的城市（成功率更高）</div><div class="cc-grid" id="cc"></div>
 <div class="sec">24个月时间线</div><div class="tml-wrap" id="tl"></div>
+<div class="gov-wrap" id="gv-block" style="display:none">
+<div class="gov-header"><h2>🏛️ 宪法治理层审查</h2><span class="gov-badge" id="gv-verdict"></span></div>
+<div class="gov-score-row" id="gv-scores"></div>
+<div id="gv-violations"></div>
+<div id="gv-corrections"></div>
+</div>
 <div class="rpt" id="rp"></div>
 </div></div>
 
@@ -162,6 +189,16 @@ try{const d=JSON.parse(line.slice(6));
 if(d.phase&&d.msg)st.innerHTML='<span class="dot"></span>'+d.msg;
 if(d.phase==='error'){st.style.display='none';$('#ve').className='verdict red';$('#ve').innerHTML='<strong>❌ '+d.msg+'</strong>';$('#bg').disabled=false;return}
 if(d.phase==='market_done')market=d.data;if(d.phase==='risk_done')risk=d.data;if(d.phase==='strategy_done')strategy=d.data;if(d.phase==='cross_country_done')cc=d.data;
+if(d.phase==='governance_done'){(function(gd){
+var gb=document.getElementById('gv-block');gb.style.display='block';
+var vb=document.getElementById('gv-verdict');
+vb.textContent=gd.verdict==='approve'?'通过':gd.verdict==='warn'?'警告':'拒绝';
+vb.className='gov-badge '+gd.verdict;
+var sc=gd.scores||{},names={reality:'真实性',social_norm:'社会规范',feasibility:'可行性',consistency:'一致性',hallucination:'防幻觉'},colors=['#8b7cf7','#00d2a0','#ff7b42','#ffb830','#ff5e5e'];
+var i=0;document.getElementById('gv-scores').innerHTML=Object.entries(sc).map(function(e){var c=colors[i++]||'#ccc';return '<div class=gov-score-card><div class=gsc-label>'+ (names[e[0]]||e[0]) +'</div><div class=gsc-val style=color:'+c+'>'+e[1]+'</div></div>';}).join('')+'<div class=gov-score-card style=border-color:rgba(139,124,247,.3)><div class=gsc-label>综合治理</div><div class=gsc-val style=color:#fff;font-size:24px>'+gd.governance_score+'</div></div>';
+var vs=gd.all_violations||[];document.getElementById('gv-violations').innerHTML=vs.length?'<div class=sec style=margin-top:8px>违规项 ('+vs.length+')</div>'+vs.slice(0,6).map(function(v){return '<div class=gov-violation '+v.severity+'><span class=gv-sev '+v.severity+'>'+v.severity+'</span><span class=gv-msg>'+esc(v.message)+'</span></div>';}).join(''):'';
+var cs=gd.corrections||[];document.getElementById('gv-corrections').innerHTML=cs.length?'<div class=sec style=margin-top:8px>修正措施</div>'+cs.map(function(c){return '<div class=gov-correction>'+esc(c.reason||c.message||'')+'</div>';}).join(''):'';
+})(d.data)}
 if(d.phase==='done'){
 const dd=d.data;const ds=dd.deep_sim||{};
 g(dd.final_rate||0);const color=dd.final_rate>=50?'green':dd.final_rate>=30?'yellow':dd.final_rate>=20?'orange':'red';

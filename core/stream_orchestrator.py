@@ -4,6 +4,7 @@ import json, logging, time, random, concurrent.futures
 from pathlib import Path
 from config import Config
 from core.llm_provider import call_llm, validate_key
+from core.governance import GovernanceLayer
 
 logger = logging.getLogger(__name__)
 DATA = Path(__file__).parent.parent / "data"
@@ -16,6 +17,7 @@ class StreamOrchestrator:
         self.bm = self._j("benchmarks.json")
         self.cd = self._j("city_data.json")
         self.md = self._j("methods.json")
+        self.governance = None  # 延迟初始化(需要LLM函数)
 
     def _j(self, f): return json.loads((DATA / f).read_text(encoding="utf-8")) if (DATA / f).exists() else {}
 
@@ -175,8 +177,25 @@ JSON:"""
         scenario_info = all_agent_results.get("scenario", {})
         ctx = json.dumps(all_agent_results, ensure_ascii=False)[:2500]
 
+        # 提取治理层审查结果
+        governance_info = all_agent_results.get("governance", {})
+        governance_context = ""
+        if governance_info and governance_info.get("governance_score", 0) > 0:
+            gs = governance_info.get("governance_score", 0)
+            gv = governance_info.get("verdict", "?")
+            violations = governance_info.get("all_violations", [])
+            governance_context = f"""
+🏛️ 宪法治理层审查结果:
+- 综合治理得分: {gs}/100 (判定: {gv})
+- 违规项数: {len(violations)}
+- 关键问题: {chr(10).join('- '+v['message'][:120] for v in violations[:5]) if violations else '无严重违规'}
+
+请在报告中充分考虑以上治理层审查发现，修正任何被标记的不可靠预测，确保分析结论与治理层审查结果一致。
+"""
+
         prompt = f"""你是全球顶级现实世界推演分析师。你的任务是对以下场景进行深度、细致、引用真实数据的推演分析。
 
+{governance_context}
 场景：{idea}
 场景类型：{sc_type} | LLM估算基准成功率：{llm_baseline}%
 用户背景：{json.dumps(profile, ensure_ascii=False)[:400]}
@@ -493,9 +512,22 @@ JSON:"""
         deep_result = ds.simulate(idea, profile)
         yield {"phase":"deep_sim_done","data":deep_result}
 
-        # Phase 7: Report
+        # ── Phase G: 宪法治理层 ──
+        yield {"phase":"governance","msg":"🏛️ 宪法治理层: 启动5维交叉校验..."}
+        all_data_before_report = {"context":ctx,"market":market,"risk":risk,"strategy":strategy,"cross_country":cc,"deep_sim":deep_result,"scenario":scenario}
+        if self.governance is None:
+            self.governance = GovernanceLayer(llm_fn=self._llm)
+        try:
+            governance_result = self.governance.evaluate(idea, profile, all_data_before_report)
+        except Exception as e:
+            logger.warning(f"Governance layer failed: {e}")
+            governance_result = {"scores":{},"governance_score":0,"all_violations":[],"corrections":[],"interventions":[],"verdict":"skipped","summary":"治理层执行失败"}
+        profile["_governance_result"] = governance_result
+        yield {"phase":"governance_done","data":governance_result}
+
+        # Phase 7: Report (注入治理上下文)
         yield {"phase":"report","msg":"📝 Agent 7/7: 生成最终报告..."}
-        all_data = {"context":ctx,"market":market,"risk":risk,"strategy":strategy,"cross_country":cc,"deep_sim":deep_result,"scenario":scenario}
+        all_data = {"context":ctx,"market":market,"risk":risk,"strategy":strategy,"cross_country":cc,"deep_sim":deep_result,"scenario":scenario,"governance":governance_result}
         report = self.agent_report(idea, profile, all_data)
         yield {"phase":"report_done","data":{"report":report}}
 
@@ -504,9 +536,26 @@ JSON:"""
         city = self._match_city(profile.get("country","中国"),profile.get("city","北京"))
         final_rate = self._compute_final_rate(profile, baseline, city, ctx, market, risk)
 
+        # ✅ 应用宪法治理层修正
+        original_rate = deep_result["success_probability"]
+        gs = governance_result.get("governance_score")
+        if gs is not None and gs > 0 and self.governance is not None:
+            corrected_rate = self.governance.apply_correction(original_rate, governance_result)
+        else:
+            corrected_rate = original_rate
+
         yield {"phase":"done","data":{
             "baseline_rate":round(baseline,1),
             "matched_rate":ctx.get("match_score",50),
+            "adjusted_rate":round(final_rate,1),
+            "final_rate":corrected_rate,
+            "original_rate":original_rate,
+            "governance_score":governance_result.get("governance_score", 0),
+            "governance_verdict":governance_result.get("verdict", "skipped"),
+            "governance_violations":governance_result.get("all_violations", []),
+            "governance_scores":governance_result.get("scores", {}),
+            "governance_corrections":governance_result.get("corrections", []),
+            "governance_summary":governance_result.get("summary", ""),
             "adjusted_rate":round(final_rate,1),
             "final_rate":deep_result["success_probability"],
             "report":report,

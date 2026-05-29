@@ -1,0 +1,60 @@
+{
+  "description": "宪法治理层锚定数据 — 真实世界统计、社会规范、可行性阈值",
+  "version": "1.0.0",
+
+  "reality": {
+    "max_success_rate": {
+      "daily_life": 99.9, "career_job": 85, "career_promotion": 70,
+      "business_startup": 65, "business_operation": 75, "investment": 80,
+      "negotiation": 85, "relocation": 95, "education": 85, "legal": 80, "health": 90
+    },
+    "max_annual_growth_pct": {
+      "AI": 300, "SaaS": 120, "电商": 100, "金融科技": 150,
+      "半导体": 200, "生物医药": 180, "_default": 200
+    },
+    "min_months_to_profitability": {
+      "hardware": 18, "saas": 9, "service": 3, "consumer": 6,
+      "biotech": 36, "ai": 12, "_default": 6
+    },
+    "max_market_share_claim_pct": 60
+  },
+
+  "social_norms": {
+    "by_country": {
+      "中国": {"relationship_build_speed": "中", "trust_mechanism": "guanxi", "cold_sales_ok": true},
+      "日本": {"relationship_build_speed": "慢", "trust_mechanism": "introduction", "cold_sales_ok": false},
+      "美国": {"relationship_build_speed": "快", "trust_mechanism": "credentials", "cold_sales_ok": true},
+      "英国": {"relationship_build_speed": "中", "trust_mechanism": "network", "cold_sales_ok": false}
+    },
+    "behavioral_bounds": {
+      "max_monthly_user_growth_pct": 50,
+      "min_relationship_build_months": 1,
+      "max_sustainable_weekly_hours": 60,
+      "max_b2b_conversion_first_month_pct": 15
+    }
+  },
+
+  "feasibility": {
+    "min_runway_months": 6,
+    "min_team_by_project": {"hardware": 5, "platform": 3, "saas": 2, "service": 1, "ai": 3},
+    "regulatory_sectors": {
+      "金融": ["牌照"], "医疗": ["注册证"], "教育": ["办学许可"],
+      "食品": ["经营许可"], "交通": ["运输许可"], "AI": ["算法备案"]
+    },
+    "max_tasks_per_person_month": 4
+  },
+
+  "anti_hallucination": {
+    "suspicious_patterns": [
+      "根据.{2,8}(?:报告|研究|调查|统计)",
+      "\\d+\\.\\d{2,}\\s*%",
+      "第\\s*\\d+\\s*天",
+      "(?:所有|全部|每个).{0,5}(?:都会|必然)"
+    ],
+    "filler_phrases": [
+      "通过全面的分析和战略优化",
+      "在深度洞察的基础上",
+      "充分利用协同效应"
+    ]
+  }
+}
