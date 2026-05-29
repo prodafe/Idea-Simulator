@@ -115,9 +115,19 @@ class TimelineEngine:
 
     def _load_city(self, city: str) -> dict:
         path = Path(__file__).parent.parent / "data" / "city_data.json"
-        if path.exists():
-            data = json.loads(path.read_text(encoding="utf-8"))
-            return data.get("cities", {}).get(city, {})
+        if not path.exists():
+            return {}
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for country_name, cdata in data.get("countries", {}).items():
+            for rk in ("provinces", "states", "regions"):
+                for region_name, region_data in cdata.get(rk, {}).items():
+                    if city in region_data.get("cities", {}):
+                        ci = region_data["cities"][city]
+                        return {
+                            "success_mod": ci.get("s", ci.get("success_mod", 0.8)),
+                            "competition": ci.get("co", ci.get("competition", 0.5)),
+                            **ci
+                        }
         return {}
 
     def _get_phase(self, month: int) -> str:

@@ -17,20 +17,26 @@ from core.orchestrator import IdeaSimulator
 
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="Idea Simulator API", version="3.0.0")
+app = FastAPI(title="Idea Simulator API", version="4.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
-
-frontend_dir = Path(__file__).parent.parent / "frontend"
 
 # ── API Key Auth Middleware ──
 import time as _time
 _request_count: dict = {}
 _rate_limit = 60  # max requests per minute per IP
 
+# 不需要 API key 的公开路径 (防止随着端点增多遗漏)
+_PUBLIC_PATHS = {
+    "/", "/extreme", "/docs", "/openapi.json",
+    "/api/health", "/api/metrics", "/api/models", "/api/benchmarks", "/api/cities",
+    "/api/simulate", "/api/simulate/stream",
+}
+_PUBLIC_PREFIXES = ("/api/health",)  # 预留
+
 @app.middleware("http")
 async def auth_middleware(request, call_next):
     path = request.url.path
-    if path in ("/", "/extreme", "/api/health", "/api/metrics", "/api/models", "/api/benchmarks", "/api/cities") or path.endswith((".js",".css",".ico",".png")):
+    if path in _PUBLIC_PATHS or path.endswith((".js",".css",".ico",".png")):
         return await call_next(request)
     api_key = request.headers.get("X-API-Key") or request.query_params.get("api_key") or ""
     if not api_key:
@@ -42,13 +48,15 @@ async def auth_middleware(request, call_next):
     if client_ip not in _request_count:
         _request_count[client_ip] = []
     _request_count[client_ip] = [t for t in _request_count[client_ip] if now - t < 60]
+    # 定期清理1小时无活动的IP条目，防止内存泄漏
+    if len(_request_count) > 10000:
+        _request_count.clear()
+        _request_count[client_ip] = []
     if len(_request_count[client_ip]) >= _rate_limit:
         from fastapi.responses import JSONResponse
         return JSONResponse({"error":"请求频率超限，请稍后重试"}, status_code=429)
     _request_count[client_ip].append(now)
     return await call_next(request)
-
-frontend_dir = Path(__file__).parent.parent / "frontend"
 
 @app.get("/cities.js")
 async def cities_js():
@@ -59,7 +67,7 @@ simulator = IdeaSimulator()
 
 @app.get("/api/health")
 async def health():
-    return {"status":"ok","version":"3.0.0"}
+    return {"status":"ok","version":"4.0.0"}
 
 @app.get("/api/metrics")
 async def metrics():
@@ -73,7 +81,7 @@ async def metrics():
     except ImportError:
         mem, cpu = 0, 0
     return {
-        "version":"3.0.0",
+        "version":"4.0.0",
         "memory_mb":mem,
         "cpu_percent":cpu,
         "active_ips":len(_request_count),
@@ -156,4 +164,10 @@ async def benchmarks():
 
 def start():
     import uvicorn
-    uvicorn.run(app, host=Config.HOST, port=Config.PORT, log_level="info")
+    try:
+        uvicorn.run(app, host=Config.HOST, port=Config.PORT, log_level="info")
+    except OSError as e:
+        import sys
+        print(f"[FATAL] 端口 {Config.PORT} 被占用或无法绑定: {e}", file=sys.stderr)
+        print(f"[FATAL] 请尝试: python run.py --port {Config.PORT+1}", file=sys.stderr)
+        sys.exit(1)

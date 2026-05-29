@@ -71,7 +71,7 @@ def run_api():
     start()
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Idea Simulator — 想法成功率推演引擎")
     parser.add_argument("--idea", type=str, help="你的想法描述")
     parser.add_argument("--port", type=int, default=8001, help="WebUI 端口 (默认 8001)")
@@ -81,3 +81,7 @@ if __name__ == "__main__":
         run_cli(args.idea)
     else:
         run_api()
+
+
+if __name__ == "__main__":
+    main()

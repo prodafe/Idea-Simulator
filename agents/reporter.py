@@ -1,7 +1,6 @@
 """Reporter — 推荐导向的分析报告"""
 
 import logging
-import ollama
 from config import Config
 
 logger = logging.getLogger(__name__)

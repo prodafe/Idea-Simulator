@@ -64,8 +64,8 @@ MODELS = {
     "ollama": {"provider":"ollama","desc":"本地Ollama"},
 }
 
-def call_llm(prompt: str, model: str = "gpt-4o-mini", api_key: str = "", max_tokens: int = 500, base_url: str = "") -> str:
-    """统一LLM调用入口"""
+def call_llm(prompt: str, model: str = "gpt-4o-mini", api_key: str = "", max_tokens: int = 500, base_url: str = "", verify_ssl: bool = True, proxy: str = "", timeout: int = 60) -> str:
+    """统一LLM调用入口 — 支持SSL/代理/超时配置"""
     if not api_key and model != "ollama":
         return "[错误] 请提供API密钥"
 
@@ -76,36 +76,50 @@ def call_llm(prompt: str, model: str = "gpt-4o-mini", api_key: str = "", max_tok
 
     try:
         if provider == "openai":
-            return _openai(prompt, model, api_key, config.get("base"), max_tokens)
+            return _openai(prompt, model, api_key, config.get("base"), max_tokens, verify_ssl, proxy, timeout)
         elif provider == "anthropic":
-            return _anthropic(prompt, model, api_key, max_tokens)
+            return _anthropic(prompt, model, api_key, max_tokens, verify_ssl, proxy, timeout)
         elif provider == "google":
             return _google(prompt, model, api_key, max_tokens)
         elif provider == "ollama":
             return _ollama(prompt, max_tokens)
         return f"[错误] 不支持的provider: {provider}"
     except Exception as e:
-        msg = str(e)[:150]
+        msg = str(e)[:200]
         logger.error(f"LLM call failed ({model}): {msg}")
         if "401" in msg or "Unauthorized" in msg:
             return "[错误] API密钥无效或已过期"
         if "429" in msg:
             return "[错误] API调用频率超限，请稍后重试"
-        if "timeout" in msg.lower():
-            return "[错误] 模型响应超时"
+        if "timeout" in msg.lower() or "timed out" in msg.lower():
+            return "[错误] 模型响应超时，请检查网络或使用代理"
+        if "SSL" in msg or "certificate" in msg or "ssl" in msg.lower() or "unreachable" in msg.lower():
+            return f"[错误] SSL/网络连接失败。如果你在本地部署(尤其国内)，请：\n1. 确保网络能访问API\n2. 在config.py设置 VERIFY_SSL=False\n3. 或设置环境变量 HTTP_PROXY/HTTPS_PROXY\n4. 原始错误: {msg[:150]}"
         return f"[错误] 调用失败: {msg}"
 
-def _openai(prompt, model, key, base, max_tok):
+def _openai(prompt, model, key, base, max_tok, verify_ssl=True, proxy="", timeout=60):
     from openai import OpenAI
-    client = OpenAI(api_key=key, base_url=base, timeout=45)
+    import httpx
+    http_kw = {"timeout": httpx.Timeout(timeout, connect=15.0)}
+    if not verify_ssl:
+        http_kw["verify"] = False
+    if proxy:
+        http_kw["proxy"] = proxy
+    client = OpenAI(api_key=key, base_url=base, http_client=httpx.Client(**http_kw))
     resp = client.chat.completions.create(
         model=model, messages=[{"role":"user","content":prompt}],
         max_tokens=max_tok, temperature=0.3)
-    return resp.choices[0].message.content or ""
+    return resp.choices[0].message.content or "" if resp.choices else ""
 
-def _anthropic(prompt, model, key, max_tok):
+def _anthropic(prompt, model, key, max_tok, verify_ssl=True, proxy="", timeout=60):
+    import httpx
+    http_kw = {"timeout": httpx.Timeout(timeout, connect=15.0)}
+    if not verify_ssl:
+        http_kw["verify"] = False
+    if proxy:
+        http_kw["proxy"] = proxy
     import anthropic
-    client = anthropic.Anthropic(api_key=key, timeout=45)
+    client = anthropic.Anthropic(api_key=key, http_client=httpx.Client(**http_kw))
     resp = client.messages.create(
         model=model, max_tokens=max_tok,
         messages=[{"role":"user","content":prompt}])
@@ -127,11 +141,11 @@ def _ollama(prompt, max_tok):
 def list_models() -> list:
     return [{"id":k,"provider":v.get("provider","?"),"desc":v.get("desc","")} for k,v in MODELS.items()]
 
-def validate_key(api_key: str, model: str = "gpt-4o-mini", base_url: str = "") -> dict:
+def validate_key(api_key: str, model: str = "gpt-4o-mini", base_url: str = "", verify_ssl: bool = True, proxy: str = "") -> dict:
     if not api_key:
         return {"valid":False,"error":"请提供API密钥"}
     try:
-        result = call_llm("回复OK", model, api_key, 10, base_url)
+        result = call_llm("回复OK", model, api_key, 10, base_url, verify_ssl, proxy, 30)
         ok = "OK" in result
         return {"valid":ok,"test_response":result[:80],"model":model}
     except Exception as e:

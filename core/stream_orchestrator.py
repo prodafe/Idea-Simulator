@@ -20,8 +20,18 @@ class StreamOrchestrator:
     def _j(self, f): return json.loads((DATA / f).read_text(encoding="utf-8")) if (DATA / f).exists() else {}
 
     def _llm(self, prompt: str, max_tokens: int = 500) -> str:
-        """统一LLM调用"""
-        return call_llm(prompt, getattr(Config,"LLM_MODEL","gpt-4o-mini"), getattr(Config,"LLM_API_KEY",""), max_tokens, getattr(Config,"LLM_BASE_URL",""))
+        """统一LLM调用 — 使用实例属性(线程安全)"""
+        proxy = getattr(Config,"HTTPS_PROXY","") or getattr(Config,"HTTP_PROXY","")
+        return call_llm(
+            prompt,
+            getattr(self,"_model", getattr(Config,"LLM_MODEL","gpt-4o-mini")),
+            getattr(self,"_api_key", ""),
+            max_tokens,
+            getattr(self,"_base_url", ""),
+            getattr(Config,"VERIFY_SSL",True),
+            proxy,
+            getattr(Config,"LLM_TIMEOUT",60)
+        )
 
     # ─── Agent 1: Context Analyst ───
     def agent_context(self, idea: str, profile: dict) -> dict:
@@ -34,7 +44,7 @@ JSON:"""
             text = self._llm(prompt, 300)
             s = text.find("{"); e = text.rfind("}")+1
             return json.loads(text[s:e]) if s>=0 and e>s else {}
-        except: return {"match_score":50,"strengths":[],"gaps":[],"advice":""}
+        except Exception: return {"match_score":50,"strengths":[],"gaps":[],"advice":""}
 
     # ─── Agent 2: Market Analyst ───
     def agent_market(self, idea: str, profile: dict) -> dict:
@@ -50,7 +60,7 @@ JSON:"""
             text = self._llm(prompt, 400)
             s = text.find("{"); e = text.rfind("}")+1
             return json.loads(text[s:e]) if s>=0 and e>s else {}
-        except: return {"market_size":"未知","analysis":"分析失败"}
+        except Exception: return {"market_size":"未知","analysis":"分析失败"}
 
     # ─── Agent 3: Risk Assessor ───
     def agent_risk(self, idea: str, profile: dict) -> dict:
@@ -63,7 +73,7 @@ JSON:"""
             text = self._llm(prompt, 500)
             s = text.find("{"); e = text.rfind("}")+1
             return json.loads(text[s:e]) if s>=0 and e>s else {}
-        except: return {"risks":[],"overall_risk":"中"}
+        except Exception: return {"risks":[],"overall_risk":"中"}
 
     # ─── Agent 4: Strategy Planner ───
     def agent_strategy(self, idea: str, profile: dict, market: dict, risk: dict) -> dict:
@@ -75,7 +85,7 @@ JSON:"""
             text = self._llm(prompt, 800)
             s = text.find("{"); e = text.rfind("}")+1
             return json.loads(text[s:e]) if s>=0 and e>s else {}
-        except: return {"strategies":[]}
+        except Exception: return {"strategies":[]}
 
     # ─── Agent 5: Cross-Country Optimizer ───
     def agent_cross_country(self, idea: str, profile: dict) -> list:
@@ -345,12 +355,12 @@ JSON:"""
         if not v.get("valid"):
             yield {"phase":"error","msg":f"API密钥无效: {v.get('error','')}"}
             return
-        profile["_api_key"]=api_key;profile["_model"]=model
-        Config.LLM_API_KEY=api_key;Config.LLM_MODEL=model
-        if base_url: Config.LLM_BASE_URL=base_url
+        # ✅ 线程安全：存实例属性而非 Config 类属性
+        self._api_key = api_key
+        self._model = model
+        self._base_url = base_url
         label="绝境模式"if profile.get("extreme_mode")else"四方推演"
         yield {"phase":"init","msg":f"{label}启动: [{model}] + 7Agent + 400亿场景 + 网络搜索"}
-        """生成器：yield每个阶段的SSE事件"""
         t0 = time.perf_counter()
 
         # Phase 1: Context

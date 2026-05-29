@@ -2,7 +2,6 @@
 
 import json
 import logging
-import ollama
 from config import Config
 
 logger = logging.getLogger(__name__)

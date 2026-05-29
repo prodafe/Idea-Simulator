@@ -30,6 +30,12 @@ class Config:
     DATA_DIR: str = os.path.join(BASE_DIR, "data")
     CACHE_DIR: str = os.path.join(BASE_DIR, "data", "cache")
 
+    # 网络
+    VERIFY_SSL: bool = os.environ.get("IDEA_VERIFY_SSL", "true").lower() != "false"
+    HTTP_PROXY: str = os.environ.get("HTTP_PROXY", "")
+    HTTPS_PROXY: str = os.environ.get("HTTPS_PROXY", "")
+    LLM_TIMEOUT: int = int(os.environ.get("IDEA_LLM_TIMEOUT", "60"))
+
     # UI
     HOST: str = "0.0.0.0"
     PORT: int = 8001

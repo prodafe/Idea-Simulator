@@ -4,17 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "idea-simulator"
-version = "17.0.0"
+version = "4.0.0"
 description = "Idea Simulator — 640 billion scenario combination, 1000-dimension future simulation engine"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 requires-python = ">=3.10"
 authors = [{name = "Idea Simulator Team"}]
 keywords = ["ai", "simulation", "monte-carlo", "prediction", "entrepreneurship", "future-studies"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -41,6 +40,12 @@ dev = [
 
 [project.scripts]
 idea-simulator = "run:main"
+
+[tool.setuptools]
+py-modules = ["run", "config"]
+
+[tool.setuptools.packages.find]
+include = ["core*", "api*", "agents*", "tools*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

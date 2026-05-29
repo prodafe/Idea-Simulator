@@ -48,7 +48,26 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 <div class="hd"><h1>绝境模式</h1><p>填写你的一切——年龄、健康、技能、债务、前科、疾病、资源<br>系统将从你的真实处境出发，模拟创业可能的结果</p></div>
 <div class="status" id="status"></div>
 
-<form onsubmit="return simulate()">
+<form onsubmit="event.preventDefault();simulate()">
+
+<!-- API 密钥 + 模型 -->
+<div class="card" style="border-color:rgba(255,77,77,.3);background:linear-gradient(135deg,rgba(139,108,255,.1),rgba(255,77,77,.08))">
+<h2>🔑 接入大模型 <span style="color:var(--rd);font-size:12px">*必填，否则无法使用</span></h2>
+<div class="g2">
+<div class="fg fw"><label>API密钥 <span style="color:var(--rd)">*必填</span></label><input id="f-key" type="password" placeholder="sk-... / sk-ant-... 等"></div>
+<div class="fg"><label>模型</label><select id="f-model">
+<optgroup label="OpenAI"><option value="gpt-5.5-instant">GPT-5.5 Instant</option><option value="gpt-5.5">GPT-5.5</option><option value="gpt-4o">GPT-4o</option><option value="o3">o3推理</option></optgroup>
+<optgroup label="Anthropic"><option value="claude-sonnet-4-6" selected>Claude Sonnet 4.6</option><option value="claude-opus-4-7">Claude Opus 4.7</option><option value="claude-haiku-4-5">Claude Haiku 4.5</option></optgroup>
+<optgroup label="Google"><option value="gemini-3.1-flash">Gemini 3.1 Flash</option><option value="gemini-3-deep-think">Gemini 3 Deep Think</option><option value="gemini-3-pro">Gemini 3 Pro</option></optgroup>
+<optgroup label="DeepSeek"><option value="deepseek-v4">DeepSeek V4</option><option value="deepseek-v4-flash">DeepSeek V4 Flash</option><option value="deepseek-r1">DeepSeek R1</option></optgroup>
+<optgroup label="Alibaba Qwen"><option value="qwen3.5-plus">Qwen3.5 Plus</option><option value="qwen3-max-thinking">Qwen3 Max Think</option></optgroup>
+<optgroup label="Zhipu GLM"><option value="glm-5.1">GLM-5.1</option><option value="glm-4-flash">GLM-4 Flash</option></optgroup>
+<optgroup label="More"><option value="kimi-k2.6">Kimi K2.6</option><option value="minimax-m2.5">MiniMax M2.5</option><option value="doubao-pro-32k">豆包Pro</option><option value="step-3.5-flash">Step3.5 Flash</option><option value="spark-x2">讯飞星火X2</option><option value="ernie-4.0">文心一言4.0</option><option value="hunyuan-pro">腾讯混元Pro</option><option value="grok-3">Grok-3</option><option value="mistral-large">Mistral Large</option><option value="siliconflow-deepseek">SiliconFlow</option><option value="groq-llama">Groq Llama</option></optgroup>
+</select></div>
+<div class="fg"><label>自定义API地址(可选)</label><input id="f-base" placeholder="留空则使用各模型默认地址"></div>
+</div>
+<div style="font-size:10px;color:var(--dim);margin-top:8px">密钥仅用于本次推演，不会存储。</div>
+</div>
 
 <!-- 基本信息 -->
 <div class="card"><h2>基本信息</h2>
@@ -129,11 +148,12 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 
 <script>
 var C=2*Math.PI*48;
-var $=function(s){return document.querySelector(s)};
-var $=function(s){return document.querySelector(s)};
+var $=function(s){return document.querySelector(s)};function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 
 async function simulate(){
+const apiKey=$('#f-key').value.trim();if(!apiKey){alert('请先输入API密钥');return false}
 const profile={
+  api_key:apiKey,model:$('#f-model').value,api_base:$('#f-base').value||'',
   country:$('#f-co').value,city:$('#f-ci').value,extreme_mode:true,fringe_mode:false,butterfly_on:true,
   gender:$('#f-gender').value,age:$('#f-age').value,body:$('#f-body').value,family:$('#f-family').value,
   physical:$('#f-physical').value,disease:$('#f-disease').value,mental:$('#f-mental').value,meds:$('#f-meds').value,
@@ -156,13 +176,14 @@ while(true){const{value,done}=await reader.read();if(done)break;buf+=dec.decode(
 for(const line of lines){if(!line.startsWith('data: ')||line.includes('[DONE]'))continue;
 try{const d=JSON.parse(line.slice(6));
 if(d.msg)$('#status').innerHTML='<span class="dot"></span>'+d.msg;
+if(d.phase==='error'){$('#status').style.display='none';$('#ve').innerHTML='<strong>❌ '+d.msg+'</strong>';$('#res').style.display='block';$('#bg').disabled=false;return}
 if(d.phase==='done'){const dd=d.data;
 const v=dd.final_rate||0;const color=v>=50?'var(--gr)':v>=25?'var(--yl)':'var(--rd)';
 const txt=v>=50?'绝境中仍有希望！':v>=25?'极其艰难，但并非不可能':'在当前处境下，这条路几乎走不通';
 $('#ve').innerHTML='<strong>'+txt+' (成功率 '+v+'%)</strong>';
 const fg=$('#gf'),o=C*(1-v/100);fg.style.strokeDasharray=C;fg.style.strokeDashoffset=o;fg.style.stroke=color;$('#gv').innerHTML=v+'<span>%</span>';
 $('#sts').innerHTML='<div class="stat"><div class="n">'+dd.baseline_rate+'%</div>行业基础</div><div class="stat"><div class="n">'+dd.matched_rate+'%</div>背景匹配</div><div class="stat"><div class="n">'+dd.final_rate+'%</div>推演结果</div><div class="stat"><div class="n">'+(dd.total_time_ms||0)+'ms</div>耗时</div>';
-$('#story').innerHTML='<h2 style="font-weight:300;font-size:14px;color:var(--ac);margin-bottom:12px">命运推演报告</h2>'+(dd.report||'').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+$('#story').innerHTML='<h2 style="font-weight:300;font-size:14px;color:var(--ac);margin-bottom:12px">命运推演报告</h2>'+esc(dd.report||'').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 $('#res').style.display='block';$('#res').scrollIntoView({behavior:'smooth'});
 }}catch(e){}}}
 $('#status').style.display='none';

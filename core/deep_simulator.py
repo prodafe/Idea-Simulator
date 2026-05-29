@@ -56,9 +56,14 @@ class DeepSimulator:
             traits=[t for t in TRAITS if t.get("fringe") or t.get("cat")in("特殊","运气","心理")]
             fringe_list=FRINGE[:]; fringe_prob=0.35
             relevant_shifts=[s for s in SHIFTS if s.get("bonus",0)<0 or s.get("absurd")]or SHIFTS
-            relevant_macro=[m for m in MACRO.values() if m.get("absurd")or abs(m.get("impact",0))>0.3]or list(MACRO.values())
-            for m in relevant_macro:
-                if m.get("absurd"):m["prob"]=min(0.65,m.get("prob",0.05)*10)
+            relevant_macro=[]
+            for m in MACRO.values():
+                if m.get("absurd")or abs(m.get("impact",0))>0.3:
+                    mc=dict(m);mc["prob"]=min(0.65,m.get("prob",0.05)*10)
+                    relevant_macro.append(mc)
+                else:
+                    relevant_macro.append(m)
+            if not relevant_macro:relevant_macro=list(MACRO.values())
         else:
             personas=[p for p in PERSONAS if not p.get("fringe")]
             traits=[t for t in TRAITS if not t.get("fringe")]
@@ -154,7 +159,7 @@ class DeepSimulator:
         return{
             "iterations":n,"base_rate":round(base,1),"success_probability":round(spct,1),
             "mode":"偏锋"if fringe_mode else"标准","butterfly_on":butterfly_on,
-            "total_scenarios":{"macro":len(relevant_macro),"shifts":len(relevant_shifts),"traits":len(traits),"personas":len(personas),"butterfly":len(BUTTERFLY)if butterfly_on else 0,"total_combos":len(relevant_macro)*len(relevant_shifts)*len(traits)*len(personas)*n},
+            "total_scenarios":{"macro":len(relevant_macro),"shifts":len(relevant_shifts),"traits":len(traits),"personas":len(personas),"butterfly":len(BUTTERFLY)if butterfly_on else 0,"total_combos":min(len(relevant_macro)*len(relevant_shifts)*len(traits)*len(personas)*n, 2_000_000_000)},
             "stats":{"p10":round(all_rates[n//10],1),"p50":round(all_rates[n//2],1),"p90":round(all_rates[int(n*0.9)],1),"mean":round(sum(all_rates)/n,1),"min":round(all_rates[0],1),"max":round(all_rates[-1],1),"success":buckets["success"],"struggle":buckets["struggle"],"failure":buckets["failure"]},
             "conditional_probabilities":cond[:15],
             "best_case":{"rate":best.final_rate,"persona":best.persona,"trait":best.trait,"events":best.macro_events[:3],"butterfly":best.butterfly,"fringe":best.fringe_method},
@@ -185,8 +190,13 @@ class DeepSimulator:
         cb=_BR.get("city_burn",{}).get(city_name,_BR["city_burn"].get("default",{}))
         tm=_BR.get("team_size_multipliers",{})
         mult=1.0
-        for k in sorted(tm.keys(),key=lambda x:int(''.join(filter(str.isdigit,str(x)))if any(c.isdigit()for c in str(x))else 99)):
-            if team>=int(''.join(filter(str.isdigit,str(k)))):
+        def _team_sort_key(k):
+            digits=''.join(filter(str.isdigit,str(k)))
+            return int(digits) if digits else 99
+        for k in sorted(tm.keys(),key=_team_sort_key):
+            digits=''.join(filter(str.isdigit,str(k)))
+            threshold=int(digits) if digits else 0
+            if team>=threshold:
                 mult=tm[k]
         monthly_burn=int((cb.get("burn_5p_team",70000)/5*team)*mult)
         extra=_BR.get("extra_costs",{}).get(industry,_BR["extra_costs"].get("default",{}))
@@ -321,6 +331,7 @@ class DeepSimulator:
         ind=_BM.get("industries",{})
         for k,v in ind.items():
             if name in k or k in name:return v
+        logger.debug(f"Industry '{name}' not found, using default")
         return ind.get("企业服务SaaS",{"baseline_success_rate":10})
 
     def _city(self,country,city):
