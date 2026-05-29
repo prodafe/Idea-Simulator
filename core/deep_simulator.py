@@ -70,15 +70,25 @@ class DeepSimulator:
             base = min(99.8, max(0.2, base))
         profile["_base_after_adjust"] = base  # 记录调整后基准
 
-        # ✅ 场景类型校准噪声：
-        #   daily_life: 低噪声(日常行为确定性高)
-        #   career_job: 中噪声(竞聘结果有波动)
-        #   business_startup: 高噪声(创业不确定性大)
+        # ✅ 场景类型校准噪声
         noise_scale = {"daily_life":0.06,"career_job":0.11,"career_promotion":0.10,
                        "business_startup":0.14,"business_operation":0.12,"investment":0.13,
                        "negotiation":0.11,"relocation":0.09,"education":0.08,"legal":0.12,
                        "health":0.14}.get(sc_type, 0.12)
-        profile["_noise_scale"] = noise_scale  # 传给MC循环使用
+        profile["_noise_scale"] = noise_scale
+
+        # ✅ 将LLM识别的关键因素注入MC作为"虚拟事件"
+        #   这样任何场景（扔垃圾、应聘、创业）都有定制的影响因素
+        virtual_events = []
+        for f in key_factors:
+            magnitude = float(f.get("magnitude", 0))
+            if abs(magnitude) > 0.01:
+                virtual_events.append({
+                    "name": f.get("name", "未知因素"),
+                    "impact": magnitude * 0.5,  # 缩放到MC兼容范围
+                    "prob": min(0.45, 0.15 + abs(magnitude) * 0.5),  # 越重要越常触发
+                    "reason": f.get("reason", ""),
+                })
 
         extreme_mod=profile.get("extreme_mod",0)
         if extreme_mod:base=max(1,base*(1+extreme_mod))
@@ -169,6 +179,13 @@ class DeepSimulator:
         for i in range(self.iterations):
             rate=base*(0.5+0.4*ae.power_law_sample(base))
             active_macro=[]
+
+            # ✅ 先应用LLM识别的场景定制因素（所有场景都适用）
+            for ve in virtual_events:
+                if random.random() < ve["prob"]:
+                    rate *= (1 + ve["impact"])
+                    active_macro.append(f'[{sc_type}]{ve["name"]}')
+                    event_impact.setdefault(ve["name"], []).append(ve["impact"])
 
             # ✅ 日常行为：跳过宏观事件+行业变革(这些是商业/社会因素，与日常琐事无关)
             if sc_type != "daily_life":

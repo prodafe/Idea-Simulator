@@ -167,20 +167,55 @@ JSON:"""
 
     # ─── Agent 6: Final Reporter ───
     def agent_report(self, idea: str, profile: dict, all_agent_results: dict) -> str:
-        """综合所有Agent结果生成最终报告"""
-        ctx = json.dumps(all_agent_results, ensure_ascii=False)[:2000]
-        prompt = f"""你是顶级创业顾问。基于以下多Agent分析，生成一份终极推演报告。要求：
-1. 开头直接给出「推荐/不推荐」结论及核心原因
-2. 列出每条策略路径的优劣
-3. 如果有灰色/投机策略，明确标出法律风险
-4. 给出3个可立即执行的行动建议
-5. 如果成功率<50%，明确说"当前条件不成熟"
-6. 用中文，简洁有力，不要客套话
+        """综合所有Agent结果+真实世界数据，生成结构化深度推演报告"""
+        sc_type = profile.get("_scenario_type", "other")
+        llm_baseline = profile.get("_llm_baseline", 50)
+        key_factors = profile.get("_key_factors", [])
+        deep_sim = all_agent_results.get("deep_sim", {})
+        scenario_info = all_agent_results.get("scenario", {})
+        ctx = json.dumps(all_agent_results, ensure_ascii=False)[:2500]
 
-想法：{idea}  用户背景：{json.dumps(profile,ensure_ascii=False)[:300]}
-分析数据：{ctx}
-报告："""
-        return self._llm(prompt, 800) or "报告生成失败"
+        prompt = f"""你是全球顶级现实世界推演分析师。你的任务是对以下场景进行深度、细致、引用真实数据的推演分析。
+
+场景：{idea}
+场景类型：{sc_type} | LLM估算基准成功率：{llm_baseline}%
+用户背景：{json.dumps(profile, ensure_ascii=False)[:400]}
+关键影响因素：{json.dumps(key_factors, ensure_ascii=False)}
+蒙特卡洛推演数据：{json.dumps(deep_sim, ensure_ascii=False)[:600]}
+多Agent分析：{ctx}
+
+请按以下结构输出一份深度推演报告（用Markdown，中文，每个部分都要充实详尽）：
+
+## 一、核心结论
+- 明确给出判断（推荐/谨慎/不推荐）
+- 综合成功率 XX%，解读这个数字意味着什么（对比同类型场景的真实世界数据）
+- 最关键的2-3个决定因素是什么
+
+## 二、成败原因深度拆解
+针对该场景类型，从以下维度逐一分析（每个维度至少2句话，引用真实世界数据或逻辑推理）：
+1. 个人条件匹配度——用户的背景/资源/能力与该场景要求的匹配程度
+2. 外部环境因素——当前市场/社会/政策/竞争环境对该场景的影响
+3. 时机与窗口——现在是否是最佳时机，如果延迟会怎样
+4. 不可控风险——哪些因素用户无法控制，如何应对
+
+## 三、真实世界对比
+- 找2-3个类似的真实世界案例（可以是知名人物、公司、或统计趋势）
+- 对比用户情况与这些案例的异同
+- 从这些案例中能学到什么
+
+## 四、分路径推演
+（根据场景类型调整，不硬套"保守/激进"框架）
+- 最优路径：成功概率最高的一条路，具体步骤和所需条件
+- 最差路径：如果最坏情况发生会怎样，如何止损
+- 推荐路径：当前条件下最优解
+
+## 五、风险对冲与行动清单
+- 5个可立即执行的具体行动（按优先级排序）
+- 每个行动说明：为什么重要、预计效果、需要什么资源
+- 如果失败率>50%，给出明确的替代方案或降级路径
+
+注意：不要泛泛而谈，每个结论都要有依据。引用你掌握的全球真实数据和统计规律。如果场景是日常行为（扔垃圾等），要给出科学的概率分析而不是强行套商业框架。用中文输出完整报告。"""
+        return self._llm(prompt, 2000) or "报告生成失败"
 
     # ─── 流式主流程 ───
     def _parse_extreme_profile(self, profile: dict) -> dict:
