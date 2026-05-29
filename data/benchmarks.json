@@ -19,7 +19,7 @@
   ],
   "industries": {
     "AI与大模型": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "failure_reasons": {
@@ -38,7 +38,7 @@
       }
     },
     "企业服务SaaS": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "failure_reasons": {
@@ -56,7 +56,7 @@
       }
     },
     "电商与新零售": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "failure_reasons": {
@@ -75,7 +75,7 @@
       }
     },
     "教育科技": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 1500000,
       "failure_reasons": {
@@ -88,7 +88,7 @@
       "market_size_bn": 600
     },
     "医疗健康": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 36,
       "avg_capital": 8000000,
       "failure_reasons": {
@@ -106,7 +106,7 @@
       }
     },
     "金融科技": {
-      "baseline_success_rate": 11,
+      "baseline_success_rate": 17.6,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "failure_reasons": {
@@ -124,7 +124,7 @@
       }
     },
     "游戏娱乐": {
-      "baseline_success_rate": 6,
+      "baseline_success_rate": 9.6,
       "avg_time_months": 12,
       "avg_capital": 3000000,
       "failure_reasons": {
@@ -137,7 +137,7 @@
       "market_size_bn": 3000
     },
     "本地生活服务": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 15,
       "avg_capital": 1000000,
       "failure_reasons": {
@@ -150,7 +150,7 @@
       "market_size_bn": 5000
     },
     "硬件制造": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 30,
       "avg_capital": 20000000,
       "failure_reasons": {
@@ -168,7 +168,7 @@
       }
     },
     "环保新能源": {
-      "baseline_success_rate": 16,
+      "baseline_success_rate": 25.6,
       "avg_time_months": 48,
       "avg_capital": 30000000,
       "failure_reasons": {
@@ -181,7 +181,7 @@
       "market_size_bn": 10000
     },
     "自媒体与内容创作": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 12,
       "avg_capital": 100000,
       "failure_reasons": {
@@ -194,7 +194,7 @@
       "market_size_bn": 2000
     },
     "半导体与芯片": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 60,
       "avg_capital": 100000000,
       "failure_reasons": {
@@ -212,7 +212,7 @@
       }
     },
     "自动驾驶与出行": {
-      "baseline_success_rate": 6,
+      "baseline_success_rate": 9.6,
       "avg_time_months": 60,
       "avg_capital": 50000000,
       "failure_reasons": {
@@ -225,7 +225,7 @@
       "market_size_bn": 3000
     },
     "生物科技": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 72,
       "avg_capital": 50000000,
       "failure_reasons": {
@@ -242,7 +242,7 @@
       }
     },
     "航天与卫星": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 84,
       "avg_capital": 200000000,
       "failure_reasons": {
@@ -255,7 +255,7 @@
       "market_size_bn": 5000
     },
     "量子计算": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 120,
       "avg_capital": 500000000,
       "failure_reasons": {
@@ -267,7 +267,7 @@
       "market_size_bn": 200
     },
     "虚拟现实VR/AR": {
-      "baseline_success_rate": 7,
+      "baseline_success_rate": 11.2,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "failure_reasons": {
@@ -280,7 +280,7 @@
       "market_size_bn": 500
     },
     "区块链与Web3": {
-      "baseline_success_rate": 3,
+      "baseline_success_rate": 4.8,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "failure_reasons": {
@@ -298,7 +298,7 @@
       }
     },
     "网络安全": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "failure_reasons": {
@@ -311,7 +311,7 @@
       "market_size_bn": 2000
     },
     "物流与供应链": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "failure_reasons": {
@@ -324,7 +324,7 @@
       "market_size_bn": 8000
     },
     "农业科技": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 36,
       "avg_capital": 5000000,
       "failure_reasons": {
@@ -337,7 +337,7 @@
       "market_size_bn": 1500
     },
     "宠物经济": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "failure_reasons": {
@@ -350,7 +350,7 @@
       "market_size_bn": 500
     },
     "银发经济/养老": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 24,
       "avg_capital": 3000000,
       "failure_reasons": {
@@ -363,7 +363,7 @@
       "market_size_bn": 3000
     },
     "二手/循环经济": {
-      "baseline_success_rate": 14,
+      "baseline_success_rate": 22.4,
       "avg_time_months": 15,
       "avg_capital": 1000000,
       "failure_reasons": {
@@ -376,7 +376,7 @@
       "market_size_bn": 1000
     },
     "心理健康": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "failure_reasons": {
@@ -389,7 +389,7 @@
       "market_size_bn": 600
     },
     "数字人/虚拟偶像": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 12,
       "avg_capital": 3000000,
       "failure_reasons": {
@@ -402,7 +402,7 @@
       "market_size_bn": 200
     },
     "低空经济/无人机": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 30,
       "avg_capital": 8000000,
       "failure_reasons": {
@@ -415,7 +415,7 @@
       "market_size_bn": 500
     },
     "氢能与储能": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 60,
       "avg_capital": 50000000,
       "failure_reasons": {
@@ -428,7 +428,7 @@
       "market_size_bn": 1500
     },
     "人形机器人": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 60,
       "avg_capital": 100000000,
       "failure_reasons": {
@@ -445,7 +445,7 @@
       }
     },
     "空间计算/苹果VisionPro生态": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "failure_reasons": {
@@ -458,7 +458,7 @@
       "market_size_bn": 50
     },
     "合成生物学": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 72,
       "avg_capital": 30000000,
       "failure_reasons": {
@@ -471,7 +471,7 @@
       "market_size_bn": 300
     },
     "脑机接口": {
-      "baseline_success_rate": 4,
+      "baseline_success_rate": 6.4,
       "avg_time_months": 120,
       "avg_capital": 100000000,
       "failure_reasons": {
@@ -484,7 +484,7 @@
       "market_size_bn": 20
     },
     "碳交易/ESG咨询": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "failure_reasons": {
@@ -497,7 +497,7 @@
       "market_size_bn": 800
     },
     "个性化医疗/基因检测": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 48,
       "avg_capital": 15000000,
       "failure_reasons": {
@@ -510,7 +510,7 @@
       "market_size_bn": 600
     },
     "在线教育/知识付费": {
-      "baseline_success_rate": 9,
+      "baseline_success_rate": 14.4,
       "avg_time_months": 12,
       "avg_capital": 1000000,
       "failure_reasons": {
@@ -523,7 +523,7 @@
       "market_size_bn": 500
     },
     "智能家居/IoT": {
-      "baseline_success_rate": 14,
+      "baseline_success_rate": 22.4,
       "avg_time_months": 24,
       "avg_capital": 8000000,
       "failure_reasons": {
@@ -536,7 +536,7 @@
       "market_size_bn": 2000
     },
     "新能源车/充电桩": {
-      "baseline_success_rate": 16,
+      "baseline_success_rate": 25.6,
       "avg_time_months": 36,
       "avg_capital": 50000000,
       "failure_reasons": {
@@ -549,7 +549,7 @@
       "market_size_bn": 5000
     },
     "跨境支付/汇款": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "failure_reasons": {
@@ -562,7 +562,7 @@
       "market_size_bn": 600
     },
     "数字孪生/工业元宇宙": {
-      "baseline_success_rate": 13,
+      "baseline_success_rate": 20.8,
       "avg_time_months": 30,
       "avg_capital": 10000000,
       "failure_reasons": {
@@ -575,7 +575,7 @@
       "market_size_bn": 300
     },
     "云计算/云原生": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "trend": "up",
@@ -588,7 +588,7 @@
       }
     },
     "开发者工具/DevTools": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 1000000,
       "trend": "up",
@@ -601,7 +601,7 @@
       }
     },
     "数据标注/数据服务": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "trend": "down",
@@ -614,7 +614,7 @@
       }
     },
     "AI安全/对齐": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "trend": "up",
@@ -627,7 +627,7 @@
       }
     },
     "边缘AI/端侧推理": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "trend": "up",
@@ -640,7 +640,7 @@
       }
     },
     "RPA/流程自动化": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "stable",
@@ -653,7 +653,7 @@
       }
     },
     "隐私计算/联邦学习": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 30,
       "avg_capital": 8000000,
       "trend": "up",
@@ -666,7 +666,7 @@
       }
     },
     "AI芯片/推理芯片": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 48,
       "avg_capital": 100000000,
       "trend": "up",
@@ -679,7 +679,7 @@
       }
     },
     "奢侈品/高端消费": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "trend": "stable",
@@ -692,7 +692,7 @@
       }
     },
     "盲盒/潮玩/收藏品": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 12,
       "avg_capital": 1000000,
       "trend": "volatile",
@@ -705,7 +705,7 @@
       }
     },
     "临期食品/折扣零售": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 8,
       "avg_capital": 500000,
       "trend": "up",
@@ -718,7 +718,7 @@
       }
     },
     "预制菜/方便食品": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 12,
       "avg_capital": 3000000,
       "trend": "up",
@@ -731,7 +731,7 @@
       }
     },
     "咖啡/茶饮/新消费": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 12,
       "avg_capital": 1500000,
       "trend": "down",
@@ -744,7 +744,7 @@
       }
     },
     "户外运动/露营": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "up",
@@ -757,7 +757,7 @@
       }
     },
     "男性美容/理容": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 15,
       "avg_capital": 1000000,
       "trend": "up",
@@ -770,7 +770,7 @@
       }
     },
     "香水/香氛": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "up",
@@ -796,7 +796,7 @@
       }
     },
     "电子烟/雾化": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 12,
       "avg_capital": 3000000,
       "trend": "volatile",
@@ -809,7 +809,7 @@
       }
     },
     "家政/保姆/月嫂": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 10,
       "avg_capital": 300000,
       "trend": "up",
@@ -822,7 +822,7 @@
       }
     },
     "婚恋/相亲/交友": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "stable",
@@ -835,7 +835,7 @@
       }
     },
     "搬家/货运/同城配送": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 12,
       "avg_capital": 1000000,
       "trend": "stable",
@@ -848,7 +848,7 @@
       }
     },
     "洗车/汽车后市场": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 12,
       "avg_capital": 800000,
       "trend": "stable",
@@ -861,7 +861,7 @@
       }
     },
     "宠物医疗/宠物保险": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "up",
@@ -887,7 +887,7 @@
       }
     },
     "播客/音频内容": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 18,
       "avg_capital": 500000,
       "trend": "up",
@@ -900,7 +900,7 @@
       }
     },
     "网文/漫画/IP改编": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 24,
       "avg_capital": 1000000,
       "trend": "stable",
@@ -913,7 +913,7 @@
       }
     },
     "独立游戏/Steam发行": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 18,
       "avg_capital": 1500000,
       "trend": "stable",
@@ -926,7 +926,7 @@
       }
     },
     "互动小说/剧情游戏": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 15,
       "avg_capital": 800000,
       "trend": "up",
@@ -939,7 +939,7 @@
       }
     },
     "AI配音/有声书": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 10,
       "avg_capital": 300000,
       "trend": "up",
@@ -952,7 +952,7 @@
       }
     },
     "留学中介/语培": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "trend": "stable",
@@ -965,7 +965,7 @@
       }
     },
     "公务员/考研培训": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "trend": "stable",
@@ -978,7 +978,7 @@
       }
     },
     "艺术/音乐培训": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 12,
       "avg_capital": 300000,
       "trend": "down",
@@ -991,7 +991,7 @@
       }
     },
     "财商/投资教育": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "trend": "volatile",
@@ -1004,7 +1004,7 @@
       }
     },
     "保险科技/InsurTech": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "trend": "up",
@@ -1017,7 +1017,7 @@
       }
     },
     "量化交易/算法投资": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "up",
@@ -1030,7 +1030,7 @@
       }
     },
     "供应链金融": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 24,
       "avg_capital": 15000000,
       "trend": "up",
@@ -1043,7 +1043,7 @@
       }
     },
     "不良资产处置": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 18,
       "avg_capital": 20000000,
       "trend": "up",
@@ -1056,7 +1056,7 @@
       }
     },
     "康复/理疗/中医": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 12,
       "avg_capital": 800000,
       "trend": "up",
@@ -1082,7 +1082,7 @@
       }
     },
     "眼科/近视手术": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "trend": "up",
@@ -1095,7 +1095,7 @@
       }
     },
     "减重/代谢管理": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 12,
       "avg_capital": 1500000,
       "trend": "up",
@@ -1108,7 +1108,7 @@
       }
     },
     "生育/辅助生殖": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 24,
       "avg_capital": 15000000,
       "trend": "up",
@@ -1121,7 +1121,7 @@
       }
     },
     "整形/医美连锁": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 8000000,
       "trend": "up",
@@ -1134,7 +1134,7 @@
       }
     },
     "功能食品/保健品": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "trend": "stable",
@@ -1147,7 +1147,7 @@
       }
     },
     "工业软件/CAD/CAE": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 36,
       "avg_capital": 20000000,
       "trend": "up",
@@ -1173,7 +1173,7 @@
       }
     },
     "工业机器人/机械臂": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 36,
       "avg_capital": 30000000,
       "trend": "up",
@@ -1186,7 +1186,7 @@
       }
     },
     "3D打印/增材制造": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "trend": "up",
@@ -1199,7 +1199,7 @@
       }
     },
     "环保设备/污染治理": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "trend": "up",
@@ -1212,7 +1212,7 @@
       }
     },
     "包装/印刷/标签": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 12,
       "avg_capital": 3000000,
       "trend": "down",
@@ -1225,7 +1225,7 @@
       }
     },
     "仓储/自动化仓库": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 24,
       "avg_capital": 15000000,
       "trend": "up",
@@ -1238,7 +1238,7 @@
       }
     },
     "共享办公/联合办公": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "trend": "down",
@@ -1251,7 +1251,7 @@
       }
     },
     "长租公寓/集中式公寓": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 18,
       "avg_capital": 20000000,
       "trend": "stable",
@@ -1264,7 +1264,7 @@
       }
     },
     "商业地产运营/轻资产": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 24,
       "avg_capital": 15000000,
       "trend": "down",
@@ -1277,7 +1277,7 @@
       }
     },
     "民宿/短租运营": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "trend": "stable",
@@ -1290,7 +1290,7 @@
       }
     },
     "定制旅游/高端旅行": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 12,
       "avg_capital": 1000000,
       "trend": "up",
@@ -1303,7 +1303,7 @@
       }
     },
     "研学/亲子游/营地教育": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 12,
       "avg_capital": 1500000,
       "trend": "up",
@@ -1316,7 +1316,7 @@
       }
     },
     "会展/MICE/活动策划": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "stable",
@@ -1329,7 +1329,7 @@
       }
     },
     "电竞/网咖/游戏体验馆": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 12,
       "avg_capital": 3000000,
       "trend": "down",
@@ -1342,7 +1342,7 @@
       }
     },
     "服装/纺织B2B": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "stable",
@@ -1355,7 +1355,7 @@
       }
     },
     "建材/装修B2B": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "stable",
@@ -1368,7 +1368,7 @@
       }
     },
     "农产品/生鲜B2B": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "trend": "up",
@@ -1381,7 +1381,7 @@
       }
     },
     "二手车/平行进口车": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 15,
       "avg_capital": 8000000,
       "trend": "stable",
@@ -1394,7 +1394,7 @@
       }
     },
     "碳捕获/碳利用(CCUS)": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 48,
       "avg_capital": 50000000,
       "trend": "up",
@@ -1407,7 +1407,7 @@
       }
     },
     "海洋经济/蓝色经济": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 36,
       "avg_capital": 20000000,
       "trend": "up",
@@ -1420,7 +1420,7 @@
       }
     },
     "极地旅游/探险": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "up",
@@ -1433,7 +1433,7 @@
       }
     },
     "太空旅游/近地轨道": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 60,
       "avg_capital": 200000000,
       "trend": "emerging",
@@ -1446,7 +1446,7 @@
       }
     },
     "AI心理咨询/AI陪伴": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 12,
       "avg_capital": 2000000,
       "trend": "up",
@@ -1459,7 +1459,7 @@
       }
     },
     "数字孪生城市/智慧城市": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 36,
       "avg_capital": 20000000,
       "trend": "up",
@@ -1472,7 +1472,7 @@
       }
     },
     "Web5/去中心化身份(DID)": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 36,
       "avg_capital": 5000000,
       "trend": "emerging",
@@ -1485,7 +1485,7 @@
       }
     },
     "服装定制/MTM": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 15,
       "avg_capital": 1500000,
       "trend": "up",
@@ -1498,7 +1498,7 @@
       }
     },
     "画廊/艺术品交易": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "trend": "stable",
@@ -1511,7 +1511,7 @@
       }
     },
     "精酿啤酒/小众酒饮": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "up",
@@ -1524,7 +1524,7 @@
       }
     },
     "威士忌/白酒收藏投资": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 36,
       "avg_capital": 10000000,
       "trend": "up",
@@ -1537,7 +1537,7 @@
       }
     },
     "虚拟制作/虚拟拍摄": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "up",
@@ -1550,7 +1550,7 @@
       }
     },
     "AI选角/演员匹配": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 12,
       "avg_capital": 1000000,
       "trend": "emerging",
@@ -1563,7 +1563,7 @@
       }
     },
     "影视后期/特效/VFX": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "trend": "stable",
@@ -1576,7 +1576,7 @@
       }
     },
     "珠宝/钻石定制": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "trend": "stable",
@@ -1602,7 +1602,7 @@
       }
     },
     "AI法律文书/合同审查": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "up",
@@ -1615,7 +1615,7 @@
       }
     },
     "税务筹划/税务科技": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 15,
       "avg_capital": 1500000,
       "trend": "up",
@@ -1628,7 +1628,7 @@
       }
     },
     "合规科技/RegTech": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "up",
@@ -1641,7 +1641,7 @@
       }
     },
     "人力资源科技/HRTech": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "stable",
@@ -1654,7 +1654,7 @@
       }
     },
     "法务/律师/法律咨询": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 12,
       "avg_capital": 500000,
       "trend": "stable",
@@ -1680,7 +1680,7 @@
       }
     },
     "管理咨询/战略咨询": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 12,
       "avg_capital": 300000,
       "trend": "stable",
@@ -1693,7 +1693,7 @@
       }
     },
     "翻译/本地化": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 8,
       "avg_capital": 100000,
       "trend": "down",
@@ -1706,7 +1706,7 @@
       }
     },
     "摄影/摄像/视频制作": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 10,
       "avg_capital": 200000,
       "trend": "stable",
@@ -1719,7 +1719,7 @@
       }
     },
     "花艺/花店": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 10,
       "avg_capital": 200000,
       "trend": "stable",
@@ -1732,7 +1732,7 @@
       }
     },
     "宠物美容/寄养/训练": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 10,
       "avg_capital": 300000,
       "trend": "up",
@@ -1745,7 +1745,7 @@
       }
     },
     "Cosplayer/二次元": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 27,
       "avg_capital": 1085407,
       "trend": "up",
@@ -1754,7 +1754,7 @@
       "is_fringe": false
     },
     "Vtuber/虚拟主播": {
-      "baseline_success_rate": 20.4,
+      "baseline_success_rate": 32.6,
       "avg_time_months": 17,
       "avg_capital": 4606428,
       "trend": "up",
@@ -1763,7 +1763,7 @@
       "is_fringe": false
     },
     "同人创作者/画师": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 19,
       "avg_capital": 4108170,
       "trend": "volatile",
@@ -1772,7 +1772,7 @@
       "is_fringe": false
     },
     "元宇宙建筑师": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 15,
       "avg_capital": 1318229,
       "trend": "volatile",
@@ -1781,7 +1781,7 @@
       "is_fringe": false
     },
     "Web3/DAO治理专家": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 8,
       "avg_capital": 4877782,
       "trend": "up",
@@ -1790,7 +1790,7 @@
       "is_fringe": false
     },
     "二手贩子/闲鱼倒爷": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 25,
       "avg_capital": 1972400,
       "trend": "up",
@@ -1799,7 +1799,7 @@
       "is_fringe": false
     },
     "黄牛/票务贩子": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 29,
       "avg_capital": 3611808,
       "trend": "volatile",
@@ -1808,7 +1808,7 @@
       "is_fringe": false
     },
     "游戏代练/打金工作室": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 16,
       "avg_capital": 2612517,
       "trend": "volatile",
@@ -1817,7 +1817,7 @@
       "is_fringe": false
     },
     "刷单/刷评工作室老板": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 2947022,
       "trend": "volatile",
@@ -1826,7 +1826,7 @@
       "is_fringe": false
     },
     "职业赌徒/扑克牌手": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 23,
       "avg_capital": 2931606,
       "trend": "volatile",
@@ -1835,7 +1835,7 @@
       "is_fringe": false
     },
     "职业游戏主播": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 13,
       "avg_capital": 1964708,
       "trend": "up",
@@ -1844,7 +1844,7 @@
       "is_fringe": false
     },
     "暗网商人/黑客": {
-      "baseline_success_rate": 21.0,
+      "baseline_success_rate": 33.6,
       "avg_time_months": 16,
       "avg_capital": 818404,
       "trend": "up",
@@ -1853,7 +1853,7 @@
       "is_fringe": true
     },
     "职业讨债人/收数佬": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 24,
       "avg_capital": 3714177,
       "trend": "stable",
@@ -1862,7 +1862,7 @@
       "is_fringe": true
     },
     "社会工程学大师": {
-      "baseline_success_rate": 20.4,
+      "baseline_success_rate": 32.6,
       "avg_time_months": 28,
       "avg_capital": 2978520,
       "trend": "up",
@@ -1871,7 +1871,7 @@
       "is_fringe": true
     },
     "职业小三劝退师": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 20,
       "avg_capital": 1177740,
       "trend": "stable",
@@ -1880,7 +1880,7 @@
       "is_fringe": false
     },
     "职业探店博主": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 18,
       "avg_capital": 3578933,
       "trend": "volatile",
@@ -1889,7 +1889,7 @@
       "is_fringe": false
     },
     "宠物殡葬师": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 13,
       "avg_capital": 941791,
       "trend": "stable",
@@ -1898,7 +1898,7 @@
       "is_fringe": false
     },
     "微商/私域流量主": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 15,
       "avg_capital": 1522058,
       "trend": "stable",
@@ -1907,7 +1907,7 @@
       "is_fringe": false
     },
     "直播带货主播": {
-      "baseline_success_rate": 20.4,
+      "baseline_success_rate": 32.6,
       "avg_time_months": 8,
       "avg_capital": 2728723,
       "trend": "up",
@@ -1916,7 +1916,7 @@
       "is_fringe": false
     },
     "撸货/薅羊毛党": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 23,
       "avg_capital": 2262684,
       "trend": "volatile",
@@ -1925,7 +1925,7 @@
       "is_fringe": false
     },
     "假发/假睫毛/情趣用品商贩": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 16,
       "avg_capital": 4780281,
       "trend": "volatile",
@@ -1934,7 +1934,7 @@
       "is_fringe": false
     },
     "代写/代考/枪手": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 27,
       "avg_capital": 2218857,
       "trend": "stable",
@@ -1943,7 +1943,7 @@
       "is_fringe": true
     },
     "职业医闹/医托": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 12,
       "avg_capital": 1923421,
       "trend": "volatile",
@@ -1952,7 +1952,7 @@
       "is_fringe": true
     },
     "职业占卜师/风水师": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 13,
       "avg_capital": 2245246,
       "trend": "volatile",
@@ -1961,7 +1961,7 @@
       "is_fringe": false
     },
     "电子烟/水烟吧老板": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 30,
       "avg_capital": 4473376,
       "trend": "up",
@@ -1970,7 +1970,7 @@
       "is_fringe": false
     },
     "地下钱庄/换汇中介": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 15,
       "avg_capital": 3444035,
       "trend": "volatile",
@@ -1979,7 +1979,7 @@
       "is_fringe": true
     },
     "职业麻将/德州扑克局头": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 22,
       "avg_capital": 2392973,
       "trend": "volatile",
@@ -1988,7 +1988,7 @@
       "is_fringe": true
     },
     "网文写手/小说家": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 17,
       "avg_capital": 1713740,
       "trend": "stable",
@@ -1997,7 +1997,7 @@
       "is_fringe": false
     },
     "独立游戏开发者": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 23,
       "avg_capital": 504944,
       "trend": "stable",
@@ -2006,7 +2006,7 @@
       "is_fringe": false
     },
     "知识星球/小报童博主": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 12,
       "avg_capital": 259943,
       "trend": "stable",
@@ -2015,7 +2015,7 @@
       "is_fringe": false
     },
     "跨境代购/海淘达人": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 29,
       "avg_capital": 2602352,
       "trend": "volatile",
@@ -2024,7 +2024,7 @@
       "is_fringe": false
     },
     "帮人排队/代挂号黄牛": {
-      "baseline_success_rate": 18.3,
+      "baseline_success_rate": 29.3,
       "avg_time_months": 26,
       "avg_capital": 1589363,
       "trend": "volatile",
@@ -2033,7 +2033,7 @@
       "is_fringe": false
     },
     "炒鞋/炒币/炒娃玩家": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 19,
       "avg_capital": 2358347,
       "trend": "up",
@@ -2042,7 +2042,7 @@
       "is_fringe": false
     },
     "剧本杀店老板": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 20,
       "avg_capital": 3792030,
       "trend": "volatile",
@@ -2051,7 +2051,7 @@
       "is_fringe": false
     },
     "数字游民/远程工作者": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 18,
       "avg_capital": 3708702,
       "trend": "volatile",
@@ -2060,7 +2060,7 @@
       "is_fringe": false
     },
     "汉服/Lolita/JK店主": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 8,
       "avg_capital": 1990915,
       "trend": "volatile",
@@ -2069,7 +2069,7 @@
       "is_fringe": false
     },
     "潮玩/盲盒设计师": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 10,
       "avg_capital": 1890212,
       "trend": "up",
@@ -2078,7 +2078,7 @@
       "is_fringe": false
     },
     "ASMR/助眠内容创作者": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 12,
       "avg_capital": 1329341,
       "trend": "up",
@@ -2087,7 +2087,7 @@
       "is_fringe": false
     },
     "电子竞技职业选手": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 13,
       "avg_capital": 4939295,
       "trend": "stable",
@@ -2096,7 +2096,7 @@
       "is_fringe": false
     },
     "陪诊师/陪护员": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 14,
       "avg_capital": 4170765,
       "trend": "volatile",
@@ -2105,7 +2105,7 @@
       "is_fringe": false
     },
     "收纳整理师": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 2543731,
       "trend": "volatile",
@@ -2114,7 +2114,7 @@
       "is_fringe": false
     },
     "宠物行为训练师": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 19,
       "avg_capital": 2742071,
       "trend": "volatile",
@@ -2123,7 +2123,7 @@
       "is_fringe": false
     },
     "上门厨师/私厨": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 13,
       "avg_capital": 4901401,
       "trend": "volatile",
@@ -2132,7 +2132,7 @@
       "is_fringe": false
     },
     "老年网红/银发KOL": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 24,
       "avg_capital": 1862090,
       "trend": "up",
@@ -2141,7 +2141,7 @@
       "is_fringe": false
     },
     "职业体验师/测评博主": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 28,
       "avg_capital": 2029925,
       "trend": "up",
@@ -2150,7 +2150,7 @@
       "is_fringe": false
     },
     "配音演员/声优": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 27,
       "avg_capital": 1600960,
       "trend": "up",
@@ -2159,7 +2159,7 @@
       "is_fringe": false
     },
     "桌游/跑团DM": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 11,
       "avg_capital": 1562223,
       "trend": "up",
@@ -2168,7 +2168,7 @@
       "is_fringe": false
     },
     "独立音乐人/Beat制作人": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 9,
       "avg_capital": 510862,
       "trend": "volatile",
@@ -2177,7 +2177,7 @@
       "is_fringe": false
     },
     "Airbnb房东/民宿主": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 18,
       "avg_capital": 2579231,
       "trend": "volatile",
@@ -2186,7 +2186,7 @@
       "is_fringe": false
     },
     "自由摄影师/航拍飞手": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 27,
       "avg_capital": 1588347,
       "trend": "up",
@@ -2195,7 +2195,7 @@
       "is_fringe": false
     },
     "自媒体写手/公众号主": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 24,
       "avg_capital": 4911201,
       "trend": "up",
@@ -2204,7 +2204,7 @@
       "is_fringe": false
     },
     "程序员客栈/自由开发者": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 23,
       "avg_capital": 1537707,
       "trend": "stable",
@@ -2213,7 +2213,7 @@
       "is_fringe": false
     },
     "成人用品店主/情趣品牌": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 19,
       "avg_capital": 1252316,
       "trend": "up",
@@ -2222,7 +2222,7 @@
       "is_fringe": false
     },
     "殡葬服务/生前预嘱顾问": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 8,
       "avg_capital": 1800163,
       "trend": "volatile",
@@ -2231,7 +2231,7 @@
       "is_fringe": false
     },
     "拍卖师/典当行老板": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 22,
       "avg_capital": 2954726,
       "trend": "volatile",
@@ -2240,7 +2240,7 @@
       "is_fringe": false
     },
     "海外代孕/试管婴儿中介": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 23,
       "avg_capital": 420533,
       "trend": "stable",
@@ -2249,7 +2249,7 @@
       "is_fringe": true
     },
     "地下赌场/棋牌室老板": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 16,
       "avg_capital": 2962385,
       "trend": "volatile",
@@ -2258,7 +2258,7 @@
       "is_fringe": true
     },
     "跑腿/代办/生活管家": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 557158,
       "trend": "up",
@@ -2267,7 +2267,7 @@
       "is_fringe": false
     },
     "网红经纪人/MCN老板": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 18,
       "avg_capital": 2964846,
       "trend": "stable",
@@ -2276,7 +2276,7 @@
       "is_fringe": false
     },
     "古玩/文玩/玉器贩子": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 15,
       "avg_capital": 2075224,
       "trend": "stable",
@@ -2285,7 +2285,7 @@
       "is_fringe": false
     },
     "明星助理/艺人经纪人": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 20,
       "avg_capital": 3745205,
       "trend": "up",
@@ -2294,7 +2294,7 @@
       "is_fringe": false
     },
     "减肥教练/营养师博主": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 17,
       "avg_capital": 4172942,
       "trend": "volatile",
@@ -2303,7 +2303,7 @@
       "is_fringe": false
     },
     "相亲/婚恋顾问": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 22,
       "avg_capital": 4781269,
       "trend": "volatile",
@@ -2312,7 +2312,7 @@
       "is_fringe": false
     },
     "家政工/保洁创业者": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 950146,
       "trend": "up",
@@ -2321,7 +2321,7 @@
       "is_fringe": false
     },
     "补习/家教/培训班老板": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 16,
       "avg_capital": 869661,
       "trend": "up",
@@ -2330,7 +2330,7 @@
       "is_fringe": false
     },
     "废品回收站老板": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 9,
       "avg_capital": 411105,
       "trend": "stable",
@@ -2339,7 +2339,7 @@
       "is_fringe": false
     },
     "纹身师/穿刺师": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 15,
       "avg_capital": 4958591,
       "trend": "up",
@@ -2348,7 +2348,7 @@
       "is_fringe": false
     },
     "婚礼策划/司仪": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 29,
       "avg_capital": 1153576,
       "trend": "stable",
@@ -2357,7 +2357,7 @@
       "is_fringe": false
     },
     "算命/塔罗/占星师": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 850142,
       "trend": "stable",
@@ -2366,7 +2366,7 @@
       "is_fringe": false
     },
     "地下医美/微整工作室": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 18,
       "avg_capital": 4482872,
       "trend": "up",
@@ -2375,7 +2375,7 @@
       "is_fringe": true
     },
     "境外打工中介/劳务输出": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 9,
       "avg_capital": 4688334,
       "trend": "up",
@@ -2384,7 +2384,7 @@
       "is_fringe": false
     },
     "保安公司/物业公司老板": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 26,
       "avg_capital": 4774688,
       "trend": "up",
@@ -2393,7 +2393,7 @@
       "is_fringe": false
     },
     "二手手机/电脑翻新贩子": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 9,
       "avg_capital": 3469239,
       "trend": "stable",
@@ -2402,7 +2402,7 @@
       "is_fringe": false
     },
     "寺廟/道觀/宗教場所運營": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 14,
       "avg_capital": 2964306,
       "trend": "up",
@@ -2411,7 +2411,7 @@
       "is_fringe": false
     },
     "快闪店/市集组织者": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 9,
       "avg_capital": 1463405,
       "trend": "up",
@@ -2420,7 +2420,7 @@
       "is_fringe": false
     },
     "职业打假人/维权代理": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 29,
       "avg_capital": 2703929,
       "trend": "volatile",
@@ -2429,7 +2429,7 @@
       "is_fringe": true
     },
     "代驾/网约车队长": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 3036518,
       "trend": "up",
@@ -2438,7 +2438,7 @@
       "is_fringe": false
     },
     "流浪动物救助者": {
-      "baseline_success_rate": 18.3,
+      "baseline_success_rate": 29.3,
       "avg_time_months": 21,
       "avg_capital": 826669,
       "trend": "up",
@@ -2447,7 +2447,7 @@
       "is_fringe": false
     },
     "AI提示词工程师": {
-      "baseline_success_rate": 20.1,
+      "baseline_success_rate": 32.2,
       "avg_time_months": 13,
       "avg_capital": 4597198,
       "trend": "stable",
@@ -2456,7 +2456,7 @@
       "is_fringe": false
     },
     "开源社区维护者": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 26,
       "avg_capital": 2910985,
       "trend": "volatile",
@@ -2465,7 +2465,7 @@
       "is_fringe": false
     },
     "职业游戏陪玩": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 15,
       "avg_capital": 618897,
       "trend": "volatile",
@@ -2474,7 +2474,7 @@
       "is_fringe": false
     },
     "虚拟服装/数字时尚设计师": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 17,
       "avg_capital": 4743912,
       "trend": "volatile",
@@ -2483,7 +2483,7 @@
       "is_fringe": false
     },
     "AI数据标注员转创业者": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 24,
       "avg_capital": 2538266,
       "trend": "up",
@@ -2492,7 +2492,7 @@
       "is_fringe": false
     },
     "电梯/厕所广告代理商": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 25,
       "avg_capital": 400440,
       "trend": "volatile",
@@ -2501,7 +2501,7 @@
       "is_fringe": false
     },
     "自助售货机/无人货柜运营": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 24,
       "avg_capital": 4132286,
       "trend": "volatile",
@@ -2510,7 +2510,7 @@
       "is_fringe": false
     },
     "广场舞领舞/社区活动组织者": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 2713893,
       "trend": "up",
@@ -2519,7 +2519,7 @@
       "is_fringe": false
     },
     "绿植租赁/办公室绿化": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 21,
       "avg_capital": 1524309,
       "trend": "volatile",
@@ -2528,7 +2528,7 @@
       "is_fringe": false
     },
     "手机贴膜/维修连锁": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 25,
       "avg_capital": 83476,
       "trend": "stable",
@@ -2537,7 +2537,7 @@
       "is_fringe": false
     },
     "跨境电商物流/海外仓运营": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 11,
       "avg_capital": 399927,
       "trend": "up",
@@ -2546,7 +2546,7 @@
       "is_fringe": false
     },
     "境外婚纱摄影/旅拍": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 16,
       "avg_capital": 3367813,
       "trend": "stable",
@@ -2555,7 +2555,7 @@
       "is_fringe": false
     },
     "机器人流程自动化(RPA)顾问": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 19,
       "avg_capital": 3473667,
       "trend": "stable",
@@ -2564,7 +2564,7 @@
       "is_fringe": false
     },
     "低代码/无代码平台培训师": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 10,
       "avg_capital": 2376461,
       "trend": "volatile",
@@ -2573,7 +2573,7 @@
       "is_fringe": false
     },
     "企业团建/户外拓展教练": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 15,
       "avg_capital": 2608248,
       "trend": "volatile",
@@ -2582,7 +2582,7 @@
       "is_fringe": false
     },
     "职业伴娘/伴郎": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 10,
       "avg_capital": 171301,
       "trend": "volatile",
@@ -2591,7 +2591,7 @@
       "is_fringe": false
     },
     "深夜食堂/路边摊品牌化": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 10,
       "avg_capital": 917778,
       "trend": "volatile",
@@ -2600,7 +2600,7 @@
       "is_fringe": false
     },
     "远程医疗/在线问诊平台": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 19,
       "avg_capital": 828965,
       "trend": "stable",
@@ -2609,7 +2609,7 @@
       "is_fringe": false
     },
     "基因检测/祖源分析DTC": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 14,
       "avg_capital": 330095,
       "trend": "up",
@@ -2618,7 +2618,7 @@
       "is_fringe": false
     },
     "心理健康APP/冥想教练": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 19,
       "avg_capital": 2756019,
       "trend": "volatile",
@@ -2627,7 +2627,7 @@
       "is_fringe": false
     },
     "碳排放/碳足迹审计师": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 19,
       "avg_capital": 1917348,
       "trend": "up",
@@ -2636,7 +2636,7 @@
       "is_fringe": false
     },
     "智能合约/链上律师": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 22,
       "avg_capital": 4559528,
       "trend": "volatile",
@@ -2645,7 +2645,7 @@
       "is_fringe": false
     },
     "无人机表演/灯光秀": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 29,
       "avg_capital": 426832,
       "trend": "up",
@@ -2654,7 +2654,7 @@
       "is_fringe": false
     },
     "3D打印义肢/辅具定制": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 11,
       "avg_capital": 111243,
       "trend": "volatile",
@@ -2663,7 +2663,7 @@
       "is_fringe": false
     },
     "AI复活/数字遗产保存": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 16,
       "avg_capital": 3647160,
       "trend": "stable",
@@ -2672,7 +2672,7 @@
       "is_fringe": false
     },
     "职业电竞教练/战队经理": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 24,
       "avg_capital": 4822512,
       "trend": "volatile",
@@ -2681,7 +2681,7 @@
       "is_fringe": false
     },
     "电影/游戏字幕翻译": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 8,
       "avg_capital": 404135,
       "trend": "volatile",
@@ -2690,7 +2690,7 @@
       "is_fringe": false
     },
     "代写商业计划书/BP美化": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 21,
       "avg_capital": 440338,
       "trend": "stable",
@@ -2699,7 +2699,7 @@
       "is_fringe": false
     },
     "共享自习室/联合办公运营": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 10,
       "avg_capital": 2689561,
       "trend": "volatile",
@@ -2708,7 +2708,7 @@
       "is_fringe": false
     },
     "AI Prompt交易/提示词市场": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 15,
       "avg_capital": 3103385,
       "trend": "volatile",
@@ -2717,7 +2717,7 @@
       "is_fringe": false
     },
     "数字孪生城市建模": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 12,
       "avg_capital": 2185715,
       "trend": "stable",
@@ -2726,7 +2726,7 @@
       "is_fringe": false
     },
     "无人机植保/农业喷洒": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 23,
       "avg_capital": 3878610,
       "trend": "stable",
@@ -2735,7 +2735,7 @@
       "is_fringe": false
     },
     "职业整理收纳/断舍离顾问": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 27,
       "avg_capital": 2767903,
       "trend": "up",
@@ -2744,7 +2744,7 @@
       "is_fringe": false
     },
     "AI面试/简历优化顾问": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 30,
       "avg_capital": 2367637,
       "trend": "stable",
@@ -2753,7 +2753,7 @@
       "is_fringe": false
     },
     "独立书店/社区图书馆运营": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 29,
       "avg_capital": 3242190,
       "trend": "volatile",
@@ -2762,7 +2762,7 @@
       "is_fringe": false
     },
     "远程医疗设备租赁": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 9,
       "avg_capital": 2908487,
       "trend": "volatile",
@@ -2771,7 +2771,7 @@
       "is_fringe": false
     },
     "宠物克隆/基因保存": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 25,
       "avg_capital": 1161644,
       "trend": "up",
@@ -2780,7 +2780,7 @@
       "is_fringe": false
     },
     "职业差评师/职业好评师": {
-      "baseline_success_rate": 18.3,
+      "baseline_success_rate": 29.3,
       "avg_time_months": 27,
       "avg_capital": 525952,
       "trend": "stable",
@@ -2789,7 +2789,7 @@
       "is_fringe": true
     },
     "私人侦探/商业调查": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 14,
       "avg_capital": 4825815,
       "trend": "up",
@@ -2798,7 +2798,7 @@
       "is_fringe": false
     },
     "临终关怀/缓和医疗": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 2069471,
       "trend": "volatile",
@@ -2807,7 +2807,7 @@
       "is_fringe": false
     },
     "职业道歉/职业分手师": {
-      "baseline_success_rate": 18.3,
+      "baseline_success_rate": 29.3,
       "avg_time_months": 18,
       "avg_capital": 4017153,
       "trend": "volatile",
@@ -2816,7 +2816,7 @@
       "is_fringe": false
     },
     "老人陪聊/电话陪伴": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 1206915,
       "trend": "volatile",
@@ -2825,7 +2825,7 @@
       "is_fringe": false
     },
     "AI脱衣/Deepfake检测师": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 9,
       "avg_capital": 2299857,
       "trend": "volatile",
@@ -2834,7 +2834,7 @@
       "is_fringe": false
     },
     "职业排队/跑腿代办": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 1583968,
       "trend": "volatile",
@@ -2843,7 +2843,7 @@
       "is_fringe": false
     },
     "元宇宙婚礼策划": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 26,
       "avg_capital": 3294807,
       "trend": "up",
@@ -2852,7 +2852,7 @@
       "is_fringe": false
     },
     "AI配音/有声书录制": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 14,
       "avg_capital": 147360,
       "trend": "up",
@@ -2861,7 +2861,7 @@
       "is_fringe": false
     },
     "数字遗产/账号继承管理": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 11,
       "avg_capital": 3775386,
       "trend": "stable",
@@ -2870,7 +2870,7 @@
       "is_fringe": false
     },
     "共享厨房/云厨房运营": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 27,
       "avg_capital": 4884582,
       "trend": "stable",
@@ -2879,7 +2879,7 @@
       "is_fringe": false
     },
     "职业体验师/酒店试睡员": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 22,
       "avg_capital": 4393432,
       "trend": "stable",
@@ -2888,7 +2888,7 @@
       "is_fringe": false
     },
     "AI字体/表情包设计师": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 10,
       "avg_capital": 4117788,
       "trend": "up",
@@ -2897,7 +2897,7 @@
       "is_fringe": false
     },
     "主播培训/MCN课程导师": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 17,
       "avg_capital": 2871549,
       "trend": "stable",
@@ -2906,7 +2906,7 @@
       "is_fringe": false
     },
     "跨境退货/逆向物流处理": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 9,
       "avg_capital": 3126016,
       "trend": "stable",
@@ -2915,7 +2915,7 @@
       "is_fringe": false
     },
     "AI音乐生成/AI作曲": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 8,
       "avg_capital": 262808,
       "trend": "up",
@@ -2924,7 +2924,7 @@
       "is_fringe": false
     },
     "脱发/植发/头皮健康": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 16,
       "avg_capital": 1210653,
       "trend": "up",
@@ -2933,7 +2933,7 @@
       "is_fringe": false
     },
     "职业相亲局/婚恋活动组织": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 20,
       "avg_capital": 4371344,
       "trend": "stable",
@@ -2942,7 +2942,7 @@
       "is_fringe": false
     },
     "共享衣柜/服装租赁": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 10,
       "avg_capital": 4519068,
       "trend": "up",
@@ -2951,7 +2951,7 @@
       "is_fringe": false
     },
     "厕所/母婴室/哺乳室改造": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 276161,
       "trend": "stable",
@@ -2960,7 +2960,7 @@
       "is_fringe": false
     },
     "AI客服机器人/智能外呼": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 27,
       "avg_capital": 4059968,
       "trend": "stable",
@@ -2969,7 +2969,7 @@
       "is_fringe": false
     },
     "小红书/抖音矩阵号运营": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 17,
       "avg_capital": 168817,
       "trend": "up",
@@ -2978,7 +2978,7 @@
       "is_fringe": false
     },
     "AI一键生成PPT/海报/Logo": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 17,
       "avg_capital": 918441,
       "trend": "up",
@@ -2987,7 +2987,7 @@
       "is_fringe": false
     },
     "快递代收/社区驿站": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 30,
       "avg_capital": 946000,
       "trend": "stable",
@@ -2996,7 +2996,7 @@
       "is_fringe": false
     },
     "潜水/滑雪/冲浪教练": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 26,
       "avg_capital": 3769236,
       "trend": "stable",
@@ -3005,7 +3005,7 @@
       "is_fringe": false
     },
     "AI农药/兽药研发": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 10,
       "avg_capital": 3776583,
       "trend": "up",
@@ -3014,7 +3014,7 @@
       "is_fringe": false
     },
     "会员制私密社群运营": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 21,
       "avg_capital": 4241440,
       "trend": "stable",
@@ -3023,7 +3023,7 @@
       "is_fringe": false
     },
     "成人纸尿裤/护理用品": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 30,
       "avg_capital": 585496,
       "trend": "up",
@@ -3032,7 +3032,7 @@
       "is_fringe": false
     },
     "AI批量生成短视频": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 10,
       "avg_capital": 4203956,
       "trend": "stable",
@@ -3041,7 +3041,7 @@
       "is_fringe": false
     },
     "职业代哭/哭丧/白事服务": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 21,
       "avg_capital": 2286997,
       "trend": "up",
@@ -3050,7 +3050,7 @@
       "is_fringe": false
     },
     "共享充电宝/共享雨伞": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 22,
       "avg_capital": 4244568,
       "trend": "up",
@@ -3059,7 +3059,7 @@
       "is_fringe": false
     },
     "AI辅助写代码/Code Review": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 25,
       "avg_capital": 1419995,
       "trend": "up",
@@ -3068,7 +3068,7 @@
       "is_fringe": false
     },
     "高端家政/菲佣/英式管家": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 25,
       "avg_capital": 3424181,
       "trend": "volatile",
@@ -3077,7 +3077,7 @@
       "is_fringe": false
     },
     "数字人民币/支付聚合": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 27,
       "avg_capital": 1176951,
       "trend": "volatile",
@@ -3086,7 +3086,7 @@
       "is_fringe": false
     },
     "AI算命/AI占卜/AI看相": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 8,
       "avg_capital": 3636719,
       "trend": "volatile",
@@ -3095,7 +3095,7 @@
       "is_fringe": false
     },
     "残疾人辅具/无障碍设计": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 18,
       "avg_capital": 3917842,
       "trend": "stable",
@@ -3104,7 +3104,7 @@
       "is_fringe": false
     },
     "社区食堂/老年助餐": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 9,
       "avg_capital": 3497011,
       "trend": "up",
@@ -3113,7 +3113,7 @@
       "is_fringe": false
     },
     "AI炒股/AI量化交易": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 25,
       "avg_capital": 4395364,
       "trend": "up",
@@ -3122,7 +3122,7 @@
       "is_fringe": false
     },
     "AI语言学习/口语陪练": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 25,
       "avg_capital": 1281568,
       "trend": "up",
@@ -3131,7 +3131,7 @@
       "is_fringe": false
     },
     "跨境直播带货/外语主播": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 9,
       "avg_capital": 1096597,
       "trend": "volatile",
@@ -3140,7 +3140,7 @@
       "is_fringe": false
     },
     "闲置母婴用品交易": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 27,
       "avg_capital": 1055209,
       "trend": "stable",
@@ -3149,7 +3149,7 @@
       "is_fringe": false
     },
     "24小时无人健身房": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 27,
       "avg_capital": 3310338,
       "trend": "stable",
@@ -3158,7 +3158,7 @@
       "is_fringe": false
     },
     "AI室内设计/软装搭配": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 19,
       "avg_capital": 869234,
       "trend": "up",
@@ -3167,7 +3167,7 @@
       "is_fringe": false
     },
     "冻卵/生育力保存咨询": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 24,
       "avg_capital": 1873315,
       "trend": "up",
@@ -3176,7 +3176,7 @@
       "is_fringe": false
     },
     "智能眼镜/AR眼镜应用": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 24,
       "avg_capital": 1123314,
       "trend": "up",
@@ -3185,7 +3185,7 @@
       "is_fringe": false
     },
     "AI自动写小说/剧本": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 29,
       "avg_capital": 4202724,
       "trend": "volatile",
@@ -3194,7 +3194,7 @@
       "is_fringe": false
     },
     "无人机送外卖/快递": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 17,
       "avg_capital": 2755671,
       "trend": "volatile",
@@ -3203,7 +3203,7 @@
       "is_fringe": false
     },
     "碳积分/个人碳账户": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 25,
       "avg_capital": 1679115,
       "trend": "up",
@@ -3212,7 +3212,7 @@
       "is_fringe": false
     },
     "AI声纹/语音克隆": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 24,
       "avg_capital": 160945,
       "trend": "up",
@@ -3221,7 +3221,7 @@
       "is_fringe": false
     },
     "3D扫描/数字分身": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 8,
       "avg_capital": 53151,
       "trend": "stable",
@@ -3230,7 +3230,7 @@
       "is_fringe": false
     },
     "AI论文/查重/降重": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 19,
       "avg_capital": 2976649,
       "trend": "up",
@@ -3239,7 +3239,7 @@
       "is_fringe": true
     },
     "职业代客吵架/谈判": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 1916351,
       "trend": "stable",
@@ -3248,7 +3248,7 @@
       "is_fringe": false
     },
     "寺庙/道观商业运营": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 15,
       "avg_capital": 1628483,
       "trend": "volatile",
@@ -3257,7 +3257,7 @@
       "is_fringe": false
     },
     "AI简历/面试模拟": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 23,
       "avg_capital": 1017636,
       "trend": "up",
@@ -3266,7 +3266,7 @@
       "is_fringe": false
     },
     "废旧手机/电子垃圾回收": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 28,
       "avg_capital": 2420375,
       "trend": "stable",
@@ -3275,7 +3275,7 @@
       "is_fringe": false
     },
     "短剧/小程序剧制作": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 16,
       "avg_capital": 2949156,
       "trend": "volatile",
@@ -3284,7 +3284,7 @@
       "is_fringe": false
     },
     "AI律师/法律咨询": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 10,
       "avg_capital": 3917917,
       "trend": "up",
@@ -3293,7 +3293,7 @@
       "is_fringe": false
     },
     "团长/社区团购团长": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 8,
       "avg_capital": 4598650,
       "trend": "up",
@@ -3302,7 +3302,7 @@
       "is_fringe": false
     },
     "AI营养师/食谱定制": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 18,
       "avg_capital": 469414,
       "trend": "stable",
@@ -3311,7 +3311,7 @@
       "is_fringe": false
     },
     "数字游民社区运营": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 27,
       "avg_capital": 1595861,
       "trend": "stable",
@@ -3320,7 +3320,7 @@
       "is_fringe": false
     },
     "AI心理咨询/树洞": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 20,
       "avg_capital": 2405943,
       "trend": "volatile",
@@ -3329,7 +3329,7 @@
       "is_fringe": false
     },
     "植物肉/替代蛋白创业": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 23,
       "avg_capital": 1490027,
       "trend": "volatile",
@@ -3338,7 +3338,7 @@
       "is_fringe": false
     },
     "昆虫蛋白/未来食品": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 11,
       "avg_capital": 783956,
       "trend": "stable",
@@ -3347,7 +3347,7 @@
       "is_fringe": false
     },
     "AI手语/无障碍翻译": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 21,
       "avg_capital": 2160838,
       "trend": "volatile",
@@ -3356,7 +3356,7 @@
       "is_fringe": false
     },
     "职业钓鱼(bug bounty猎人)": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 17,
       "avg_capital": 2031307,
       "trend": "stable",
@@ -3365,7 +3365,7 @@
       "is_fringe": false
     },
     "AI绘画prompt工程师": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 14,
       "avg_capital": 2996539,
       "trend": "volatile",
@@ -3374,7 +3374,7 @@
       "is_fringe": false
     },
     "短视频切片/二创工作室": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 26,
       "avg_capital": 4742897,
       "trend": "up",
@@ -3383,7 +3383,7 @@
       "is_fringe": false
     },
     "相亲群/付费社群运营": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 15,
       "avg_capital": 139198,
       "trend": "up",
@@ -3392,7 +3392,7 @@
       "is_fringe": false
     },
     "上门喂猫/遛狗/宠物临时寄养": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 13,
       "avg_capital": 1736718,
       "trend": "stable",
@@ -3401,7 +3401,7 @@
       "is_fringe": false
     },
     "职业代购/拼单团长": {
-      "baseline_success_rate": 18.9,
+      "baseline_success_rate": 30.2,
       "avg_time_months": 18,
       "avg_capital": 2536979,
       "trend": "volatile",
@@ -3410,7 +3410,7 @@
       "is_fringe": false
     },
     "校园代理/宿舍KOL": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 8,
       "avg_capital": 857688,
       "trend": "stable",
@@ -3419,7 +3419,7 @@
       "is_fringe": false
     },
     "AI自动化脚本开发者": {
-      "baseline_success_rate": 19.8,
+      "baseline_success_rate": 31.7,
       "avg_time_months": 21,
       "avg_capital": 2444683,
       "trend": "stable",
@@ -3428,7 +3428,7 @@
       "is_fringe": false
     },
     "隐私币/匿名支付顾问": {
-      "baseline_success_rate": 19.2,
+      "baseline_success_rate": 30.7,
       "avg_time_months": 30,
       "avg_capital": 3422322,
       "trend": "up",
@@ -3437,7 +3437,7 @@
       "is_fringe": true
     },
     "手机/电脑回收+数据恢复+翻新+转卖": {
-      "baseline_success_rate": 19.5,
+      "baseline_success_rate": 31.2,
       "avg_time_months": 19,
       "avg_capital": 4782918,
       "trend": "stable",
@@ -3446,7 +3446,7 @@
       "is_fringe": false
     },
     "冷门职业209": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 22,
       "avg_capital": 1548243,
       "trend": "volatile",
@@ -3455,7 +3455,7 @@
       "is_fringe": false
     },
     "冷门职业210": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 2324987,
       "trend": "volatile",
@@ -3464,7 +3464,7 @@
       "is_fringe": false
     },
     "冷门职业211": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 27,
       "avg_capital": 1192880,
       "trend": "stable",
@@ -3473,7 +3473,7 @@
       "is_fringe": false
     },
     "冷门职业212": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 15,
       "avg_capital": 4540730,
       "trend": "up",
@@ -3482,7 +3482,7 @@
       "is_fringe": false
     },
     "冷门职业213": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 947051,
       "trend": "volatile",
@@ -3491,7 +3491,7 @@
       "is_fringe": false
     },
     "冷门职业214": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 1396846,
       "trend": "up",
@@ -3500,7 +3500,7 @@
       "is_fringe": false
     },
     "冷门职业215": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 425183,
       "trend": "volatile",
@@ -3509,7 +3509,7 @@
       "is_fringe": false
     },
     "冷门职业216": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 26,
       "avg_capital": 4275138,
       "trend": "stable",
@@ -3518,7 +3518,7 @@
       "is_fringe": false
     },
     "冷门职业217": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 13,
       "avg_capital": 4506387,
       "trend": "stable",
@@ -3527,7 +3527,7 @@
       "is_fringe": false
     },
     "冷门职业218": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 3501527,
       "trend": "stable",
@@ -3536,7 +3536,7 @@
       "is_fringe": false
     },
     "冷门职业219": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 14,
       "avg_capital": 1155690,
       "trend": "stable",
@@ -3545,7 +3545,7 @@
       "is_fringe": false
     },
     "冷门职业220": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 23,
       "avg_capital": 95972,
       "trend": "stable",
@@ -3554,7 +3554,7 @@
       "is_fringe": false
     },
     "冷门职业221": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 10,
       "avg_capital": 694731,
       "trend": "volatile",
@@ -3563,7 +3563,7 @@
       "is_fringe": false
     },
     "冷门职业222": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 103020,
       "trend": "up",
@@ -3572,7 +3572,7 @@
       "is_fringe": false
     },
     "冷门职业223": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 22,
       "avg_capital": 3679081,
       "trend": "stable",
@@ -3581,7 +3581,7 @@
       "is_fringe": false
     },
     "冷门职业224": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 15,
       "avg_capital": 1452232,
       "trend": "stable",
@@ -3590,7 +3590,7 @@
       "is_fringe": false
     },
     "冷门职业225": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 23,
       "avg_capital": 1956889,
       "trend": "up",
@@ -3599,7 +3599,7 @@
       "is_fringe": false
     },
     "冷门职业226": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 3883347,
       "trend": "up",
@@ -3608,7 +3608,7 @@
       "is_fringe": false
     },
     "冷门职业227": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 4463649,
       "trend": "volatile",
@@ -3617,7 +3617,7 @@
       "is_fringe": false
     },
     "冷门职业228": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 10,
       "avg_capital": 3868117,
       "trend": "volatile",
@@ -3626,7 +3626,7 @@
       "is_fringe": false
     },
     "冷门职业229": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 23,
       "avg_capital": 3756934,
       "trend": "stable",
@@ -3635,7 +3635,7 @@
       "is_fringe": false
     },
     "冷门职业230": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 4645299,
       "trend": "stable",
@@ -3644,7 +3644,7 @@
       "is_fringe": false
     },
     "冷门职业231": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 3317672,
       "trend": "volatile",
@@ -3653,7 +3653,7 @@
       "is_fringe": false
     },
     "冷门职业232": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 2781473,
       "trend": "up",
@@ -3662,7 +3662,7 @@
       "is_fringe": false
     },
     "冷门职业233": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 21,
       "avg_capital": 1788621,
       "trend": "up",
@@ -3671,7 +3671,7 @@
       "is_fringe": false
     },
     "冷门职业234": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 1495349,
       "trend": "stable",
@@ -3680,7 +3680,7 @@
       "is_fringe": false
     },
     "冷门职业235": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 10,
       "avg_capital": 4399189,
       "trend": "stable",
@@ -3689,7 +3689,7 @@
       "is_fringe": false
     },
     "冷门职业236": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 1986794,
       "trend": "stable",
@@ -3698,7 +3698,7 @@
       "is_fringe": false
     },
     "冷门职业237": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 2252517,
       "trend": "volatile",
@@ -3707,7 +3707,7 @@
       "is_fringe": false
     },
     "冷门职业238": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 16,
       "avg_capital": 1411581,
       "trend": "volatile",
@@ -3716,7 +3716,7 @@
       "is_fringe": false
     },
     "冷门职业239": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 10,
       "avg_capital": 249594,
       "trend": "volatile",
@@ -3725,7 +3725,7 @@
       "is_fringe": false
     },
     "冷门职业240": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 16,
       "avg_capital": 4959412,
       "trend": "volatile",
@@ -3734,7 +3734,7 @@
       "is_fringe": false
     },
     "冷门职业241": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 14,
       "avg_capital": 2760774,
       "trend": "volatile",
@@ -3743,7 +3743,7 @@
       "is_fringe": false
     },
     "冷门职业242": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 9,
       "avg_capital": 4225036,
       "trend": "volatile",
@@ -3752,7 +3752,7 @@
       "is_fringe": false
     },
     "冷门职业243": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 2683745,
       "trend": "stable",
@@ -3761,7 +3761,7 @@
       "is_fringe": false
     },
     "冷门职业244": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 1975053,
       "trend": "up",
@@ -3770,7 +3770,7 @@
       "is_fringe": false
     },
     "冷门职业245": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 23,
       "avg_capital": 705238,
       "trend": "volatile",
@@ -3779,7 +3779,7 @@
       "is_fringe": false
     },
     "冷门职业246": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 4105477,
       "trend": "stable",
@@ -3788,7 +3788,7 @@
       "is_fringe": false
     },
     "冷门职业247": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 18,
       "avg_capital": 2399391,
       "trend": "volatile",
@@ -3797,7 +3797,7 @@
       "is_fringe": false
     },
     "冷门职业248": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 18,
       "avg_capital": 1041373,
       "trend": "volatile",
@@ -3806,7 +3806,7 @@
       "is_fringe": false
     },
     "冷门职业249": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 26,
       "avg_capital": 4322422,
       "trend": "up",
@@ -3815,7 +3815,7 @@
       "is_fringe": false
     },
     "冷门职业250": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 9,
       "avg_capital": 3676581,
       "trend": "up",
@@ -3824,7 +3824,7 @@
       "is_fringe": false
     },
     "冷门职业251": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 2223618,
       "trend": "volatile",
@@ -3833,7 +3833,7 @@
       "is_fringe": false
     },
     "冷门职业252": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 29,
       "avg_capital": 4369087,
       "trend": "stable",
@@ -3842,7 +3842,7 @@
       "is_fringe": false
     },
     "冷门职业253": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 15,
       "avg_capital": 2515008,
       "trend": "stable",
@@ -3851,7 +3851,7 @@
       "is_fringe": false
     },
     "冷门职业254": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 16,
       "avg_capital": 1381280,
       "trend": "stable",
@@ -3860,7 +3860,7 @@
       "is_fringe": false
     },
     "冷门职业255": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 2857894,
       "trend": "up",
@@ -3869,7 +3869,7 @@
       "is_fringe": false
     },
     "冷门职业256": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 4981764,
       "trend": "stable",
@@ -3878,7 +3878,7 @@
       "is_fringe": false
     },
     "冷门职业257": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 20,
       "avg_capital": 1722197,
       "trend": "volatile",
@@ -3887,7 +3887,7 @@
       "is_fringe": false
     },
     "冷门职业258": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 13,
       "avg_capital": 1819854,
       "trend": "stable",
@@ -3896,7 +3896,7 @@
       "is_fringe": false
     },
     "冷门职业259": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 2667349,
       "trend": "stable",
@@ -3905,7 +3905,7 @@
       "is_fringe": false
     },
     "冷门职业260": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 9,
       "avg_capital": 1822054,
       "trend": "stable",
@@ -3914,7 +3914,7 @@
       "is_fringe": false
     },
     "冷门职业261": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 12,
       "avg_capital": 4059011,
       "trend": "volatile",
@@ -3923,7 +3923,7 @@
       "is_fringe": false
     },
     "冷门职业262": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 9,
       "avg_capital": 4831801,
       "trend": "stable",
@@ -3932,7 +3932,7 @@
       "is_fringe": false
     },
     "冷门职业263": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 16,
       "avg_capital": 786695,
       "trend": "volatile",
@@ -3941,7 +3941,7 @@
       "is_fringe": false
     },
     "冷门职业264": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 13,
       "avg_capital": 1966053,
       "trend": "stable",
@@ -3950,7 +3950,7 @@
       "is_fringe": false
     },
     "冷门职业265": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 16,
       "avg_capital": 3573972,
       "trend": "up",
@@ -3959,7 +3959,7 @@
       "is_fringe": false
     },
     "冷门职业266": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 9,
       "avg_capital": 2831162,
       "trend": "volatile",
@@ -3968,7 +3968,7 @@
       "is_fringe": false
     },
     "冷门职业267": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 12,
       "avg_capital": 707043,
       "trend": "up",
@@ -3977,7 +3977,7 @@
       "is_fringe": false
     },
     "冷门职业268": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 3218355,
       "trend": "up",
@@ -3986,7 +3986,7 @@
       "is_fringe": false
     },
     "冷门职业269": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 9,
       "avg_capital": 4003551,
       "trend": "volatile",
@@ -3995,7 +3995,7 @@
       "is_fringe": false
     },
     "冷门职业270": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 133130,
       "trend": "volatile",
@@ -4004,7 +4004,7 @@
       "is_fringe": false
     },
     "冷门职业271": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 2650118,
       "trend": "up",
@@ -4013,7 +4013,7 @@
       "is_fringe": false
     },
     "冷门职业272": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 29,
       "avg_capital": 1399435,
       "trend": "volatile",
@@ -4022,7 +4022,7 @@
       "is_fringe": false
     },
     "冷门职业273": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 12,
       "avg_capital": 3617418,
       "trend": "stable",
@@ -4031,7 +4031,7 @@
       "is_fringe": false
     },
     "冷门职业274": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 3145599,
       "trend": "volatile",
@@ -4040,7 +4040,7 @@
       "is_fringe": false
     },
     "冷门职业275": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 18,
       "avg_capital": 2869691,
       "trend": "up",
@@ -4049,7 +4049,7 @@
       "is_fringe": false
     },
     "冷门职业276": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 346963,
       "trend": "stable",
@@ -4058,7 +4058,7 @@
       "is_fringe": false
     },
     "冷门职业277": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 4713962,
       "trend": "volatile",
@@ -4067,7 +4067,7 @@
       "is_fringe": false
     },
     "冷门职业278": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 3755252,
       "trend": "stable",
@@ -4076,7 +4076,7 @@
       "is_fringe": false
     },
     "冷门职业279": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 27,
       "avg_capital": 1806551,
       "trend": "stable",
@@ -4085,7 +4085,7 @@
       "is_fringe": false
     },
     "冷门职业280": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 29,
       "avg_capital": 1830415,
       "trend": "volatile",
@@ -4094,7 +4094,7 @@
       "is_fringe": false
     },
     "冷门职业281": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 8,
       "avg_capital": 2919376,
       "trend": "stable",
@@ -4103,7 +4103,7 @@
       "is_fringe": false
     },
     "冷门职业282": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 2001237,
       "trend": "up",
@@ -4112,7 +4112,7 @@
       "is_fringe": false
     },
     "冷门职业283": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 2944984,
       "trend": "stable",
@@ -4121,7 +4121,7 @@
       "is_fringe": false
     },
     "冷门职业284": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 19,
       "avg_capital": 1810727,
       "trend": "stable",
@@ -4130,7 +4130,7 @@
       "is_fringe": false
     },
     "冷门职业285": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 2877050,
       "trend": "up",
@@ -4139,7 +4139,7 @@
       "is_fringe": false
     },
     "冷门职业286": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 419842,
       "trend": "stable",
@@ -4148,7 +4148,7 @@
       "is_fringe": false
     },
     "冷门职业287": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 22,
       "avg_capital": 4103531,
       "trend": "stable",
@@ -4157,7 +4157,7 @@
       "is_fringe": false
     },
     "冷门职业288": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 2491783,
       "trend": "stable",
@@ -4166,7 +4166,7 @@
       "is_fringe": false
     },
     "冷门职业289": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 26,
       "avg_capital": 4854251,
       "trend": "volatile",
@@ -4175,7 +4175,7 @@
       "is_fringe": false
     },
     "冷门职业290": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 20,
       "avg_capital": 240702,
       "trend": "up",
@@ -4184,7 +4184,7 @@
       "is_fringe": false
     },
     "冷门职业291": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 2230011,
       "trend": "volatile",
@@ -4193,7 +4193,7 @@
       "is_fringe": false
     },
     "冷门职业292": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 30,
       "avg_capital": 2454279,
       "trend": "up",
@@ -4202,7 +4202,7 @@
       "is_fringe": false
     },
     "冷门职业293": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 28,
       "avg_capital": 1916541,
       "trend": "up",
@@ -4211,7 +4211,7 @@
       "is_fringe": false
     },
     "冷门职业294": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 13,
       "avg_capital": 4884518,
       "trend": "volatile",
@@ -4220,7 +4220,7 @@
       "is_fringe": false
     },
     "冷门职业295": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 25,
       "avg_capital": 2178803,
       "trend": "stable",
@@ -4229,7 +4229,7 @@
       "is_fringe": false
     },
     "冷门职业296": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 17,
       "avg_capital": 1306694,
       "trend": "stable",
@@ -4238,7 +4238,7 @@
       "is_fringe": false
     },
     "冷门职业297": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 29,
       "avg_capital": 3339855,
       "trend": "stable",
@@ -4247,7 +4247,7 @@
       "is_fringe": false
     },
     "冷门职业298": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 24,
       "avg_capital": 874807,
       "trend": "volatile",
@@ -4256,7 +4256,7 @@
       "is_fringe": false
     },
     "冷门职业299": {
-      "baseline_success_rate": 18.6,
+      "baseline_success_rate": 29.8,
       "avg_time_months": 12,
       "avg_capital": 1421433,
       "trend": "volatile",
@@ -4265,7 +4265,7 @@
       "is_fringe": false
     },
     "地下钱庄/洗钱": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 50,
       "avg_capital": 5000000,
       "trend": "volatile",
@@ -4274,7 +4274,7 @@
       "is_fringe": true
     },
     "走私/水货贸易": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 30,
       "avg_capital": 2000000,
       "trend": "volatile",
@@ -4283,7 +4283,7 @@
       "is_fringe": true
     },
     "假证/假文凭制作": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 10,
       "avg_capital": 50000,
       "trend": "stable",
@@ -4292,7 +4292,7 @@
       "is_fringe": true
     },
     "偷渡/人口贩卖": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 30,
       "avg_capital": 1000000,
       "trend": "volatile",
@@ -4301,7 +4301,7 @@
       "is_fringe": true
     },
     "毒品/违禁品交易": {
-      "baseline_success_rate": 3,
+      "baseline_success_rate": 4.8,
       "avg_time_months": 50,
       "avg_capital": 5000000,
       "trend": "volatile",
@@ -4310,7 +4310,7 @@
       "is_fringe": true
     },
     "军火/武器走私": {
-      "baseline_success_rate": 2,
+      "baseline_success_rate": 3.2,
       "avg_time_months": 80,
       "avg_capital": 50000000,
       "trend": "volatile",
@@ -4319,7 +4319,7 @@
       "is_fringe": true
     },
     "盗版/破解软件": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 8,
       "avg_capital": 50000,
       "trend": "down",
@@ -4328,7 +4328,7 @@
       "is_fringe": true
     },
     "网络诈骗/钓鱼": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 30,
       "avg_capital": 100000,
       "trend": "volatile",
@@ -4337,7 +4337,7 @@
       "is_fringe": true
     },
     "非法集资/庞氏骗局": {
-      "baseline_success_rate": 3,
+      "baseline_success_rate": 4.8,
       "avg_time_months": 50,
       "avg_capital": 1000000,
       "trend": "volatile",
@@ -4346,7 +4346,7 @@
       "is_fringe": true
     },
     "野生动物走私": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 20,
       "avg_capital": 3000000,
       "trend": "volatile",
@@ -4355,7 +4355,7 @@
       "is_fringe": true
     },
     "人体器官交易": {
-      "baseline_success_rate": 1,
+      "baseline_success_rate": 1.6,
       "avg_time_months": 100,
       "avg_capital": 10000000,
       "trend": "volatile",
@@ -4364,7 +4364,7 @@
       "is_fringe": true
     },
     "代孕/借腹生子中介": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 20,
       "avg_capital": 3000000,
       "trend": "volatile",
@@ -4373,7 +4373,7 @@
       "is_fringe": true
     },
     "非法堕胎/性别选择": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 10,
       "avg_capital": 500000,
       "trend": "volatile",
@@ -4382,7 +4382,7 @@
       "is_fringe": true
     },
     "地下赌场/赌球/六合彩": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 30,
       "avg_capital": 2000000,
       "trend": "stable",
@@ -4391,7 +4391,7 @@
       "is_fringe": true
     },
     "高利贷/套路贷": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 40,
       "avg_capital": 10000000,
       "trend": "stable",
@@ -4409,7 +4409,7 @@
       "is_fringe": true
     },
     "暗网/匿名交易平台": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 40,
       "avg_capital": 10000000,
       "trend": "volatile",
@@ -4418,7 +4418,7 @@
       "is_fringe": true
     },
     "号贩子/黄牛党(医疗/演出)": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 5,
       "avg_capital": 100000,
       "trend": "stable",
@@ -4427,7 +4427,7 @@
       "is_fringe": true
     },
     "职业差评师/刷单": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 8,
       "avg_capital": 50000,
       "trend": "down",
@@ -4436,7 +4436,7 @@
       "is_fringe": true
     },
     "职业讨债/收数": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 15,
       "avg_capital": 500000,
       "trend": "stable",
@@ -4445,7 +4445,7 @@
       "is_fringe": true
     },
     "非法燃油/成品油走私": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 20,
       "avg_capital": 5000000,
       "trend": "volatile",
@@ -4454,7 +4454,7 @@
       "is_fringe": true
     },
     "黑车/非法营运": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 10,
       "avg_capital": 300000,
       "trend": "stable",
@@ -4463,7 +4463,7 @@
       "is_fringe": true
     },
     "私彩/地下彩票": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 20,
       "avg_capital": 2000000,
       "trend": "volatile",
@@ -4472,7 +4472,7 @@
       "is_fringe": true
     },
     "职场代考/替考": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 5,
       "avg_capital": 50000,
       "trend": "down",
@@ -4481,7 +4481,7 @@
       "is_fringe": true
     },
     "论文代写/学术造假": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 8,
       "avg_capital": 100000,
       "trend": "down",
@@ -4490,7 +4490,7 @@
       "is_fringe": true
     },
     "学历造假/名校包装": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 10,
       "avg_capital": 200000,
       "trend": "down",
@@ -4499,7 +4499,7 @@
       "is_fringe": true
     },
     "非法集资/私人众筹": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 20,
       "avg_capital": 2000000,
       "trend": "volatile",
@@ -4508,7 +4508,7 @@
       "is_fringe": true
     },
     "非法挖矿/偷电": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 15,
       "avg_capital": 3000000,
       "trend": "volatile",
@@ -4517,7 +4517,7 @@
       "is_fringe": true
     },
     "倒卖个人隐私数据": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 25,
       "avg_capital": 500000,
       "trend": "volatile",
@@ -4526,7 +4526,7 @@
       "is_fringe": true
     },
     "网络水军/舆情操控": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 12,
       "avg_capital": 200000,
       "trend": "stable",
@@ -4535,7 +4535,7 @@
       "is_fringe": true
     },
     "代驾/陪驾": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 8,
       "avg_capital": 50000,
       "trend": "stable",
@@ -4543,7 +4543,7 @@
       "is_gig": true
     },
     "上门美甲/美容/按摩": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 8,
       "avg_capital": 30000,
       "trend": "up",
@@ -4551,7 +4551,7 @@
       "is_gig": true
     },
     "同城跑腿/代办": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 6,
       "avg_capital": 20000,
       "trend": "stable",
@@ -4567,7 +4567,7 @@
       "is_gig": true
     },
     "家庭收纳/整理师": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 8,
       "avg_capital": 30000,
       "trend": "up",
@@ -4575,7 +4575,7 @@
       "is_gig": true
     },
     "陪诊师/看病陪护": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 6,
       "avg_capital": 20000,
       "trend": "up",
@@ -4583,7 +4583,7 @@
       "is_gig": true
     },
     "上门家教/私教": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 8,
       "avg_capital": 20000,
       "trend": "stable",
@@ -4591,7 +4591,7 @@
       "is_gig": true
     },
     "陪聊/倾听师/树洞": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 6,
       "avg_capital": 5000,
       "trend": "up",
@@ -4599,7 +4599,7 @@
       "is_gig": true
     },
     "直播带货/电商主播": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 12,
       "avg_capital": 100000,
       "trend": "volatile",
@@ -4607,7 +4607,7 @@
       "is_gig": true
     },
     "探店/KOL/测评博主": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 8,
       "avg_capital": 50000,
       "trend": "down",
@@ -4615,7 +4615,7 @@
       "is_gig": true
     },
     "陪玩游戏/陪玩师": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 6,
       "avg_capital": 30000,
       "trend": "stable",
@@ -4623,7 +4623,7 @@
       "is_gig": true
     },
     "声音主播/语音厅": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 6,
       "avg_capital": 20000,
       "trend": "up",
@@ -4631,7 +4631,7 @@
       "is_gig": true
     },
     "付费社群/知识星球": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 10,
       "avg_capital": 20000,
       "trend": "stable",
@@ -4639,7 +4639,7 @@
       "is_gig": true
     },
     "私域代运营/微信个人号": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 8,
       "avg_capital": 30000,
       "trend": "up",
@@ -4647,7 +4647,7 @@
       "is_gig": true
     },
     "公众号/头条号代写": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 6,
       "avg_capital": 10000,
       "trend": "down",
@@ -4655,7 +4655,7 @@
       "is_gig": true
     },
     "PPT定制/商业计划书代写": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 6,
       "avg_capital": 20000,
       "trend": "stable",
@@ -4663,7 +4663,7 @@
       "is_gig": true
     },
     "简历优化/面试辅导": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 6,
       "avg_capital": 10000,
       "trend": "stable",
@@ -4671,7 +4671,7 @@
       "is_gig": true
     },
     "留学文书代写/润色": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 5,
       "avg_capital": 10000,
       "trend": "down",
@@ -4679,7 +4679,7 @@
       "is_gig": true
     },
     "表情包/IP周边设计": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 8,
       "avg_capital": 50000,
       "trend": "stable",
@@ -4695,7 +4695,7 @@
       "is_gig": true
     },
     "手机维修/贴膜": {
-      "baseline_success_rate": 28,
+      "baseline_success_rate": 44.8,
       "avg_time_months": 8,
       "avg_capital": 30000,
       "trend": "stable",
@@ -4719,7 +4719,7 @@
       "is_gig": true
     },
     "摆地摊/市集摆摊": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 3,
       "avg_capital": 10000,
       "trend": "volatile",
@@ -4727,7 +4727,7 @@
       "is_gig": true
     },
     "煎饼/烤冷面/小吃摊": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 6,
       "avg_capital": 20000,
       "trend": "stable",
@@ -4735,7 +4735,7 @@
       "is_gig": true
     },
     "滴滴/网约车": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 8,
       "avg_capital": 200000,
       "trend": "down",
@@ -4743,7 +4743,7 @@
       "is_gig": true
     },
     "外卖/快递": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 6,
       "avg_capital": 10000,
       "trend": "down",
@@ -4751,7 +4751,7 @@
       "is_gig": true
     },
     "代取快递/菜鸟驿站": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 6,
       "avg_capital": 30000,
       "trend": "stable",
@@ -4759,7 +4759,7 @@
       "is_gig": true
     },
     "共享自习室/付费自习": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 10,
       "avg_capital": 100000,
       "trend": "up",
@@ -4767,7 +4767,7 @@
       "is_gig": true
     },
     "扭蛋机/娃娃机运营": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 8,
       "avg_capital": 50000,
       "trend": "stable",
@@ -4775,7 +4775,7 @@
       "is_gig": true
     },
     "自动售货机/无人货柜": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 10,
       "avg_capital": 80000,
       "trend": "stable",
@@ -4783,7 +4783,7 @@
       "is_gig": true
     },
     "跨境代购/海淘": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 8,
       "avg_capital": 100000,
       "trend": "stable",
@@ -4791,7 +4791,7 @@
       "is_gig": true
     },
     "球鞋/潮牌炒卖": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 6,
       "avg_capital": 200000,
       "trend": "volatile",
@@ -4799,7 +4799,7 @@
       "is_gig": true
     },
     "AI Agent/AI员工": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 18,
       "avg_capital": 3000000,
       "trend": "up",
@@ -4812,7 +4812,7 @@
       }
     },
     "具身智能/机器人本体": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 48,
       "avg_capital": 20000000,
       "trend": "up",
@@ -4825,7 +4825,7 @@
       }
     },
     "AI短剧/竖屏剧": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 8,
       "avg_capital": 500000,
       "trend": "up",
@@ -4838,7 +4838,7 @@
       }
     },
     "AI音乐/AI作曲": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 12,
       "avg_capital": 1000000,
       "trend": "up",
@@ -4851,7 +4851,7 @@
       }
     },
     "数字人直播/24小时带货": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 6,
       "avg_capital": 300000,
       "trend": "up",
@@ -4864,7 +4864,7 @@
       }
     },
     "AI招聘/AI面试": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 15,
       "avg_capital": 2000000,
       "trend": "up",
@@ -4877,7 +4877,7 @@
       }
     },
     "AI农业/智慧农场": {
-      "baseline_success_rate": 15,
+      "baseline_success_rate": 24.0,
       "avg_time_months": 24,
       "avg_capital": 5000000,
       "trend": "up",
@@ -4890,7 +4890,7 @@
       }
     },
     "细胞培养肉/替代蛋白": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 48,
       "avg_capital": 20000000,
       "trend": "up",
@@ -4903,7 +4903,7 @@
       }
     },
     "垂直起降飞行器/eVTOL": {
-      "baseline_success_rate": 12,
+      "baseline_success_rate": 19.2,
       "avg_time_months": 60,
       "avg_capital": 50000000,
       "trend": "up",
@@ -4916,7 +4916,7 @@
       }
     },
     "太空太阳能电站": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 120,
       "avg_capital": 500000000,
       "trend": "emerging",
@@ -4929,7 +4929,7 @@
       }
     },
     "深海采矿机器人": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 72,
       "avg_capital": 100000000,
       "trend": "emerging",
@@ -4942,7 +4942,7 @@
       }
     },
     "月球基地建设": {
-      "baseline_success_rate": 3,
+      "baseline_success_rate": 4.8,
       "avg_time_months": 180,
       "avg_capital": 1000000000,
       "trend": "emerging",
@@ -4955,7 +4955,7 @@
       }
     },
     "基因驱动/物种编辑": {
-      "baseline_success_rate": 5,
+      "baseline_success_rate": 8.0,
       "avg_time_months": 120,
       "avg_capital": 50000000,
       "trend": "emerging",
@@ -4968,7 +4968,7 @@
       }
     },
     "个人飞行器/喷气背包": {
-      "baseline_success_rate": 8,
+      "baseline_success_rate": 12.8,
       "avg_time_months": 48,
       "avg_capital": 20000000,
       "trend": "emerging",
@@ -4981,7 +4981,7 @@
       }
     },
     "退役电池回收/梯次利用": {
-      "baseline_success_rate": 25,
+      "baseline_success_rate": 40.0,
       "avg_time_months": 18,
       "avg_capital": 10000000,
       "trend": "up",
@@ -4994,7 +4994,7 @@
       }
     },
     "碳信用/碳资产交易": {
-      "baseline_success_rate": 22,
+      "baseline_success_rate": 35.2,
       "avg_time_months": 18,
       "avg_capital": 5000000,
       "trend": "up",
@@ -5007,7 +5007,7 @@
       }
     },
     "废旧轮胎/塑料化学回收": {
-      "baseline_success_rate": 20,
+      "baseline_success_rate": 32.0,
       "avg_time_months": 24,
       "avg_capital": 15000000,
       "trend": "up",
@@ -5020,7 +5020,7 @@
       }
     },
     "退役风机叶片回收": {
-      "baseline_success_rate": 18,
+      "baseline_success_rate": 28.8,
       "avg_time_months": 24,
       "avg_capital": 10000000,
       "trend": "up",
@@ -5033,294 +5033,294 @@
       }
     },
     "旅游": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "硬件": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "SaaS": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "电商": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "环保": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "跨境支付": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "物理": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "氢能": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "法律科技": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "AR/VR": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "体育": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "安防": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "新能源": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "房地产": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "奢侈品": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "本地生活": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "物流": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "银发": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "制造": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "AI": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "自动驾驶": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "新能源车": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "半导体": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "智能家居": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "IoT": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "区块链": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "个性化医疗": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "游戏": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "航天": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "考古": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "合成生物": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "跨境电商": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "充电桩": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "碳交易": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "能源": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "医疗": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "数字人": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "机器人": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "自媒体": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "农业": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "教育": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
       "market_size_bn": 100
     },
     "银发经济": {
-      "baseline_success_rate": 10,
+      "baseline_success_rate": 16.0,
       "avg_time_months": 18,
       "avg_capital": 2000000,
       "trend": "stable",
@@ -5328,25 +5328,25 @@
     }
   },
   "capital_adjustments": {
-    "0-500k": 0.5,
-    "500k-2m": 0.7,
-    "2m-10m": 1.0,
-    "10m-50m": 1.3,
-    "50m+": 1.6
+    "0-500k": 0.6,
+    "500k-2m": 0.8,
+    "2m-10m": 1.1,
+    "10m-50m": 1.4,
+    "50m+": 1.7
   },
   "team_adjustments": {
-    "solo": 0.4,
-    "2-5人": 0.65,
-    "5-20人": 1.0,
-    "20-50人": 1.25,
-    "50人+": 1.5
+    "solo": 0.55,
+    "2-5人": 0.8,
+    "5-20人": 1.1,
+    "20-50人": 1.35,
+    "50人+": 1.6
   },
   "experience_adjustments": {
-    "首次创业": 0.6,
-    "1-3年行业经验": 0.75,
-    "3-10年行业经验": 1.0,
-    "10年+行业经验": 1.35,
-    "连续成功创业者": 1.6
+    "首次创业": 0.75,
+    "1-3年行业经验": 0.85,
+    "3-10年行业经验": 1.05,
+    "10年+行业经验": 1.4,
+    "连续成功创业者": 1.7
   },
   "strategy_types": {
     "conservative": {

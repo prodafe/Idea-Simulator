@@ -95,6 +95,11 @@ class DeepSimulator:
         exit_scenarios=self._exit_scenarios(industry,base)
         sensitivity=self._sensitivity(profile,industry,base,city)
 
+        # ✅ 动态成功阈值: 基于行业基准率 + MC实际可达范围校准
+        #   基准19%的行业，p90约14%，所以成功线设为基准的1.0倍
+        success_threshold = max(10, min(45, base * 1.0))
+        struggle_threshold = max(5, min(20, base * 0.5))
+
         # ── 蒙特卡洛 v10: 幂律分布+相关性 ──
         ae=AccuracyEngine();ce=ConstraintEngine();fact=ae.fact_anchor(profile)
         constraint=ce.analyze(profile);cmod=constraint.get("total_constraint_modifier",0)
@@ -130,9 +135,9 @@ class DeepSimulator:
                 if random.random()<fm.get("fail_boost",0.3):rate*=(1-fm.get("fail_boost",0.3))
 
             rate*=(1+t.get("boost",0)+p.get("boost",0)+luck)
-            rate*=(1+random.gauss(0,0.15 if fringe_mode else 0.12))
-            rate*=(1+random.gauss(0,0.12 if fringe_mode else 0.08))
-            rate*=(1+random.gauss(0,city.get("competition",0.5)*0.15))
+            # 市场噪声(合并为单次，减少累积削减)
+            market_noise=random.gauss(0,0.10)+random.gauss(0,0.05)+random.gauss(0,city.get("competition",0.5)*0.08)
+            rate*=(1+market_noise)
 
             # 政策
             rate*=(1+self._policy_impact(country,city_name,industry))
@@ -152,7 +157,7 @@ class DeepSimulator:
                 if bf.get("fringe")and not fringe_mode:rate=max(0.02,rate*0.35)
 
             rate=max(0.02,min(99.98,rate))
-            outcome="success"if rate>=50 else"struggle"if rate>=25 else"failure"
+            outcome="success"if rate>=success_threshold else"struggle"if rate>=struggle_threshold else"failure"
             buckets[outcome]+=1; all_rates.append(rate)
 
             narrative=""
