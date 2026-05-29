@@ -17,7 +17,7 @@ from core.orchestrator import IdeaSimulator
 
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="Idea Simulator API", version="4.0.0")
+app = FastAPI(title="Idea Simulator API", version="5.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 # ── API Key Auth Middleware ──
@@ -67,7 +67,7 @@ simulator = IdeaSimulator()
 
 @app.get("/api/health")
 async def health():
-    return {"status":"ok","version":"4.0.0"}
+    return {"status":"ok","version":"5.0.0"}
 
 @app.get("/api/metrics")
 async def metrics():
@@ -81,7 +81,7 @@ async def metrics():
     except ImportError:
         mem, cpu = 0, 0
     return {
-        "version":"4.0.0",
+        "version":"5.0.0",
         "memory_mb":mem,
         "cpu_percent":cpu,
         "active_ips":len(_request_count),

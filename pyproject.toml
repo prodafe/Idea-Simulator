@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "idea-simulator"
-version = "4.0.0"
+version = "5.0.0"
 description = "Idea Simulator — 640 billion scenario combination, 1000-dimension future simulation engine"
 readme = "README.md"
 license = "MIT"
