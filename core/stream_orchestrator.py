@@ -490,31 +490,30 @@ JSON:"""
         yield {"phase":"init","msg":f"{label}启动: [{model}] + 7Agent + 400亿场景 + 网络搜索"}
         t0 = time.perf_counter()
 
-        # Phase 0: 场景自适应分类 (LLM估算基准成功率+关键因素)
-        yield {"phase":"classify","msg":"🎯 分析场景类型并估算基准成功率..."}
-        scenario = self.classify_scenario(idea, profile)
+        # Phase 0+1: classify + context 并行 (互不依赖)
+        yield {"phase":"parallel","msg":"⚡ 并行: 场景分类 + 背景匹配..."}
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            f_classify = pool.submit(self.classify_scenario, idea, profile)
+            f_context = pool.submit(self.agent_context, idea, profile)
+            scenario = f_classify.result()
+            ctx = f_context.result()
         sc_type = scenario.get("scenario_type","other")
         llm_baseline = scenario.get("baseline_rate",50)
         key_factors = scenario.get("key_factors",[])
-        yield {"phase":"classify_done","data":{"scenario_type":sc_type,"baseline_rate":llm_baseline,"key_factors":key_factors}}
-        # 把场景分析结果写入profile供deep_simulator使用
         profile["_scenario_type"] = sc_type
         profile["_llm_baseline"] = llm_baseline
         profile["_key_factors"] = key_factors
-
-        # Phase 1: Context
-        yield {"phase":"context","msg":"🔍 Agent 1/6: 分析背景匹配度..."}
-        ctx = self.agent_context(idea, profile)
+        yield {"phase":"classify_done","data":{"scenario_type":sc_type,"baseline_rate":llm_baseline,"key_factors":key_factors}}
         yield {"phase":"context_done","data":{"match_score":ctx.get("match_score",50),"strengths":ctx.get("strengths",[]),"gaps":ctx.get("gaps",[]),"advice":ctx.get("advice","")}}
 
-        # Phase 2: Market
-        yield {"phase":"market","msg":"📊 Agent 2/6: 分析市场规模与竞争..."}
-        market = self.agent_market(idea, profile)
+        # Phase 2+3: market + risk 并行 (互不依赖)
+        yield {"phase":"parallel","msg":"⚡ 并行: 市场分析 + 风险评估..."}
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            f_market = pool.submit(self.agent_market, idea, profile)
+            f_risk = pool.submit(self.agent_risk, idea, profile)
+            market = f_market.result()
+            risk = f_risk.result()
         yield {"phase":"market_done","data":market}
-
-        # Phase 3: Risk
-        yield {"phase":"risk","msg":"⚠️ Agent 3/6: 评估多维风险..."}
-        risk = self.agent_risk(idea, profile)
         yield {"phase":"risk_done","data":risk}
 
         # Phase 4: Strategy

@@ -150,6 +150,7 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 </div></details>
 <div class="btn-row">
 <button type="submit" class="btn btn-go" id="bg">开始推演</button>
+<button type="button" class="btn btn-go" id="bc" style="display:none;background:var(--rd)" onclick="cancelSim()">⏹ 停止推演</button>
 <button type="button" class="btn btn-d" onclick="demo()">填入示例</button>
 <a href="/extreme" class="btn btn-d" style="text-decoration:none;background:rgba(255,77,77,.1);border-color:rgba(255,77,77,.2);color:var(--rd)">💀 绝境模式</a>
 </div>
@@ -175,25 +176,36 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 var C=2*Math.PI*53;
 var $=function(s){return document.querySelector(s)};
 function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+var _abortCtrl=null;
+function cancelSim(){if(_abortCtrl){_abortCtrl.abort();_abortCtrl=null}$('#bg').disabled=false;$('#bc').style.display='none';document.querySelector('.status').style.display='none';}
+function resetUI(){$('#bg').disabled=false;$('#bc').style.display='none';document.querySelector('.status').style.display='none';}
 function _old_demo(){$('#f-co').value='中国';$('#f-ci').value='北京';$('#f-in').value='AI大模型 SaaS';$('#f-ca').value='200万';$('#f-te').value='3个人(前同事)';$('#f-ex').value='在字节做了4年AI产品经理';$('#f-ed').value='硕士 计算机';$('#f-ad').value='北邮校友圈,认识天使投资人,懂跨境电商';$('#f-id').value='在北京做一个AI驱动的跨境电商选品SaaS——分析TikTok/Instagram热门内容和全球电商销售数据，用大模型自动推荐高潜力爆品给中小卖家，提供AI生成的营销文案和多语言翻译'}
 function g(v){const f=$('#gf'),o=C*(1-v/100);f.style.strokeDasharray=C;f.style.strokeDashoffset=o;f.style.stroke=v>=50?'var(--gr)':v>=30?'var(--yl)':v>=20?'var(--or)':'var(--rd)';$('#gv').innerHTML=v.toFixed(1)+'<span>%</span>'}
 function fm(n){return n>=1e8?(n/1e8).toFixed(1)+'亿':n>=1e4?(n/1e4).toFixed(0)+'万':n}
 
 async function s(){
 const id=$('#f-id').value.trim();if(!id){alert('请输入想法');return false}
+// 输入健壮性检查
+if(id.length<6){alert('场景描述太短（至少6个字），请描述更多细节后再试。\n\n例如不要只写"创业"或"应聘"，试着描述：\n- 你在哪个城市、有什么资源\n- 想做什么具体的事\n- 有什么优势或顾虑');return false}
+var vagueWords=/^(test|测试|hi|hello|你好|试试|什么|帮我|怎么样|可以吗|行不行|123|abc|aaa)$/i;
+if(vagueWords.test(id)){alert('这看起来像测试输入。请描述一个真实的场景，比如：\n\n"我在北京有200万资金和3个前同事，想做AI跨境电商SaaS"\n\n系统需要具体信息才能给出可靠推演。');return false}
+var badWords=/(?:fuck|shit|damn|操|草|f[u*]ck|sh[i1]t|d[a@]mn)/i;
+if(badWords.test(id)){alert('请使用文明用语描述场景。');return false}
 const apiKey=$('#f-key').value.trim();if(!apiKey){alert('请先输入API密钥');return false}
 const p={industry:$('#f-in').value||'',capital_raw:$('#f-ca').value||'',team_raw:$('#f-te').value||'',experience:$('#f-ex').value||'',education:$('#f-ed').value||'',advantage:$('#f-ad').value||'',fringe_mode:$('#f-mode').value==='fringe',extreme_mode:false,butterfly_on:$('#f-butterfly').value==='on',api_key:apiKey,model:$("#f-model").value,api_base:$("#f-base").value||""};
-$('#bg').disabled=true;$('#res').style.display='block';$('#ve').className='verdict';$('#ve').textContent='';$('#st').innerHTML='';$('#pg').innerHTML='';$('#cc').innerHTML='';$('#tl').innerHTML='';$('#rp').innerHTML='';
+$('#bg').disabled=true;$('#bc').style.display='inline-block';$('#res').style.display='block';$('#ve').className='verdict';$('#ve').textContent='';$('#st').innerHTML='';$('#pg').innerHTML='';$('#cc').innerHTML='';$('#tl').innerHTML='';$('#rp').innerHTML='';
+var gb=document.getElementById('gv-block');if(gb)gb.style.display='none';
 const st=document.querySelector('.status');st.style.display='block';
 
 try{
-const r=await fetch('/api/simulate/stream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idea:id,profile:p})});
+_abortCtrl=new AbortController();
+const r=await fetch('/api/simulate/stream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idea:id,profile:p}),signal:_abortCtrl.signal});
 const reader=r.body.getReader();const dec=new TextDecoder();let buf='',market=null,risk=null,strategy=null,cc=null;
 while(true){const{value,done}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});const lines=buf.split('\n');buf=lines.pop()||'';
 for(const line of lines){if(!line.startsWith('data: ')||line.includes('[DONE]'))continue;
 try{const d=JSON.parse(line.slice(6));
 if(d.phase&&d.msg)st.innerHTML='<span class="dot"></span>'+d.msg;
-if(d.phase==='error'){st.style.display='none';$('#ve').className='verdict red';$('#ve').innerHTML='<strong>❌ '+d.msg+'</strong>';$('#bg').disabled=false;return}
+if(d.phase==='error'){st.style.display='none';$('#ve').className='verdict red';$('#ve').innerHTML='<strong>❌ '+d.msg+'</strong>';_abortCtrl=null;$('#bg').disabled=false;$('#bc').style.display='none';return}
 if(d.phase==='market_done')market=d.data;if(d.phase==='risk_done')risk=d.data;if(d.phase==='strategy_done')strategy=d.data;if(d.phase==='cross_country_done')cc=d.data;
 if(d.phase==='governance_done'){(function(gd){
 var gb=document.getElementById('gv-block');gb.style.display='block';
@@ -249,9 +261,9 @@ if(se.length){extraHTML+='<div class="sec">敏感度分析</div><div class="pc" 
 $('#pg').innerHTML+=extraHTML;
 $('#rp').innerHTML=esc(dd.report||'').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 }
-}catch(e){}}}st.style.display='none';$('#res').scrollIntoView({behavior:'smooth'});
-}catch(e){st.innerHTML='错误: '+e.message}
-$('#bg').disabled=false;return false
+}catch(e){}}}_abortCtrl=null;st.style.display='none';$('#bg').disabled=false;$('#bc').style.display='none';$('#res').scrollIntoView({behavior:'smooth'});
+}catch(e){if(e.name==='AbortError'){st.innerHTML='已取消推演';}else{st.innerHTML='错误: '+e.message}}
+_abortCtrl=null;$('#bg').disabled=false;$('#bc').style.display='none';return false
 }
 </script>
 </body>
