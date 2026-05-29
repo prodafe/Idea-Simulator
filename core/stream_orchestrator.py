@@ -351,7 +351,8 @@ JSON:"""
             return
         yield {"phase":"init","msg":"验证API密钥..."}
         base_url = profile.get("api_base","")
-        v = validate_key(api_key, model, base_url)
+        proxy = getattr(Config,"HTTPS_PROXY","") or getattr(Config,"HTTP_PROXY","")
+        v = validate_key(api_key, model, base_url, getattr(Config,"VERIFY_SSL",True), proxy)
         if not v.get("valid"):
             yield {"phase":"error","msg":f"API密钥无效: {v.get('error','')}"}
             return
