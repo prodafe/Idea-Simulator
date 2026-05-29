@@ -43,9 +43,14 @@ idea-simulator = "run:main"
 
 [tool.setuptools]
 py-modules = ["run", "config"]
+include-package-data = true
+zip-safe = false
 
 [tool.setuptools.packages.find]
 include = ["core*", "api*", "agents*", "tools*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.html", "*.js", "*.css"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

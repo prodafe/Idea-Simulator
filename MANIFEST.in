@@ -1,0 +1,16 @@
+# Source distribution manifest — 包含所有非代码资源文件
+include README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md LICENSE
+include requirements.txt
+include run.py config.py
+recursive-include data *.json
+recursive-include frontend *.html *.js *.css
+recursive-include tests *.py
+recursive-include agents *.py
+recursive-include core *.py
+recursive-include api *.py
+recursive-include tools *.py
+prune .git
+prune .github
+prune .pytest_cache
+prune __pycache__
+prune *.egg-info

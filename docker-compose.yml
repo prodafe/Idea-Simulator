@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  idea-simulator:
+    build: .
+    container_name: idea-simulator
+    ports:
+      - "8001:8001"
+    environment:
+      # 可选：网络配置（国内用户建议设置）
+      # - IDEA_VERIFY_SSL=false
+      # - HTTPS_PROXY=http://host.docker.internal:7890
+      # - IDEA_LLM_TIMEOUT=120
+    restart: unless-stopped
+    # 如需持久化结果，取消下面注释：
+    # volumes:
+    #   - ./data/results:/app/data/results

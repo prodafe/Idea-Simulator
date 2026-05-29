@@ -23,6 +23,44 @@ idea-simulator
 
 ---
 
+## 打包与部署
+
+### pip 安装（推荐）
+
+```bash
+# PyPI 安装（如果已发布）
+pip install idea-simulator
+
+# 或从 GitHub 直接安装
+pip install git+https://github.com/prodafe/Idea-Simulator.git@v5.0.0
+
+# 或本地源码安装
+git clone https://github.com/prodafe/Idea-Simulator.git
+cd Idea-Simulator
+pip install -e .
+```
+
+### Docker 部署
+
+```bash
+# 构建并启动
+docker-compose up -d
+
+# 或手动构建
+docker build -t idea-simulator:v5.0.0 .
+docker run -p 8001:8001 idea-simulator:v5.0.0
+```
+
+### 源码打包
+
+```bash
+pip install build
+python -m build
+# 生成 dist/idea_simulator-5.0.0.tar.gz 和 .whl
+```
+
+---
+
 ## 网络配置（国内用户 / 企业内网）
 
 ```bash
