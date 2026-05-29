@@ -29,8 +29,8 @@ class GovernanceLayer:
             AntiHallucination(),
         ]
         self.weights = {
-            "reality": 0.25, "social_norm": 0.15, "feasibility": 0.25,
-            "consistency": 0.20, "hallucination": 0.15,
+            "reality": 0.22, "social_norm": 0.12, "feasibility": 0.22,
+            "consistency": 0.18, "hallucination": 0.13, "backtest": 0.13,
         }
 
     def _load_anchors(self) -> dict:
@@ -65,11 +65,21 @@ class GovernanceLayer:
                     "message": f"{agent.display_name} 得分 {result['score']}/100，触发紧急干预",
                 })
 
-        # 加权治理分
+        # ── 回测校验(独立于5Agent，从历史数据验证) ──
+        backtest_result = self._run_backtest(idea, profile, agent_outputs)
+        results["backtest"] = backtest_result
+        all_violations.extend(backtest_result.get("violations", []))
+
+        # 加权治理分(含回测)
+        all_weights = {**self.weights, "backtest": 0.10}
+        # 重新归一化
+        total_w = sum(all_weights.values())
         governance_score = sum(
-            results[k].get("score", 50) * self.weights.get(k, 0.2)
+            results[k].get("score", 50) * all_weights.get(k, 0.1) / total_w * len(all_weights)
             for k in results
         )
+        # 重新缩放到100
+        governance_score = min(100, governance_score)
 
         # 单个Agent极低分的额外惩罚
         penalty = 0
@@ -95,6 +105,35 @@ class GovernanceLayer:
             "verdict": verdict,
             "summary": self._build_summary(governance_score, all_violations, verdict),
         }
+
+    def _run_backtest(self, idea: str, profile: dict, agent_outputs: dict) -> dict:
+        """用历史案例验证预测的合理性"""
+        try:
+            from core.accuracy_engine import AccuracyEngine
+            ae = AccuracyEngine()
+            industry = profile.get("industry", "")
+            predicted_rate = agent_outputs.get("deep_sim", {}).get("success_probability", 50)
+            result = ae.back_test(predicted_rate, industry, profile)
+            if result.get("anchored") and result.get("historical_rate"):
+                hist = result["historical_rate"]
+                gap = abs(predicted_rate - hist)
+                if gap > 25:
+                    return {"score": 40, "violations": [{
+                        "type": "backtest_deviation", "severity": "high",
+                        "message": f"预测成功率({predicted_rate}%)与历史对标({hist}%)偏差{gap}%——{result.get('message','')}"
+                    }], "details": f"回测偏差{gap}%"}
+                elif gap > 15:
+                    return {"score": 70, "violations": [{
+                        "type": "backtest_deviation", "severity": "medium",
+                        "message": f"预测成功率({predicted_rate}%)与历史对标({hist}%)存在{gap}%偏差"
+                    }], "details": f"回测偏差{gap}%"}
+                else:
+                    return {"score": 90, "violations": [],
+                            "details": f"回测一致(偏差{gap}%)"}
+            return {"score": 80, "violations": [], "details": result.get("message", "回测数据不足")}
+        except Exception as e:
+            logger.warning(f"Backtest failed: {e}")
+            return {"score": 75, "violations": [], "details": "回测跳过"}
 
     def apply_correction(self, final_rate: float, governance_result: dict) -> float:
         """将治理分转化为成功率修正乘数"""

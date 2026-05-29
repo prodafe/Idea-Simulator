@@ -202,13 +202,18 @@ JSON:"""
             gs = governance_info.get("governance_score", 0)
             gv = governance_info.get("verdict", "?")
             violations = governance_info.get("all_violations", [])
+            critical_vs = [v for v in violations if v.get("severity") in ("critical", "high")]
+            gov_verdict_cn = {"approve": "✅ 预测基本合理，可采纳", "warn": "⚠️ 存在重要违规，需修正后采纳", "reject": "🚫 预测严重偏离现实，不建议采纳"}
+            mandatory_response = ""
+            if critical_vs:
+                mandatory_response = "\n\n【强制要求】你的报告必须包含一节「治理层审查回应」，逐条回应以下高优先级违规，说明是否认同、如认同则如何修正预测、如不认同则给出反驳依据：\n" + "\n".join(f"{i+1}. [{v['severity']}] {v['message']}" for i, v in enumerate(critical_vs[:5]))
             governance_context = f"""
 🏛️ 宪法治理层审查结果:
-- 综合治理得分: {gs}/100 (判定: {gv})
-- 违规项数: {len(violations)}
-- 关键问题: {chr(10).join('- '+v['message'][:120] for v in violations[:5]) if violations else '无严重违规'}
+- 综合治理得分: {gs}/100 — {gov_verdict_cn.get(gv, gv)}
+- 违规项数: {len(violations)} (严重: {len(critical_vs)})
+{mandatory_response}
 
-请在报告中充分考虑以上治理层审查发现，修正任何被标记的不可靠预测，确保分析结论与治理层审查结果一致。
+请在报告中充分考虑治理层审查发现。如果治理层标记了违规，你必须要么接受并修正相应的预测数字，要么给出有说服力的反驳理由。
 """
 
         prompt = f"""你是全球顶级现实世界推演分析师。你的任务是对以下场景进行深度、细致、引用真实数据的推演分析。

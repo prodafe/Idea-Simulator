@@ -99,6 +99,12 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 .gov-violation .gv-sev.high{background:rgba(255,123,66,.2);color:var(--or)}
 .gov-violation .gv-sev.medium{background:rgba(255,184,48,.2);color:var(--yl)}
 .gov-correction{margin:4px 0;padding:6px 10px;background:rgba(0,210,160,.04);border-radius:6px;font-size:10px;color:var(--gr)}
+.conf-band{margin-top:12px;padding:10px 14px;background:rgba(255,255,255,.015);border:1px solid var(--bor);border-radius:10px}
+.conf-band .cb-label{font-size:10px;color:var(--dim);margin-bottom:6px}
+.conf-band .cb-bar{position:relative;height:8px;background:rgba(255,255,255,.04);border-radius:4px;margin:4px 0}
+.conf-band .cb-fill{position:absolute;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--rd),var(--yl),var(--gr))}
+.conf-band .cb-marker{position:absolute;top:-2px;width:2px;height:12px;background:#fff;border-radius:1px}
+.conf-band .cb-labels{display:flex;justify-content:space-between;font-size:9px;color:var(--dim)}
 @media(max-width:640px){.g3,.g4{grid-template-columns:1fr}.grid-p{grid-template-columns:1fr}.top-r{flex-direction:column}.cc-grid{grid-template-columns:1fr 1fr}.gov-score-row{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
@@ -206,7 +212,9 @@ const vtxt=dd.final_rate>=50?'可行! 综合成功率 '+dd.final_rate+'%':dd.fin
 const fringeNote=$('#f-mode').value==='fringe'?' <span style="font-size:11px;color:var(--rd)">[剑走偏锋]</span>':'';
 const bfNote=$('#f-butterfly').value==='on'?' <span style="font-size:10px;color:var(--ac)">[蝴蝶效应]</span>':'';
 $('#ve').className='verdict '+color;$('#ve').innerHTML='<strong>'+vtxt+'</strong>'+fringeNote+bfNote;
-$('#st').innerHTML='<div class="s"><span class="l">行业基础</span><span class="r">'+dd.baseline_rate+'%</span></div><div class="s"><span class="l">背景匹配</span><span class="r" style="color:var(--ac)">'+dd.matched_rate+'%</span></div><div class="s"><span class="l">蒙特卡洛推演</span><span class="r" style="font-size:20px;color:var(--yl)">'+dd.final_rate+'%</span></div><div class="s"><span class="l">P10-P90区间</span><span class="r">'+(ds.stats?ds.stats.p10:'?')+'% ~ '+(ds.stats?ds.stats.p90:'?')+'%</span></div><div class="s"><span class="l">场景维度</span><span class="r">'+(ds.total_scenarios?ds.total_scenarios.macro+'宏观×'+ds.total_scenarios.shifts+'变革×'+ds.total_scenarios.personalities+'人因':'?')+'</span></div><div class="s"><span class="l">模拟次数</span><span class="r">'+((ds.iterations||0)+'次').replace(/\B(?=(\d{3})+(?!\d))/g,',')+'</span></div><div class="s"><span class="l">场景空间</span><span class="r" style="font-size:10px">'+((ds.total_scenarios?.total_combos||8100000000)/1e9).toFixed(0)+'B组合</span></div><div class="s"><span class="l">耗时</span><span class="r">'+dd.total_time_ms+'ms</span></div>';
+var cb=dd.confidence_band||{},p10=cb.p10||0,p50=cb.p50||0,p90=cb.p90||0;var confHTML='';if(p10||p50||p90){var pct=Math.min(100,Math.max(0,(p50/100*100)));confHTML='<div class=conf-band><div class=cb-label>置信区间 (P10-P50-P90)</div><div class=cb-bar><div class=cb-fill style=left:'+p10+'%;width:'+(p90-p10)+'%></div><div class=cb-marker style=left:'+p50+'%></div></div><div class=cb-labels><span>'+p10+'%</span><span>'+p50+'%</span><span>'+p90+'%</span></div></div>';}
+var govExtra='';if(dd.governance_score!==undefined){govExtra='<div class=s><span class=l>治理层得分</span><span class=r style=color:var(--ac)>'+dd.governance_score+'/100 ('+dd.governance_verdict+')</span></div>';}
+$('#st').innerHTML='<div class="s"><span class="l">行业基础</span><span class="r">'+dd.baseline_rate+'%</span></div><div class="s"><span class="l">背景匹配</span><span class="r" style="color:var(--ac)">'+dd.matched_rate+'%</span></div><div class="s"><span class="l">蒙特卡洛推演</span><span class="r" style="font-size:20px;color:var(--yl)">'+dd.final_rate+'%</span></div><div class="s"><span class="l">P10-P90区间</span><span class="r">'+(ds.stats?ds.stats.p10:'?')+'% ~ '+(ds.stats?ds.stats.p90:'?')+'%</span></div>'+govExtra+'<div class="s"><span class="l">场景维度</span><span class="r">'+(ds.total_scenarios?ds.total_scenarios.macro+'宏观×'+ds.total_scenarios.shifts+'变革×'+ds.total_scenarios.personalities+'人因':'?')+'</span></div><div class="s"><span class="l">模拟次数</span><span class="r">'+((ds.iterations||0)+'次').replace(/\B(?=(\d{3})+(?!\d))/g,',')+'</span></div><div class="s"><span class="l">耗时</span><span class="r">'+dd.total_time_ms+'ms</span></div>'+confHTML;
 if(market){
 $('#pg').innerHTML='<div class="pc rec"><div class="pn">📊 市场分析</div><div class="pm">规模:'+(market.market_size||'?')+' | 增长:'+(market.growth_rate||'?')+' | 门槛:'+(market.entry_barrier||'?')+'</div><div class="pm" style="margin-top:4px">'+(market.analysis||'')+'</div></div>';}
 if(risk){
