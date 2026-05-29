@@ -28,7 +28,7 @@ class SocialNormCheck:
         sc_type = profile.get("_scenario_type", "other")
         country = profile.get("country", "中国")
         norm = self.COUNTRY_NORMS.get(country, self.COUNTRY_NORMS["中国"])
-        ctx = json.dumps(agent_outputs, ensure_ascii=False)[:2000]
+        ctx = json.dumps(agent_outputs, ensure_ascii=False)[:800]
 
         prompt = f"""你是社会学家和行为经济学家。审查以下推演结果中的社会行为假设是否现实。
 
@@ -49,7 +49,7 @@ class SocialNormCheck:
 JSON:"""
 
         try:
-            text = llm_fn(prompt, 400)
+            text = llm_fn(prompt, 800)
             s = text.find("{"); e = text.rfind("}") + 1
             if s >= 0 and e > s:
                 result = json.loads(text[s:e])

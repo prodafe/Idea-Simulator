@@ -77,7 +77,7 @@ class ConsistencyCrossCheck:
 只输出JSON: {{"contradictions":[{{"severity":"high/medium/low","message":"矛盾描述"}}]}}
 JSON:"""
         try:
-            text = llm_fn(prompt, 200)
+            text = llm_fn(prompt, 400)
             s = text.find("{"); e = text.rfind("}") + 1
             if s >= 0 and e > s:
                 result = json.loads(text[s:e])

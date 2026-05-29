@@ -1,6 +1,6 @@
 """v14 多Agent流式推演 — 统一LLM + SSE"""
 
-import json, logging, time, random, concurrent.futures
+import json, logging, re, time, random, concurrent.futures
 from pathlib import Path
 from config import Config
 from core.llm_provider import call_llm, validate_key
@@ -78,12 +78,30 @@ JSON:"""
             s = text.find("{"); e = text.rfind("}")+1
             if s>=0 and e>s:
                 result = json.loads(text[s:e])
-                # 确保baseline_rate在合理范围
                 result["baseline_rate"] = max(0.5, min(99.5, float(result.get("baseline_rate",50))))
+                # ✅ 自我一致性校验：用保守视角再问一次，偏差>15pp则取均值+标记
+                verify_prompt = f"""What is a conservative lower-bound success rate (0-100) for this scenario? Output ONLY the number.
+Scenario: {idea}
+Background: {json.dumps(profile, ensure_ascii=False)[:150]}
+Number:"""
+                try:
+                    vt = self._llm(verify_prompt, 100)
+                    nums = re.findall(r'(\d+\.?\d*)', str(vt))
+                    if nums:
+                        conservative = float(nums[0])
+                        optimistic = result["baseline_rate"]
+                        gap = abs(optimistic - conservative)
+                        if gap > 15:
+                            avg = (optimistic + conservative) / 2
+                            result["baseline_rate"] = round(avg, 1)
+                            result["self_consistency"] = {"optimistic": optimistic, "conservative": conservative, "gap": round(gap,1), "used_average": True}
+                        else:
+                            result["self_consistency"] = {"optimistic": optimistic, "conservative": conservative, "gap": round(gap,1), "used_average": False}
+                except Exception:
+                    result["self_consistency"] = {"skipped": True}
                 return result
         except Exception:
             pass
-        # 兜底：默认分类
         return {"scenario_type":"other","baseline_rate":50.0,"key_factors":[]}
     def agent_context(self, idea: str, profile: dict) -> dict:
         """分析用户背景和想法的匹配度"""
@@ -556,6 +574,12 @@ JSON:"""
             "governance_scores":governance_result.get("scores", {}),
             "governance_corrections":governance_result.get("corrections", []),
             "governance_summary":governance_result.get("summary", ""),
+            "confidence_band":{
+                "p10":deep_result.get("stats",{}).get("p10",0),
+                "p50":deep_result.get("stats",{}).get("p50",0),
+                "p90":deep_result.get("stats",{}).get("p90",0),
+            },
+            "self_consistency":scenario.get("self_consistency", {}),
             "adjusted_rate":round(final_rate,1),
             "final_rate":deep_result["success_probability"],
             "report":report,
