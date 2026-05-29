@@ -204,7 +204,7 @@ if(se.length){extraHTML+='<div class="sec">敏感度分析</div><div class="pc" 
 $('#pg').innerHTML+=extraHTML;
 $('#rp').innerHTML=esc(dd.report||'').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 }
-}catch(e){}}}}st.style.display='none';$('#res').scrollIntoView({behavior:'smooth'});
+}catch(e){}}}st.style.display='none';$('#res').scrollIntoView({behavior:'smooth'});
 }catch(e){st.innerHTML='错误: '+e.message}
 $('#bg').disabled=false;return false
 }
