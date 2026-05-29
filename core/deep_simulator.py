@@ -1,8 +1,10 @@
 """v10 千亿级推演引擎 — 精度优化版"""
 
-import json, random, time, re
+import json, logging, random, time, re
 from dataclasses import dataclass
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 from core.accuracy_engine import AccuracyEngine
 from core.constraint_engine import ConstraintEngine
 

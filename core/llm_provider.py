@@ -22,8 +22,10 @@ MODELS = {
     "gemini-3.1-flash": {"provider":"google","desc":"Gemini 3.1 Flash 快速"},
     "gemini-3-pro": {"provider":"google","desc":"Gemini 3 Pro 1M上下文"},
     # ── DeepSeek (2026.4月 V4发布) ──
-    "deepseek-v4": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek V4 1M上下文"},
-    "deepseek-v4-flash": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek V4 Flash 极速"},
+    "deepseek-v4-pro": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek V4 Pro 1M"},
+    "deepseek-v4": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek V4 (alias→Pro)"},
+    "deepseek-v4-flash": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek V4 Flash"},
+    "deepseek-v4-lite": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek V4 Lite"},
     "deepseek-r1": {"provider":"openai","base":"https://api.deepseek.com/v1","desc":"DeepSeek R1 推理"},
     # ── Alibaba 通义 (2026.1-2月最新) ──
     "qwen3.5-plus": {"provider":"openai","base":"https://dashscope.aliyuncs.com/compatible-mode/v1","desc":"Qwen3.5 Plus 397B/170B激活"},
@@ -123,7 +125,11 @@ def _anthropic(prompt, model, key, max_tok, verify_ssl=True, proxy="", timeout=6
     resp = client.messages.create(
         model=model, max_tokens=max_tok,
         messages=[{"role":"user","content":prompt}])
-    return resp.content[0].text
+    # Handle ThinkingBlock from extended-thinking models
+    for block in resp.content:
+        if hasattr(block, 'text') and block.text:
+            return block.text
+    return resp.content[0].text if hasattr(resp.content[0], 'text') else str(resp.content[0])
 
 def _google(prompt, model, key, max_tok):
     import google.generativeai as genai
@@ -145,7 +151,7 @@ def validate_key(api_key: str, model: str = "gpt-4o-mini", base_url: str = "", v
     if not api_key:
         return {"valid":False,"error":"请提供API密钥"}
     try:
-        result = call_llm("回复OK", model, api_key, 10, base_url, verify_ssl, proxy, 30)
+        result = call_llm("say OK", model, api_key, 50, base_url, verify_ssl, proxy, 30)
         ok = "OK" in result
         return {"valid":ok,"test_response":result[:80],"model":model}
     except Exception as e:

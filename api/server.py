@@ -110,6 +110,15 @@ async def simulate(req: SimulateRequest):
     if not req.idea.strip():
         raise HTTPException(400, "想法不能为空")
     profile = req.profile or {}
+    # 设置 Config (非流式路径需要)
+    api_key = profile.get("api_key", "")
+    model = profile.get("model", "gpt-4o-mini")
+    if api_key:
+        Config.LLM_API_KEY = api_key
+        Config.LLM_MODEL = model
+        base_url = profile.get("api_base", "")
+        if base_url:
+            Config.LLM_BASE_URL = base_url
     result = simulator.run(req.idea.strip(), profile)
     return result
 

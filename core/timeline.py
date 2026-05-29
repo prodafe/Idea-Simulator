@@ -133,8 +133,8 @@ class TimelineEngine:
     def _get_phase(self, month: int) -> str:
         for period, desc in self.phases.items():
             start, end = period.split("-")
-            end = end.replace("月+", "99")
-            if int(start.replace("月", "")) <= month <= int(end):
+            end = end.replace("月+", "99").replace("月", "")
+            if int(start.replace("月", "")) <= month <= int(end.replace("月", "")):
                 return desc
         return "持续运营期"
 
