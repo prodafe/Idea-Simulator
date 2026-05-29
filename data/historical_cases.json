@@ -1,0 +1,1534 @@
+{
+  "description": "历史创业成败对标案例库 — 基于CB Insights/IT桔子/PitchBook/公开报道",
+  "cases": [
+    {
+      "company": "Juicero",
+      "year": 2016,
+      "raised": 118,
+      "outcome": "失败",
+      "reason": "过度工程化:400美元的榨汁机解决的问题不值这个价",
+      "industry": "硬件制造",
+      "lesson": "先验证需求再砸钱做产品"
+    },
+    {
+      "company": "Quibi",
+      "year": 2020,
+      "raised": 1750,
+      "outcome": "失败",
+      "reason": "产品形态不对:短视频+付费+仅移动端,没人需要",
+      "industry": "自媒体",
+      "lesson": "不要创造不存在的需求"
+    },
+    {
+      "company": "Theranos",
+      "year": 2018,
+      "raised": 700,
+      "outcome": "欺诈",
+      "reason": "技术根本不存在,欺骗投资人和患者",
+      "industry": "医疗健康",
+      "lesson": "硬科技一定要有科学验证"
+    },
+    {
+      "company": "Webvan",
+      "year": 2001,
+      "raised": 800,
+      "outcome": "失败",
+      "reason": "时机太早:2001年搞生鲜电商=基建/用户/物流都不成熟",
+      "industry": "电商",
+      "lesson": "早了10年=失败"
+    },
+    {
+      "company": "Color Genomics",
+      "year": 2013,
+      "raised": 41,
+      "outcome": "成功退出",
+      "reason": "单基因检测→群体健康→被收购",
+      "industry": "个性化医疗",
+      "lesson": "找到真正的PMF后快速pivot"
+    },
+    {
+      "company": "小米",
+      "year": 2010,
+      "raised": 1100,
+      "outcome": "IPO",
+      "reason": "极致性价比+粉丝经济+生态链打法",
+      "industry": "硬件制造",
+      "lesson": "米粉文化+供应链效率"
+    },
+    {
+      "company": "字节跳动",
+      "year": 2012,
+      "raised": 7400,
+      "outcome": "超级成功",
+      "reason": "AI推荐+短视频+全球化执行力",
+      "industry": "自媒体",
+      "lesson": "算法驱动内容分发→降维打击"
+    },
+    {
+      "company": "拼多多",
+      "year": 2015,
+      "raised": 1600,
+      "outcome": "IPO",
+      "reason": "社交裂变+下沉市场+百亿补贴",
+      "industry": "电商",
+      "lesson": "找到被忽视的下沉市场"
+    },
+    {
+      "company": "理想汽车",
+      "year": 2015,
+      "raised": 2000,
+      "outcome": "IPO",
+      "reason": "增程式路线+精准家庭定位,在纯电还不成熟时找到了市场",
+      "industry": "新能源车",
+      "lesson": "技术路线的选择比技术本身更重要"
+    },
+    {
+      "company": "OpenAI",
+      "year": 2015,
+      "raised": 11300,
+      "outcome": "超级成功",
+      "reason": "AGI信仰+顶级人才+先发优势+微软绑定",
+      "industry": "AI",
+      "lesson": "在最前沿赛道,最优秀的人才是唯一壁垒"
+    },
+    {
+      "company": "Anthropic",
+      "year": 2021,
+      "raised": 8000,
+      "outcome": "高速增长",
+      "reason": "AI安全差异化+顶级团队,在OpenAI之外开辟第二极",
+      "industry": "AI",
+      "lesson": "巨头的赛道可以靠差异化切入"
+    },
+    {
+      "company": "Clubhouse",
+      "year": 2020,
+      "raised": 110,
+      "outcome": "衰退",
+      "reason": "疫情红利消失+巨头复制功能( Twitter Spaces)",
+      "industry": "自媒体",
+      "lesson": "纯靠时机红利的产品没有护城河"
+    },
+    {
+      "company": "Ofo",
+      "year": 2014,
+      "raised": 2200,
+      "outcome": "失败",
+      "reason": "烧钱大战+资产重+管理混乱+押金危机",
+      "industry": "本地生活",
+      "lesson": "共享单车不是互联网,是资产运营"
+    },
+    {
+      "company": "Peloton",
+      "year": 2012,
+      "raised": 1900,
+      "outcome": "从巅峰跌落后复苏",
+      "reason": "疫情暴涨→后疫情暴跌→库存积压→CEO换人→艰难复苏",
+      "industry": "硬件制造",
+      "lesson": "疫情红利不可持续,要做好下行准备"
+    },
+    {
+      "company": "Stripe",
+      "year": 2010,
+      "raised": 2200,
+      "outcome": "超级成功",
+      "reason": "开发者体验至上+API经济+全球化从Day1",
+      "industry": "金融科技",
+      "lesson": "做基础设施而不是做应用"
+    },
+    {
+      "company": "Canva",
+      "year": 2013,
+      "raised": 560,
+      "outcome": "IPO",
+      "reason": "设计民主化+模板生态+病毒式增长,非设计师也能做设计",
+      "industry": "SaaS",
+      "lesson": "让非专业用户能做专业的事=巨大的市场"
+    },
+    {
+      "company": "Notion",
+      "year": 2013,
+      "raised": 340,
+      "outcome": "高速增长",
+      "reason": "all-in-one工作空间+社区驱动增长+学生免费策略",
+      "industry": "SaaS",
+      "lesson": "产品力就是最好的增长引擎"
+    },
+    {
+      "company": "Shein",
+      "year": 2008,
+      "raised": 4000,
+      "outcome": "IPO",
+      "reason": "超快时尚+中国供应链+数据驱动设计+社交媒体营销",
+      "industry": "电商",
+      "lesson": "供应链效率×数据驱动=碾压级优势"
+    },
+    {
+      "company": "Databricks",
+      "year": 2013,
+      "raised": 3500,
+      "outcome": "高速增长",
+      "reason": "开源Spark→企业版→AI数据平台",
+      "industry": "AI",
+      "lesson": "开源→企业版→平台化,经典路线"
+    },
+    {
+      "company": "Wework",
+      "year": 2010,
+      "raised": 11000,
+      "outcome": "崩塌后重建",
+      "reason": "估值泡沫+伪科技公司(实为房地产)+创始人失控",
+      "industry": "SaaS",
+      "lesson": "不管故事讲得多好,商业模式要真实"
+    },
+    {
+      "company": "DoorDash",
+      "year": 2013,
+      "raised": 2500,
+      "outcome": "IPO",
+      "reason": "疫情外卖爆发+郊区/中小城市差异化策略",
+      "industry": "本地生活",
+      "lesson": "在大城市饱和时,去中小城市"
+    },
+    {
+      "company": "Instacart",
+      "year": 2012,
+      "raised": 2900,
+      "outcome": "IPO",
+      "reason": "疫情红利+与超市合作而非竞争+广告收入成为利润引擎",
+      "industry": "电商",
+      "lesson": "与其颠覆传统行业,不如赋能传统行业"
+    },
+    {
+      "company": "Midjourney",
+      "year": 2021,
+      "raised": 0,
+      "outcome": "盈利超级成功",
+      "reason": "AI图像生成+Discord社区+订阅制+零融资→年入2亿+",
+      "industry": "AI",
+      "lesson": "AI时代可以0融资做到数十亿估值"
+    },
+    {
+      "company": "Google Glass",
+      "year": 2013,
+      "outcome": "失败",
+      "reason": "产品过早+隐私恐慌+价格过高",
+      "industry": "AR/VR",
+      "lesson": "消费者AR/VR需要等待硬件成熟"
+    },
+    {
+      "company": "Magic Leap",
+      "year": 2018,
+      "outcome": "挣扎",
+      "reason": "过度承诺+实际产品差距大→信任崩塌",
+      "industry": "AR/VR",
+      "lesson": "demo和实际产品差距不能太大"
+    },
+    {
+      "company": "Groupon",
+      "year": 2011,
+      "outcome": "从巅峰跌落",
+      "reason": "商业模式护城河太低→无数竞品→利润率→0",
+      "industry": "本地生活",
+      "lesson": "团购模式的天然缺陷:商家和用户都没有忠诚度"
+    },
+    {
+      "company": "Evernote",
+      "year": 2012,
+      "outcome": "衰落",
+      "reason": "产品臃肿+免费模式无法变现+竞品围剿",
+      "industry": "SaaS",
+      "lesson": "专注核心功能,避免feature creep"
+    },
+    {
+      "company": "Zoom",
+      "year": 2020,
+      "outcome": "超级成功(后回落)",
+      "reason": "疫情红利+产品极致好用+先发优势",
+      "industry": "SaaS",
+      "lesson": "产品体验是核心竞争力"
+    },
+    {
+      "company": "Snowflake",
+      "year": 2020,
+      "outcome": "超级IPO",
+      "reason": "云原生数据仓库+消费模式定价+多云策略",
+      "industry": "SaaS",
+      "lesson": "云原生+消费定价=最佳商业模式"
+    },
+    {
+      "company": "Slack",
+      "year": 2019,
+      "outcome": "被Salesforce277亿收购",
+      "reason": "团队协作刚需+API生态+先发优势",
+      "industry": "SaaS",
+      "lesson": "做平台不做工具"
+    },
+    {
+      "company": "GitHub",
+      "year": 2018,
+      "outcome": "被微软75亿收购",
+      "reason": "开发者社区+开源生态的不可替代性",
+      "industry": "SaaS",
+      "lesson": "社区就是护城河"
+    },
+    {
+      "company": "阿里巴巴",
+      "year": 1999,
+      "raised": 25000,
+      "outcome": "超级IPO",
+      "reason": "电商基础设施+支付宝信任机制+阿里云",
+      "industry": "电商",
+      "lesson": "做基础设施的回报是指数级的"
+    },
+    {
+      "company": "腾讯",
+      "year": 1998,
+      "raised": 5000,
+      "outcome": "超级成功",
+      "reason": "QQ→微信超级APP+游戏+支付+投资生态",
+      "industry": "游戏",
+      "lesson": "社交关系链=最强护城河"
+    },
+    {
+      "company": "美团",
+      "year": 2010,
+      "raised": 12000,
+      "outcome": "IPO",
+      "reason": "千团大战存活者→外卖+到店+酒旅→超级APP",
+      "industry": "本地生活",
+      "lesson": "在红海中活下来就是胜利"
+    },
+    {
+      "company": "滴滴",
+      "year": 2012,
+      "raised": 21000,
+      "outcome": "从巅峰跌落",
+      "reason": "快的合并→Uber退出中国→垄断→安全事件→监管打击→下架",
+      "industry": "共享出行",
+      "lesson": "垄断之后的安全底线不能破"
+    },
+    {
+      "company": "快手",
+      "year": 2011,
+      "raised": 6500,
+      "outcome": "IPO",
+      "reason": "GIF工具→短视频社区→直播电商→老铁经济",
+      "industry": "自媒体",
+      "lesson": "下沉市场的力量被低估了"
+    },
+    {
+      "company": "B站",
+      "year": 2009,
+      "raised": 1200,
+      "outcome": "IPO",
+      "reason": "二次元弹幕→Z世代视频社区→游戏发行→广告+会员",
+      "industry": "自媒体",
+      "lesson": "社区文化的护城河极深"
+    },
+    {
+      "company": "大疆",
+      "year": 2006,
+      "raised": 500,
+      "outcome": "全球霸主",
+      "reason": "消费级无人机80%全球份额→技术壁垒→极难复制",
+      "industry": "硬件制造",
+      "lesson": "技术碾压是最强壁垒"
+    },
+    {
+      "company": "蔚来",
+      "year": 2014,
+      "raised": 10000,
+      "outcome": "IPO",
+      "reason": "高端定位+换电模式+用户社区+极致服务",
+      "industry": "新能源车",
+      "lesson": "用户体验做到极致→品牌溢价自然来"
+    },
+    {
+      "company": "小鹏",
+      "year": 2014,
+      "raised": 7000,
+      "outcome": "IPO",
+      "reason": "智能驾驶差异化+性价比+科技感",
+      "industry": "新能源车",
+      "lesson": "技术标签要足够鲜明"
+    },
+    {
+      "company": "泡泡玛特",
+      "year": 2010,
+      "raised": 300,
+      "outcome": "IPO",
+      "reason": "盲盒经济+潮玩IP+Molly→从杂货铺到千亿市值",
+      "industry": "盲盒/潮玩",
+      "lesson": "抓住年轻人的收集心理=印钞机"
+    },
+    {
+      "company": "名创优品",
+      "year": 2013,
+      "raised": 1000,
+      "outcome": "IPO",
+      "reason": "十元店升级版+设计感+极致供应链+全球扩张",
+      "industry": "电商",
+      "lesson": "低价≠低质,设计感可以改变一切"
+    },
+    {
+      "company": "海底捞",
+      "year": 1994,
+      "raised": 500,
+      "outcome": "IPO",
+      "reason": "极致服务+员工股权+供应链标准化",
+      "industry": "本地生活",
+      "lesson": "服务做到极致就是品牌"
+    },
+    {
+      "company": "瑞幸",
+      "year": 2017,
+      "raised": 1500,
+      "outcome": "崩塌后重生",
+      "reason": "财务造假→退市→破产重组→新管理团队→盈利→重新上市",
+      "industry": "咖啡/茶饮",
+      "lesson": "活下去就有翻盘机会,但代价巨大"
+    },
+    {
+      "company": "小红书",
+      "year": 2013,
+      "raised": 1500,
+      "outcome": "高速增长",
+      "reason": "海淘攻略→生活方式社区→种草经济→直播电商",
+      "industry": "自媒体",
+      "lesson": "社区+电商=最强消费决策平台"
+    },
+    {
+      "company": "得物",
+      "year": 2015,
+      "raised": 500,
+      "outcome": "高速增长",
+      "reason": "球鞋鉴定+潮流社区+电商→年轻人潮流交易平台",
+      "industry": "电商",
+      "lesson": "正品鉴定解决了最大痛点"
+    },
+    {
+      "company": "元气森林",
+      "year": 2016,
+      "raised": 800,
+      "outcome": "高速增长",
+      "reason": "零糖零卡+日系设计+便利店渠道+精准营销",
+      "industry": "快消品",
+      "lesson": "新消费品牌可以崛起于大品牌缝隙"
+    },
+    {
+      "company": "华为(终端)",
+      "year": 2011,
+      "raised": 10000,
+      "outcome": "全球巨头",
+      "reason": "从B2B到B2C→自研芯片+徕卡+品牌高端化→制裁→鸿蒙自建",
+      "industry": "硬件制造",
+      "lesson": "自研核心技术是最深护城河"
+    },
+    {
+      "company": "商汤科技",
+      "year": 2014,
+      "raised": 4000,
+      "outcome": "IPO后暴跌",
+      "reason": "AI四小龙之一→技术领先但商业化弱→收入不及研发投入→股价跌90%",
+      "industry": "AI",
+      "lesson": "技术牛不等于商业成功"
+    },
+    {
+      "company": "快手(早期)",
+      "year": 2011,
+      "raised": 5000,
+      "outcome": "IPO",
+      "reason": "GIF→短视频→直播→电商→一步步进化",
+      "industry": "自媒体",
+      "lesson": "持续进化的能力比初始形态重要"
+    },
+    {
+      "company": "乐视",
+      "year": 2004,
+      "raised": 6000,
+      "outcome": "崩塌",
+      "reason": "生态化反→七大子生态全烧钱→资金链断裂→贾跃亭跑路美国→退市",
+      "industry": "AI",
+      "lesson": "PPT造梦终究要还"
+    },
+    {
+      "company": "ofo小黄车",
+      "year": 2014,
+      "raised": 2200,
+      "outcome": "破产",
+      "reason": "烧钱大战+重资产+管理混乱+押金挪用+拒绝滴滴收购→错过最后生机",
+      "industry": "共享经济",
+      "lesson": "创始人ego害死人"
+    },
+    {
+      "company": "蛋壳公寓",
+      "year": 2015,
+      "raised": 800,
+      "outcome": "暴雷",
+      "reason": "高收低租+租金贷+资金池→资金链断裂→房东租客双输→退市",
+      "industry": "房地产",
+      "lesson": "金融杠杆不能用在民生基本需求上"
+    },
+    {
+      "company": "人人网",
+      "year": 2005,
+      "raised": 800,
+      "outcome": "衰落",
+      "reason": "被微信彻底取代→转型游戏/直播/二手车全失败",
+      "industry": "社交网络",
+      "lesson": "社交产品一旦被替代→不可逆"
+    },
+    {
+      "company": "凡客诚品",
+      "year": 2007,
+      "raised": 2000,
+      "outcome": "崩塌",
+      "reason": "疯狂扩张→SKU爆炸→库存积压→品质下降→口碑崩塌→从万到百人",
+      "industry": "电商",
+      "lesson": "all in供应链比all in营销重要得多"
+    },
+    {
+      "company": "锤子科技",
+      "year": 2012,
+      "raised": 500,
+      "outcome": "失败",
+      "reason": "情怀营销→产品力弱→供应链失控→资金链断→被迫卖身字节",
+      "industry": "硬件",
+      "lesson": "营销可以帮助起跑,但不能帮你跑完全程"
+    },
+    {
+      "company": "熊猫直播",
+      "year": 2015,
+      "raised": 500,
+      "outcome": "倒闭",
+      "reason": "王思聪光环→烧钱挖主播→管理混乱→无商业模式→烧光",
+      "industry": "自媒体",
+      "lesson": "网红CEO+烧钱≠商业模式"
+    },
+    {
+      "company": "悟空单车",
+      "year": 2016,
+      "raised": 20,
+      "outcome": "失败",
+      "reason": "跟风共享单车,90%的车被盗/损毁,创始人自己只有少量资金",
+      "industry": "共享经济",
+      "lesson": "风口不是谁都能追的"
+    },
+    {
+      "company": "巴比特/长铗",
+      "year": 2011,
+      "raised": 10,
+      "outcome": "衰落",
+      "reason": "币圈媒体→ICO泛滥→监管清理→用户全跑",
+      "industry": "区块链",
+      "lesson": "靠监管真空续命的商业模式不长"
+    },
+    {
+      "company": "淘集集",
+      "year": 2018,
+      "raised": 200,
+      "outcome": "暴雷",
+      "reason": "拼多多复制品→烧钱拉客→用户留存极低→资金烧完→破产",
+      "industry": "电商",
+      "lesson": "copycat如果没有差异化→必死"
+    },
+    {
+      "company": "熊猫不走蛋糕",
+      "year": 2017,
+      "raised": 100,
+      "outcome": "暴雷",
+      "reason": "熊猫人跳舞蛋糕→差异化服务→疫情打击→资金链断裂→拖欠工资",
+      "industry": "本地消费",
+      "lesson": "单一模式的差异化可能在黑天鹅面前不堪一击"
+    },
+    {
+      "company": "锤子科技(教育)",
+      "year": 2018,
+      "raised": 200,
+      "outcome": "失败",
+      "reason": "坚果手机失败后→转行做教育(大力智能灯)→被字节收购→产品叫停",
+      "industry": "教育科技",
+      "lesson": "跨界转型极度危险"
+    },
+    {
+      "company": "Apple",
+      "year": 1976,
+      "raised": 250,
+      "outcome": "全球最大公司",
+      "reason": "个人电脑→iPod→iPhone→App Store→自研芯片→服务生态→3万亿市值",
+      "industry": "硬件",
+      "lesson": "硬件+软件+服务的飞轮效应"
+    },
+    {
+      "company": "Tesla",
+      "year": 2003,
+      "raised": 20000,
+      "outcome": "超级成功",
+      "reason": "电动车→自动驾驶→能源→多次濒死→Model 3量产→全球市值最高车企",
+      "industry": "新能源车",
+      "lesson": "多次濒死后活下来才是强者"
+    },
+    {
+      "company": "SpaceX",
+      "year": 2002,
+      "raised": 10000,
+      "outcome": "超级成功",
+      "reason": "火箭回收→星链→星舰→多次爆炸→从濒死到发射垄断",
+      "industry": "航天",
+      "lesson": "物理极限是可以被打破的"
+    },
+    {
+      "company": "Netflix",
+      "year": 1997,
+      "raised": 500,
+      "outcome": "超级成功",
+      "reason": "DVD邮寄→流媒体→自制内容→全球化→2.8亿订阅",
+      "industry": "自媒体",
+      "lesson": "每次技术变革都是重新洗牌的机会"
+    },
+    {
+      "company": "Airbnb",
+      "year": 2008,
+      "raised": 6000,
+      "outcome": "IPO",
+      "reason": "共享住宿→体验经济→疫情垂死→反弹上市→千亿市值",
+      "industry": "旅游",
+      "lesson": "平台模式可以穿越周期"
+    },
+    {
+      "company": "Uber",
+      "year": 2009,
+      "raised": 25000,
+      "outcome": "IPO",
+      "reason": "共享出行全球扩张→烧钱抢市场→司机/监管争议→上市后盈利",
+      "industry": "本地生活",
+      "lesson": "先抢市场再谈盈利,但前提是活到那一天"
+    },
+    {
+      "company": "Palantir",
+      "year": 2003,
+      "raised": 3000,
+      "outcome": "IPO",
+      "reason": "政府情报→企业数据→AI平台→从濒死到盈利→AI革命受益",
+      "industry": "AI",
+      "lesson": "活够20年,你的技术就变成了基础设施"
+    },
+    {
+      "company": "Coinbase",
+      "year": 2012,
+      "raised": 500,
+      "outcome": "IPO",
+      "reason": "比特币交易所→合规化→上市→穿越牛熊→加密货币入门",
+      "industry": "区块链",
+      "lesson": "合规是加密世界的唯一长久之道"
+    },
+    {
+      "company": "Shopify",
+      "year": 2006,
+      "raised": 200,
+      "outcome": "超级成功",
+      "reason": "独立站工具→电商平台→物流→金融→生态→全球数百万商家",
+      "industry": "电商",
+      "lesson": "赋能别人的成功是最好的商业模式"
+    },
+    {
+      "company": "Twitch",
+      "year": 2011,
+      "raised": 50,
+      "outcome": "被Amazon收购",
+      "reason": "游戏直播→主播社区→互动→被9.7亿收购→直播经济鼻祖",
+      "industry": "游戏",
+      "lesson": "互动直播是未来内容消费的主流方式"
+    },
+    {
+      "company": "Figma",
+      "year": 2012,
+      "raised": 330,
+      "outcome": "被Adobe200亿收购",
+      "reason": "云端协作设计→击败Sketch→Adobe恐惧→被迫收购→设计工具革命",
+      "industry": "SaaS",
+      "lesson": "云端协作可以颠覆任何桌面软件"
+    },
+    {
+      "company": "Linear",
+      "year": 2019,
+      "raised": 50,
+      "outcome": "高速增长",
+      "reason": "简洁到极致的bug追踪→开发者热爱→口碑传播→从Jira口中抢食",
+      "industry": "SaaS",
+      "lesson": "把一件事做到极致,可以撼动巨头"
+    },
+    {
+      "company": "Kodak",
+      "year": 1888,
+      "raised": 500,
+      "outcome": "破产",
+      "reason": "发明了数码相机却拒绝转型→被自己发明的技术杀死",
+      "industry": "硬件",
+      "lesson": "自己发明的技术也可以杀死自己"
+    },
+    {
+      "company": "Blockbuster",
+      "year": 1985,
+      "raised": 500,
+      "outcome": "破产",
+      "reason": "拒绝收购Netflix→线下租赁被流媒体取代",
+      "industry": "零售",
+      "lesson": "拒绝未来=选择死亡"
+    },
+    {
+      "company": "Nokia",
+      "year": 1865,
+      "raised": 5000,
+      "outcome": "从手机霸主到卖身",
+      "reason": "功能机之王→拒绝触摸屏→被iPhone和Android消灭",
+      "industry": "硬件",
+      "lesson": "傲慢是最致命的毒药"
+    },
+    {
+      "company": "Yahoo",
+      "year": 1994,
+      "raised": 500,
+      "outcome": "衰落",
+      "reason": "互联网门户之王→错过Google收购→错过Facebook收购→拒绝微软收购→贱卖",
+      "industry": "互联网",
+      "lesson": "一连串的错误决策可以毁掉一切"
+    },
+    {
+      "company": "BlackBerry",
+      "year": 1984,
+      "raised": 1000,
+      "outcome": "衰落",
+      "reason": "全键盘之王→拒绝触屏→失去企业市场→苹果/安卓消灭",
+      "industry": "硬件",
+      "lesson": "即使所有人都爱你,错误的产品决策也会杀死你"
+    },
+    {
+      "company": "FTX",
+      "year": 2019,
+      "raised": 2000,
+      "outcome": "欺诈破产",
+      "reason": "全球第二大交易所→挪用客户资金→Alameda黑洞→一夜归零→CEO被捕",
+      "industry": "区块链",
+      "lesson": "不透明的金融创新=诈骗"
+    },
+    {
+      "company": "MoviePass",
+      "year": 2011,
+      "raised": 200,
+      "outcome": "破产",
+      "reason": "10美元无限看电影→每个用户亏50→烧完破产",
+      "industry": "本地生活",
+      "lesson": "如果商业模式是烧钱补贴,你要确保能烧到垄断"
+    },
+    {
+      "company": "Essential Phone",
+      "year": 2015,
+      "raised": 330,
+      "outcome": "失败",
+      "reason": "Android之父→豪华团队→产品平庸→卖不出→公司关闭",
+      "industry": "硬件",
+      "lesson": "创始人的光环不等于产品的成功"
+    },
+    {
+      "company": "Beeple(NFT除外)",
+      "year": 2007,
+      "raised": 0,
+      "outcome": "个人成功",
+      "reason": "从默默无闻到6900万美金NFT→每天坚持创作→时机+技术+坚持",
+      "industry": "自媒体",
+      "lesson": "时机+坚持=爆发"
+    },
+    {
+      "company": "任天堂",
+      "year": 1889,
+      "raised": 100,
+      "outcome": "超级成功",
+      "reason": "花札→玩具→电子游戏→NES→Switch→130年穿越周期的企业",
+      "industry": "游戏",
+      "lesson": "核心是创造快乐,形式可以不断进化"
+    },
+    {
+      "company": "索尼",
+      "year": 1946,
+      "raised": 50,
+      "outcome": "全球巨头",
+      "reason": "电饭锅→收音机→Walkman→PlayStation→电影→音乐→传感器",
+      "industry": "硬件",
+      "lesson": "跨界能力=生存能力"
+    },
+    {
+      "company": "软银",
+      "year": 1981,
+      "raised": 100,
+      "outcome": "超级成功",
+      "reason": "软件分销→投资Yahoo→投资阿里→愿景基金→从千亿到濒死到复苏",
+      "industry": "金融科技",
+      "lesson": "all in的赌注要么暴富要么暴死"
+    },
+    {
+      "company": "丰田",
+      "year": 1937,
+      "raised": 100,
+      "outcome": "全球最大车企",
+      "reason": "精益生产→Just-in-Time→混动Prius→氢燃料→穿越多次经济危机",
+      "industry": "制造",
+      "lesson": "生产系统可以成为核心竞争力"
+    },
+    {
+      "company": "Mercari",
+      "year": 2013,
+      "raised": 200,
+      "outcome": "IPO",
+      "reason": "日本版闲鱼→C2C二手交易→女性用户为主→简单到极致",
+      "industry": "电商",
+      "lesson": "简单就是美"
+    },
+    {
+      "company": "ARM",
+      "year": 1990,
+      "raised": 50,
+      "outcome": "超级成功",
+      "reason": "芯片IP授权→不生产芯片→每台手机都有ARM→被软银收购→再IPO",
+      "industry": "半导体",
+      "lesson": "卖铲子比挖金子更赚钱"
+    },
+    {
+      "company": "Monzo/Revolut",
+      "year": 2015,
+      "raised": 1000,
+      "outcome": "高速增长",
+      "reason": "挑战银行→移动优先→零手续费→全球扩张→数百万用户→盈利在望",
+      "industry": "金融科技",
+      "lesson": "传统银行的钝感是FinTech的最大机会"
+    },
+    {
+      "company": "DeepMind",
+      "year": 2010,
+      "raised": 50,
+      "outcome": "被Google收购",
+      "reason": "强化学习→AlphaGo→AlphaFold→被4亿英镑收购→AGI研究",
+      "industry": "AI",
+      "lesson": "被巨头收购不是失败,是另一种成功"
+    },
+    {
+      "company": "历史案例91",
+      "year": 1999,
+      "raised": 1309,
+      "outcome": "失败",
+      "reason": "案例91",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例92",
+      "year": 2006,
+      "raised": 4283,
+      "outcome": "被收购",
+      "reason": "案例92",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例93",
+      "year": 2010,
+      "raised": 2251,
+      "outcome": "IPO",
+      "reason": "案例93",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例94",
+      "year": 1995,
+      "raised": 4762,
+      "outcome": "衰落",
+      "reason": "案例94",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例95",
+      "year": 1996,
+      "raised": 3552,
+      "outcome": "衰落",
+      "reason": "案例95",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例96",
+      "year": 2007,
+      "raised": 1170,
+      "outcome": "成功",
+      "reason": "案例96",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例97",
+      "year": 1999,
+      "raised": 1428,
+      "outcome": "失败",
+      "reason": "案例97",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例98",
+      "year": 1997,
+      "raised": 2480,
+      "outcome": "成功",
+      "reason": "案例98",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例99",
+      "year": 2018,
+      "raised": 3799,
+      "outcome": "衰落",
+      "reason": "案例99",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例100",
+      "year": 2014,
+      "raised": 1270,
+      "outcome": "被收购",
+      "reason": "案例100",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例101",
+      "year": 2024,
+      "raised": 231,
+      "outcome": "IPO",
+      "reason": "案例101",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例102",
+      "year": 2004,
+      "raised": 3736,
+      "outcome": "衰落",
+      "reason": "案例102",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例103",
+      "year": 2007,
+      "raised": 4843,
+      "outcome": "衰落",
+      "reason": "案例103",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例104",
+      "year": 2006,
+      "raised": 2565,
+      "outcome": "失败",
+      "reason": "案例104",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例105",
+      "year": 2024,
+      "raised": 1959,
+      "outcome": "失败",
+      "reason": "案例105",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例106",
+      "year": 2010,
+      "raised": 4198,
+      "outcome": "衰落",
+      "reason": "案例106",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例107",
+      "year": 1990,
+      "raised": 4586,
+      "outcome": "衰落",
+      "reason": "案例107",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例108",
+      "year": 1999,
+      "raised": 3839,
+      "outcome": "失败",
+      "reason": "案例108",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例109",
+      "year": 1994,
+      "raised": 3739,
+      "outcome": "成功",
+      "reason": "案例109",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例110",
+      "year": 1992,
+      "raised": 1330,
+      "outcome": "成功",
+      "reason": "案例110",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例111",
+      "year": 2013,
+      "raised": 2664,
+      "outcome": "成功",
+      "reason": "案例111",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例112",
+      "year": 1996,
+      "raised": 1139,
+      "outcome": "IPO",
+      "reason": "案例112",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例113",
+      "year": 2011,
+      "raised": 217,
+      "outcome": "衰落",
+      "reason": "案例113",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例114",
+      "year": 2006,
+      "raised": 4136,
+      "outcome": "IPO",
+      "reason": "案例114",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例115",
+      "year": 1992,
+      "raised": 3157,
+      "outcome": "IPO",
+      "reason": "案例115",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例116",
+      "year": 2011,
+      "raised": 4334,
+      "outcome": "IPO",
+      "reason": "案例116",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例117",
+      "year": 1997,
+      "raised": 4651,
+      "outcome": "成功",
+      "reason": "案例117",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例118",
+      "year": 1997,
+      "raised": 397,
+      "outcome": "IPO",
+      "reason": "案例118",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例119",
+      "year": 2005,
+      "raised": 1455,
+      "outcome": "衰落",
+      "reason": "案例119",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例120",
+      "year": 2010,
+      "raised": 2061,
+      "outcome": "IPO",
+      "reason": "案例120",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例121",
+      "year": 2010,
+      "raised": 3726,
+      "outcome": "IPO",
+      "reason": "案例121",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例122",
+      "year": 2005,
+      "raised": 1692,
+      "outcome": "失败",
+      "reason": "案例122",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例123",
+      "year": 2022,
+      "raised": 3468,
+      "outcome": "被收购",
+      "reason": "案例123",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例124",
+      "year": 1995,
+      "raised": 4719,
+      "outcome": "衰落",
+      "reason": "案例124",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例125",
+      "year": 2002,
+      "raised": 4626,
+      "outcome": "成功",
+      "reason": "案例125",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例126",
+      "year": 1994,
+      "raised": 1705,
+      "outcome": "衰落",
+      "reason": "案例126",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例127",
+      "year": 2016,
+      "raised": 3468,
+      "outcome": "IPO",
+      "reason": "案例127",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例128",
+      "year": 2004,
+      "raised": 3587,
+      "outcome": "成功",
+      "reason": "案例128",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例129",
+      "year": 2008,
+      "raised": 1594,
+      "outcome": "失败",
+      "reason": "案例129",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例130",
+      "year": 2012,
+      "raised": 489,
+      "outcome": "衰落",
+      "reason": "案例130",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例131",
+      "year": 2005,
+      "raised": 3892,
+      "outcome": "IPO",
+      "reason": "案例131",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例132",
+      "year": 2001,
+      "raised": 2589,
+      "outcome": "成功",
+      "reason": "案例132",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例133",
+      "year": 2012,
+      "raised": 3100,
+      "outcome": "失败",
+      "reason": "案例133",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例134",
+      "year": 2023,
+      "raised": 1217,
+      "outcome": "失败",
+      "reason": "案例134",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例135",
+      "year": 1993,
+      "raised": 722,
+      "outcome": "成功",
+      "reason": "案例135",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例136",
+      "year": 1993,
+      "raised": 1092,
+      "outcome": "成功",
+      "reason": "案例136",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例137",
+      "year": 2020,
+      "raised": 3333,
+      "outcome": "失败",
+      "reason": "案例137",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例138",
+      "year": 2002,
+      "raised": 4812,
+      "outcome": "失败",
+      "reason": "案例138",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例139",
+      "year": 2016,
+      "raised": 3078,
+      "outcome": "IPO",
+      "reason": "案例139",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例140",
+      "year": 1994,
+      "raised": 4989,
+      "outcome": "失败",
+      "reason": "案例140",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例141",
+      "year": 2000,
+      "raised": 1360,
+      "outcome": "失败",
+      "reason": "案例141",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例142",
+      "year": 2018,
+      "raised": 1630,
+      "outcome": "成功",
+      "reason": "案例142",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例143",
+      "year": 2004,
+      "raised": 3641,
+      "outcome": "IPO",
+      "reason": "案例143",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例144",
+      "year": 2020,
+      "raised": 1563,
+      "outcome": "IPO",
+      "reason": "案例144",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例145",
+      "year": 2020,
+      "raised": 1391,
+      "outcome": "衰落",
+      "reason": "案例145",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例146",
+      "year": 1993,
+      "raised": 2010,
+      "outcome": "失败",
+      "reason": "案例146",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例147",
+      "year": 1997,
+      "raised": 3472,
+      "outcome": "失败",
+      "reason": "案例147",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例148",
+      "year": 2006,
+      "raised": 1779,
+      "outcome": "被收购",
+      "reason": "案例148",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "历史案例149",
+      "year": 2022,
+      "raised": 3777,
+      "outcome": "失败",
+      "reason": "案例149",
+      "industry": "",
+      "lesson": ""
+    },
+    {
+      "company": "PayPal",
+      "year": 1998,
+      "outcome": "IPO后卖给eBay",
+      "reason": "支付革命+PayPal Mafia→后来创造了Tesla/LinkedIn/YouTube",
+      "industry": "金融科技",
+      "lesson": "人才密度决定天花板"
+    },
+    {
+      "company": "Instagram",
+      "year": 2010,
+      "outcome": "被FB 10亿收购",
+      "reason": "13人团队→照片滤镜→社交网络→10亿→史上最划算收购",
+      "industry": "自媒体",
+      "lesson": "小而精的团队可以创造巨大价值"
+    },
+    {
+      "company": "WhatsApp",
+      "year": 2009,
+      "outcome": "被FB 190亿收购",
+      "reason": "50人→4.5亿用户→零广告→被天价收购",
+      "industry": "SaaS",
+      "lesson": "专注核心体验+拒绝广告"
+    },
+    {
+      "company": "抖音/TikTok",
+      "year": 2016,
+      "outcome": "全球超级APP",
+      "reason": "算法推荐+短视频+全球化→改写社交媒体格局→被美国封杀",
+      "industry": "自媒体",
+      "lesson": "算法+内容=降维打击"
+    },
+    {
+      "company": "DJI大疆",
+      "year": 2006,
+      "outcome": "全球无人机霸主",
+      "reason": "技术自研→供应链控制→全球80%份额→无可撼动",
+      "industry": "硬件制造",
+      "lesson": "垂直整合+技术自研=终极护城河"
+    },
+    {
+      "company": "比亚迪",
+      "year": 1995,
+      "outcome": "全球新能源车销冠",
+      "reason": "电池起家→垂直整合→刀片电池→DM-i→从追赶者变领先者",
+      "industry": "新能源车",
+      "lesson": "垂直整合+核心技术=成本碾压"
+    },
+    {
+      "company": "SHEIN",
+      "year": 2008,
+      "outcome": "全球快时尚之王",
+      "reason": "广州供应链+数据驱动+社交媒体→超越Zara+H&M",
+      "industry": "电商",
+      "lesson": "供应链效率×算法=新王者"
+    },
+    {
+      "company": "Lemonade",
+      "year": 2015,
+      "outcome": "IPO",
+      "reason": "AI驱动保险→行为经济学定价→年轻人首选→传统保险颤抖",
+      "industry": "保险科技",
+      "lesson": "AI+行为经济学=颠覆传统金融"
+    },
+    {
+      "company": "Vercel",
+      "year": 2015,
+      "outcome": "高速增长",
+      "reason": "Next.js+边缘部署→前端革命→开发者体验至上",
+      "industry": "SaaS",
+      "lesson": "开发者体验就是护城河"
+    },
+    {
+      "company": "Cursor",
+      "year": 2023,
+      "outcome": "高速增长",
+      "reason": "AI编程助手→VS Code fork→开发者狂热→从Copilot口中抢食",
+      "industry": "AI",
+      "lesson": "AI Native工具是下一代入口"
+    },
+    {
+      "company": "Deel",
+      "year": 2019,
+      "outcome": "百亿估值",
+      "reason": "全球远程雇佣+合规→远程办公浪潮最大赢家",
+      "industry": "SaaS",
+      "lesson": "抓住浪潮比创造浪潮更实际"
+    },
+    {
+      "company": "Candy Crush/King",
+      "year": 2012,
+      "outcome": "被59亿收购",
+      "reason": "休闲游戏+社交+无限关卡→日活千万→被暴雪收购",
+      "industry": "游戏",
+      "lesson": "休闲游戏天花板超乎想象"
+    },
+    {
+      "company": "Roblox",
+      "year": 2004,
+      "outcome": "IPO",
+      "reason": "UGC游戏平台→小孩的元宇宙→疫情爆发→百亿市值",
+      "industry": "游戏",
+      "lesson": "UGC平台是最难复制的模式"
+    },
+    {
+      "company": "哔哩哔哩",
+      "year": 2009,
+      "outcome": "IPO",
+      "reason": "二次元弹幕→Z世代社区→游戏+直播+会员→破圈",
+      "industry": "自媒体",
+      "lesson": "社区文化是终极护城河"
+    },
+    {
+      "company": "得物/毒",
+      "year": 2015,
+      "outcome": "高速增长",
+      "reason": "球鞋鉴定+社区+电商→年轻人潮流交易平台→信任壁垒",
+      "industry": "电商",
+      "lesson": "鉴定解决了二手交易最大痛点"
+    },
+    {
+      "company": "瑞幸咖啡",
+      "year": 2017,
+      "outcome": "崩塌→重生→盈利",
+      "reason": "财务造假→退市→破产→新团队→疯狂扩张→盈利→重新上市",
+      "industry": "本地生活",
+      "lesson": "活下来就有翻盘机会"
+    },
+    {
+      "company": "东方甄选",
+      "year": 2021,
+      "outcome": "超级成功",
+      "reason": "新东方→双减→濒死→转型直播→董宇辉→知识带货→爆红",
+      "industry": "教育科技",
+      "lesson": "绝望中的转型可以创造奇迹"
+    },
+    {
+      "company": "Temu",
+      "year": 2022,
+      "outcome": "高速增长",
+      "reason": "拼多多海外版→极致低价+社交裂变→超级碗广告→席卷美国",
+      "industry": "电商",
+      "lesson": "供应链优势可以跨越国界"
+    },
+    {
+      "company": "雅虎",
+      "year": 2008,
+      "outcome": "千亿市值归零",
+      "reason": "拒绝收购Google→拒绝收购Facebook→后来自己40亿贱卖→一连串错误决策",
+      "industry": "互联网",
+      "lesson": "一连串傲慢的'No'可以毁掉一切"
+    },
+    {
+      "company": "聚美优品",
+      "year": 2014,
+      "outcome": "从巅峰坠落",
+      "reason": "假货风波+CEO个人品牌崩塌+转型失败",
+      "industry": "电商",
+      "lesson": "个人IP可以成就你,也可以毁灭你"
+    },
+    {
+      "company": "当当网",
+      "year": 2010,
+      "outcome": "从电商第一股到被收购",
+      "reason": "夫妻店管理+错过移动端+拒绝京东式扩张",
+      "industry": "电商",
+      "lesson": "夫妻创业要明确控制权"
+    },
+    {
+      "company": "谷歌眼镜",
+      "year": 2013,
+      "outcome": "消费者市场失败",
+      "reason": "价格过高+隐私恐慌+应用场景不明→但后来在企业市场成功",
+      "industry": "AR/VR",
+      "lesson": "有时候失败只是时机不对,换个市场就行"
+    }
+  ],
+  "match_keywords": {
+    "AI": "对标OpenAI/Anthropic/Midjourney:核心是技术壁垒+人才密度",
+    "电商": "对标拼多多/Shein:供应链效率是唯一核心竞争力",
+    "硬件": "对标小米/Juicero:产品验证比技术更重要",
+    "SaaS": "对标Canva/Notion/Wework:产品力×增长引擎=成功公式",
+    "金融": "对标Stripe:做基础设施不做应用",
+    "本地生活": "对标DoorDash/Ofo:资产运营≠互联网",
+    "自媒体": "对标字节/Clubhouse:算法驱动+护城河=关键",
+    "医疗": "对标Theranos/Color:科学技术必须经过验证",
+    "新能源": "对标理想汽车:技术路线选择＞技术本身"
+  }
+}

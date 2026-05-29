@@ -1,0 +1,60 @@
+{
+  "description": "创业实现方法全目录 — 从常规到极端，覆盖用户能想到和想不到的每一条路",
+  "categories": {
+    "mainstream": {
+      "label": "主流方法",
+      "methods": [
+        {"name": "精益创业", "risk": "low", "speed": 1.0, "success_mod": 1.3, "desc": "MVP快速验证→迭代→规模化，YC模式"},
+        {"name": "技术驱动", "risk": "low", "speed": 0.7, "success_mod": 1.4, "desc": "先建技术壁垒，再找商业场景"},
+        {"name": "市场驱动", "risk": "medium", "speed": 1.2, "success_mod": 1.1, "desc": "先拿客户再建产品，SaaS常用套路"},
+        {"name": "平台战略", "risk": "high", "speed": 0.8, "success_mod": 1.0, "desc": "双边平台，冷启动艰难但天花板高"},
+        {"name": "开源社区运营", "risk": "low", "speed": 0.6, "success_mod": 1.3, "desc": "开源→社区→企业版，MongoDB/Redis路线"}
+      ]
+    },
+    "growth_hack": {
+      "label": "增长黑客",
+      "methods": [
+        {"name": "病毒裂变", "risk": "medium", "speed": 1.8, "success_mod": 0.8, "desc": "拼多多式社交裂变，快速获客但留存低"},
+        {"name": "SEO/内容矩阵", "risk": "low", "speed": 0.5, "success_mod": 1.2, "desc": "大量SEO内容铺量，慢但稳"},
+        {"name": "KOL/达人分销", "risk": "medium", "speed": 1.5, "success_mod": 0.9, "desc": "短视频+直播带货式推广"},
+        {"name": "补贴换市场", "risk": "high", "speed": 2.0, "success_mod": 0.5, "desc": "烧钱换用户，美团/滴滴早期打法"}
+      ]
+    },
+    "gray": {
+      "label": "灰色地带",
+      "methods": [
+        {"name": "监管套利", "risk": "high", "speed": 2.0, "success_mod": 0.4, "desc": "利用不同地区监管差异套利，如加密/web3"},
+        {"name": "信息不对称套利", "risk": "high", "speed": 1.5, "success_mod": 0.5, "desc": "利用信息差倒卖/撮合，如早期的知识付费"},
+        {"name": "竞业规避", "risk": "high", "speed": 1.3, "success_mod": 0.5, "desc": "用第三方壳公司规避竞业限制，挖前东家客户"},
+        {"name": "数据灰色获取", "risk": "critical", "speed": 2.5, "success_mod": 0.3, "desc": "通过爬虫/购买/合作名义获取数据，隐私边界模糊"},
+        {"name": "避税架构", "risk": "high", "speed": 1.2, "success_mod": 0.6, "desc": "多层公司架构+税收洼地，降低税负但有稽查风险"}
+      ]
+    },
+    "loophole": {
+      "label": "漏洞利用",
+      "methods": [
+        {"name": "平台规则漏洞", "risk": "critical", "speed": 2.5, "success_mod": 0.2, "desc": "薅平台补贴/流量漏洞，短期暴利但随时被封"},
+        {"name": "政策窗口期突击", "risk": "high", "speed": 2.0, "success_mod": 0.4, "desc": "利用政策过渡期快速布局，如教培双减前的疯狂扩张"},
+        {"name": "知识产权模糊操作", "risk": "critical", "speed": 1.8, "success_mod": 0.3, "desc": "在专利/商标模糊地带操作，如快速模仿海外产品"},
+        {"name": "资质挂靠", "risk": "high", "speed": 1.5, "success_mod": 0.5, "desc": "借用他人资质经营，规避准入限制"}
+      ]
+    },
+    "unethical": {
+      "label": "不道德但存在的方法",
+      "methods": [
+        {"name": "虚假宣传/刷量", "risk": "critical", "speed": 2.0, "success_mod": 0.15, "desc": "刷DAU/刷GMV/虚假案例忽悠投资人和客户"},
+        {"name": "恶意竞争", "risk": "critical", "speed": 1.8, "success_mod": 0.1, "desc": "挖对手核心员工/散布负面/价格战逼死对手"},
+        {"name": "庞氏模型", "risk": "critical", "speed": 2.5, "success_mod": 0.05, "desc": "用后来者的钱付前面的人，最终必然崩盘"},
+        {"name": "劳动力压榨", "risk": "critical", "speed": 1.5, "success_mod": 0.2, "desc": "996/007/欠薪/社保规避，短期降本但法律风险极高"}
+      ]
+    }
+  },
+  "timeline_phases": {
+    "0-3月": "验证期：市场调研、MVP开发、种子用户获取",
+    "3-6月": "启动期：产品迭代、付费验证、团队组建",
+    "6-12月": "增长期：规模化获客、收入模型验证、A轮融资",
+    "12-18月": "扩张期：跨城市/跨品类扩张、B轮融资、团队50+",
+    "18-24月": "成熟期：盈利稳定、考虑退出/IPO/继续扩张",
+    "24月+": "持续期：行业地位巩固或衰退"
+  }
+}

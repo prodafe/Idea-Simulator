@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>绝境模式 — 模拟人生·创业推演</title>
+<style>
+:root{--bg:#020212;--card:#0a0a2a;--bor:rgba(255,255,255,.04);--tx:#cccce8;--dim:rgba(255,255,255,.3);--ac:#8b6cff;--gr:#00d2a0;--rd:#ff4d4d;--yl:#ffb830}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sans-serif;min-height:100vh;line-height:1.6}
+.mx{max-width:800px;margin:0 auto;padding:14px}
+.hd{text-align:center;padding:30px 16px 20px}
+.hd h1{font-size:clamp(22px,5vw,36px);font-weight:100;letter-spacing:-.02em;margin-bottom:6px;color:var(--rd)}
+.hd p{color:var(--dim);font-size:12px}
+.card{background:var(--card);border:1px solid var(--bor);border-radius:16px;padding:24px;margin-bottom:16px}
+.card h2{font-weight:300;font-size:14px;margin-bottom:16px;color:var(--ac);border-bottom:1px solid var(--bor);padding-bottom:8px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.fw{grid-column:1/-1}
+.fg{display:flex;flex-direction:column;gap:3px}
+.fg label{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.02);border:1px solid var(--bor);color:var(--tx);padding:8px 10px;border-radius:7px;font-size:12px;font-family:inherit;outline:none;transition:.2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ac)}
+.fg select{appearance:auto;cursor:pointer;color:var(--tx);min-height:34px}.fg select option{background:var(--card);color:var(--tx);padding:6px}
+.fg textarea{min-height:50px;resize:vertical;font-size:13px}
+.btn-row{display:flex;gap:10px;justify-content:center;margin:16px 0}
+.btn{font-family:inherit;cursor:pointer;border:none;font-weight:500;transition:.2s;font-size:13px;padding:10px 28px;border-radius:9px}
+.btn-go{background:var(--rd);color:#fff}.btn-go:hover{opacity:.9}.btn-go:disabled{opacity:.3}
+.btn-back{background:transparent;border:1px solid var(--bor);color:var(--dim)}.btn-back:hover{color:var(--tx);border-color:var(--ac)}
+.status{text-align:center;padding:10px;color:var(--rd);font-size:12px;display:none}
+.status .dot{display:inline-block;width:5px;height:5px;background:var(--rd);border-radius:50%;animation:pulse 1s infinite;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+.res{display:none}
+.verdict{padding:16px 22px;border-radius:12px;text-align:center;margin-bottom:16px;font-size:13px;line-height:1.6;background:rgba(255,77,77,.05);border:1px solid rgba(255,77,77,.15);color:var(--rd)}
+.gauge{position:relative;width:120px;height:120px;margin:0 auto 16px}
+.gauge svg{transform:rotate(-90deg)}
+.gauge .bg{fill:none;stroke:rgba(255,255,255,.03);stroke-width:8}
+.gauge .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1s ease}
+.gauge .val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:100}
+.life-story{background:var(--card);border:1px solid var(--bor);border-radius:12px;padding:20px;line-height:1.8;font-size:13px;margin-top:16px}
+.stats-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.stat{text-align:center;font-size:10px;color:var(--dim)}.stat .n{font-size:20px;font-weight:300;color:var(--ac)}
+@media(max-width:640px){.g2,.g3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="mx">
+<div class="hd"><h1>绝境模式</h1><p>填写你的一切——年龄、健康、技能、债务、前科、疾病、资源<br>系统将从你的真实处境出发，模拟创业可能的结果</p></div>
+<div class="status" id="status"></div>
+
+<form onsubmit="return simulate()">
+
+<!-- 基本信息 -->
+<div class="card"><h2>基本信息</h2>
+<div class="g3">
+<div class="fg"><label>国家</label><select id="f-co" onchange="uc()"><option value="中国" selected>🇨🇳 中国</option><option value="美国">🇺🇸 美国</option><option value="英国">🇬🇧 英国</option><option value="日本">🇯🇵 日本</option></select></div>
+<div class="fg"><label>城市</label><input id="f-ci" placeholder="例：北京、东京、纽约..."></div>
+<div class="fg"><label>性别</label><select id="f-gender"><option>男</option><option>女</option><option>其他</option></select></div>
+<div class="fg"><label>年龄</label><input id="f-age" placeholder="具体年龄，如：38岁"></div>
+<div class="fg"><label>身高(cm)/体重(kg)</label><input id="f-body" placeholder="例：172/80 或 肥胖"></div>
+<div class="fg"><label>婚姻/家庭状况</label><input id="f-family" placeholder="例：已婚有一子、离异带娃、单身、父母同住需要赡养..."></div>
+</div></div>
+
+<!-- 健康状况 -->
+<div class="card"><h2>身体状况</h2>
+<div class="g2">
+<div class="fg"><label>身体健康</label><input id="f-physical" placeholder="例：健康/良好/一般/较差/..."></div>
+<div class="fg"><label>确诊疾病</label><input id="f-disease" placeholder="例：糖尿病、高血压、抑郁症、焦虑症、腰椎突出、乙肝携带、HIV..."></div>
+<div class="fg"><label>精神/心理健康</label><input id="f-mental" placeholder="例：正常/轻度抑郁/焦虑症/双相/PTSD/ADHD/自闭谱系..."></div>
+<div class="fg"><label>正在服用的药物</label><input id="f-meds" placeholder="例：无/每天降压药/抗抑郁药/胰岛素..."></div>
+<div class="fg"><label>残疾/身体障碍</label><input id="f-disability" placeholder="例：无/视力障碍/听力障碍/轮椅/义肢/色盲/口吃..."></div>
+<div class="fg"><label>睡眠质量</label><input id="f-sleep" placeholder="例：正常/失眠/长期熬夜/睡眠呼吸暂停..."></div>
+<div class="fg"><label>体能/耐力</label><input id="f-stamina" placeholder="例：好/一般/差/连续工作2小时就累/..."></div>
+<div class="fg"><label>过敏/特殊饮食</label><input id="f-allergy" placeholder="例：无/花粉过敏/麸质过敏/素食..."></div>
+<div class="fg"><label>吸烟/饮酒/其他</label><input id="f-habits" placeholder="例：不烟不酒/一天两包烟/酗酒/戒毒中..."></div>
+<div class="fg fw"><label>健康对工作的具体影响</label><input id="f-health-impact" placeholder="例：每天只能工作4小时、需要定期去医院、不能久坐、不能长时间看屏幕..."></div>
+</div></div>
+
+<!-- 人生经历 -->
+<div class="card"><h2>人生经历</h2>
+<div class="g2">
+<div class="fg"><label>最高学历</label><input id="f-edu" placeholder="例：小学辍学/初中/高中/大专/本科/硕士/博士/..."></div>
+<div class="fg"><label>专业/技能证书</label><input id="f-certs" placeholder="例：会计证/律师资格/驾照A照/电工证/英语专八/CFA..."></div>
+<div class="fg"><label>过往职业经历(全部)</label><textarea id="f-career" placeholder="例：2008-2012 工厂流水线/2012-2015 送外卖/2015-2018 自学编程做外包/2018-2020 创业开餐馆失败/2020-至今 打零工..."></textarea></div>
+<div class="fg"><label>掌握技能</label><textarea id="f-skills" placeholder="例：会开车(B照)/会基础Python/会电焊/会用剪映剪辑/会说英语日常/会做饭/会用Excel做表/什么都不会..."></textarea></div>
+<div class="fg"><label>语言能力</label><input id="f-languages" placeholder="例：只会普通话/会英语读写/会粤语/会日语N2/方言+普通话..."></div>
+<div class="fg"><label>犯罪记录/前科</label><input id="f-criminal" placeholder="例：无/有盗窃前科已服刑/经济犯罪记录/正在缓刑期/被行政拘留过..."></div>
+<div class="fg"><label>信用状况</label><input id="f-credit" placeholder="例：正常/失信被执行人/信用卡逾期/老赖名单/无法贷款/..."></div>
+<div class="fg fw"><label>社交能力 / 人脉资源</label><input id="f-social" placeholder="例：社恐不善交际/有一些工友朋友/完全不认识投资人/认识几个小老板/有人脉但都在传统行业..."></div>
+</div></div>
+
+<!-- 财务绝境 -->
+<div class="card"><h2>财务绝境</h2>
+<div class="g2">
+<div class="fg"><label>当前总资产</label><input id="f-assets" placeholder="例：存款3000+一辆旧车/0资产/有一套按揭房净值50万/..."></div>
+<div class="fg"><label>当前总负债</label><input id="f-debt" placeholder="例：0/信用卡欠5万/网贷20万/房贷剩余80万/欠朋友10万..."></div>
+<div class="fg"><label>每月固定支出</label><input id="f-monthly" placeholder="例：房租2000+生活费1500/房贷5000+养娃3000/..."></div>
+<div class="fg"><label>可动用创业资金</label><input id="f-capital" placeholder="例：5000块/可以借到5万/没有资金只能用时间/..."></div>
+<div class="fg"><label>当前收入来源</label><input id="f-income" placeholder="例：无收入/每月跑外卖3000/兼职做家教/配偶有工资/失业救济..."></div>
+<div class="fg"><label>能撑多久不工作</label><input id="f-runway" placeholder="例：1个月/3个月/半年/立刻就需要钱/..."></div>
+<div class="fg"><label>是否有人在经济上支持你</label><input id="f-support" placeholder="例：没有/父母可以支持/配偶有收入/朋友可以借/全靠自己..."></div>
+<div class="fg"><label>是否被限高/限消/失信</label><input id="f-restricted" placeholder="例：无/被限高不能坐高铁飞机/银行卡被冻结/..."></div>
+</div></div>
+
+<!-- 创业想法 -->
+<div class="card"><h2>创业想法</h2>
+<div class="g2">
+<div class="fg fw"><label>你想做什么</label><textarea id="f-idea" placeholder="描述你打算做什么来翻身。例：我打算用仅剩的5000块钱买一台二手电脑，从零开始学AI绘画，然后在闲鱼和小红书上接单做AI头像定制..."></textarea></div>
+<div class="fg"><label>行业/领域</label><input id="f-industry" placeholder="例：AI绘画、跑腿服务、二手翻新..."></div>
+<div class="fg"><label>计划启动时间</label><input id="f-start" placeholder="例：立刻开始/下个月/等凑够钱/..."></div>
+<div class="fg"><label>你的底线是什么</label><input id="f-bottom" placeholder="例：什么都可以做只要能活下去/违法的不做/只要不坐牢都行/..."></div>
+<div class="fg"><label>你想达到的目标</label><input id="f-goal" placeholder="例：月入1万还债/翻身赚100万/只求养活自己/..."></div>
+</div></div>
+
+<div class="btn-row">
+<button type="submit" class="btn btn-go" id="bg">开始推演我的命运</button>
+<button type="button" class="btn btn-back" onclick="location.href='/'">返回标准模式</button>
+</div>
+</form>
+
+<div class="res" id="res">
+<div class="verdict" id="ve"></div>
+<div class="gauge"><svg width="120" height="120" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="48"/><circle class="fg" id="gf" cx="60" cy="60" r="48"/></svg><div class="val" id="gv">0<span style="font-size:12px;color:var(--dim)">%</span></div></div>
+<div class="stats-row" id="sts"></div>
+<div class="life-story" id="story"></div>
+</div>
+
+</div>
+
+<script>
+var C=2*Math.PI*48;
+var $=function(s){return document.querySelector(s)};
+var $=function(s){return document.querySelector(s)};
+
+async function simulate(){
+const profile={
+  country:$('#f-co').value,city:$('#f-ci').value,extreme_mode:true,fringe_mode:false,butterfly_on:true,
+  gender:$('#f-gender').value,age:$('#f-age').value,body:$('#f-body').value,family:$('#f-family').value,
+  physical:$('#f-physical').value,disease:$('#f-disease').value,mental:$('#f-mental').value,meds:$('#f-meds').value,
+  disability:$('#f-disability').value,sleep:$('#f-sleep').value,stamina:$('#f-stamina').value,allergy:$('#f-allergy').value,
+  habits:$('#f-habits').value,health_impact:$('#f-health-impact').value,
+  education:$('#f-edu').value,certs:$('#f-certs').value,career:$('#f-career').value,skills:$('#f-skills').value,
+  languages:$('#f-languages').value,criminal:$('#f-criminal').value,credit:$('#f-credit').value,social:$('#f-social').value,
+  assets:$('#f-assets').value,debt:$('#f-debt').value,monthly:$('#f-monthly').value,capital_raw:$('#f-capital').value,
+  income:$('#f-income').value,runway:$('#f-runway').value,support:$('#f-support').value,restricted:$('#f-restricted').value,
+  industry:$('#f-industry').value,start:$('#f-start').value,bottom:$('#f-bottom').value,goal:$('#f-goal').value,
+  advantage:($('#f-skills').value||'')+($('#f-certs').value||''),team_raw:'1',
+};
+const idea=$('#f-idea').value.trim();if(!idea){alert('请填写创业想法');return false}
+$('#bg').disabled=true;$('#res').style.display='none';$('#status').style.display='block';$('#status').innerHTML='<span class="dot"></span>推演命运中...';
+
+try{
+const r=await fetch('/api/simulate/stream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idea,profile})});
+const reader=r.body.getReader();const dec=new TextDecoder();let buf='';
+while(true){const{value,done}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});const lines=buf.split('\n');buf=lines.pop()||'';
+for(const line of lines){if(!line.startsWith('data: ')||line.includes('[DONE]'))continue;
+try{const d=JSON.parse(line.slice(6));
+if(d.msg)$('#status').innerHTML='<span class="dot"></span>'+d.msg;
+if(d.phase==='done'){const dd=d.data;
+const v=dd.final_rate||0;const color=v>=50?'var(--gr)':v>=25?'var(--yl)':'var(--rd)';
+const txt=v>=50?'绝境中仍有希望！':v>=25?'极其艰难，但并非不可能':'在当前处境下，这条路几乎走不通';
+$('#ve').innerHTML='<strong>'+txt+' (成功率 '+v+'%)</strong>';
+const fg=$('#gf'),o=C*(1-v/100);fg.style.strokeDasharray=C;fg.style.strokeDashoffset=o;fg.style.stroke=color;$('#gv').innerHTML=v+'<span>%</span>';
+$('#sts').innerHTML='<div class="stat"><div class="n">'+dd.baseline_rate+'%</div>行业基础</div><div class="stat"><div class="n">'+dd.matched_rate+'%</div>背景匹配</div><div class="stat"><div class="n">'+dd.final_rate+'%</div>推演结果</div><div class="stat"><div class="n">'+(dd.total_time_ms||0)+'ms</div>耗时</div>';
+$('#story').innerHTML='<h2 style="font-weight:300;font-size:14px;color:var(--ac);margin-bottom:12px">命运推演报告</h2>'+(dd.report||'').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+$('#res').style.display='block';$('#res').scrollIntoView({behavior:'smooth'});
+}}catch(e){}}}
+$('#status').style.display='none';
+}catch(e){$('#status').innerHTML='错误: '+e.message}
+$('#bg').disabled=false;return false
+}
+</script>
+</body>
+</html>

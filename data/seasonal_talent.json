@@ -1,0 +1,195 @@
+{
+  "description": "季节/时机效应 + 人才市场数据 2025-2026",
+  "seasonal_effects": {
+    "Q1_JanMar": {
+      "fundraising": "旺(新预算释放)",
+      "hiring": "旺(年后跳槽潮)",
+      "sales": "淡(春节放假)",
+      "modifier": 0.05,
+      "desc": "Q1融资黄金窗口,但中国有春节停工"
+    },
+    "Q2_AprJun": {
+      "fundraising": "旺(赶在暑假前close)",
+      "hiring": "中",
+      "sales": "旺",
+      "modifier": 0.03,
+      "desc": "Q2是上半年的冲刺期,融资/销售两旺"
+    },
+    "Q3_JulSep": {
+      "fundraising": "淡(VC休假)",
+      "hiring": "淡(毕业生刚入职不稳定)",
+      "sales": "淡(暑假消费分散)",
+      "modifier": -0.02,
+      "desc": "Q3是全年最淡季,VC合伙人都在度假"
+    },
+    "Q4_OctDec": {
+      "fundraising": "冲刺(年底关账前close)",
+      "hiring": "中",
+      "sales": "旺(双11/黑五/圣诞)",
+      "modifier": 0.04,
+      "desc": "Q4消费旺季,但融资窗口窄"
+    },
+    "before_holiday": {
+      "modifier": -0.05,
+      "desc": "长假前一周全行业效率极低"
+    },
+    "after_holiday": {
+      "modifier": 0.02,
+      "desc": "长假后报复性工作效率"
+    },
+    "double_eleven": {
+      "modifier": 0.08,
+      "industries": [
+        "电商",
+        "物流",
+        "自媒体"
+      ],
+      "desc": "双11/黑五期间电商/物流/营销公司收入翻倍"
+    },
+    "back_to_school": {
+      "modifier": 0.05,
+      "industries": [
+        "教育科技",
+        "电商"
+      ],
+      "desc": "开学季教育/文具/电子品消费高峰"
+    },
+    "chinese_new_year": {
+      "modifier": -0.03,
+      "industries": [],
+      "desc": "春节前后2周中国全行业近乎停摆"
+    },
+    "summer_vacation": {
+      "modifier": 0.05,
+      "industries": [
+        "游戏",
+        "旅游",
+        "教育"
+      ],
+      "desc": "暑假游戏/旅游/培训消费高峰"
+    },
+    "lunar_new_year_eve": {
+      "modifier": -0.05,
+      "industries": [],
+      "desc": "除夕到初七全行业近乎停摆"
+    },
+    "golden_week": {
+      "modifier": 0.04,
+      "industries": [
+        "旅游",
+        "本地生活",
+        "电商"
+      ],
+      "desc": "五一/十一黄金周消费高峰"
+    }
+  },
+  "talent_market": {
+    "roles": {
+      "AI工程师": {
+        "salary_cn": 45000,
+        "salary_us": 18000,
+        "salary_uk": 8500,
+        "salary_jp": 750000,
+        "availability": "极稀缺",
+        "hire_difficulty": 0.9,
+        "desc": "全球AI人才荒,硅谷/北京/深圳抢人白热化"
+      },
+      "全栈开发": {
+        "salary_cn": 25000,
+        "salary_us": 12000,
+        "salary_uk": 5500,
+        "salary_jp": 500000,
+        "availability": "中等",
+        "hire_difficulty": 0.5,
+        "desc": "供给充足,但好的全栈仍是稀缺"
+      },
+      "产品经理": {
+        "salary_cn": 30000,
+        "salary_us": 13000,
+        "salary_uk": 6000,
+        "salary_jp": 550000,
+        "availability": "中等",
+        "hire_difficulty": 0.5,
+        "desc": "好产品经理极难招,坏产品经理一抓一把"
+      },
+      "UI/UX设计师": {
+        "salary_cn": 20000,
+        "salary_us": 10000,
+        "salary_uk": 4500,
+        "salary_jp": 420000,
+        "availability": "充足",
+        "hire_difficulty": 0.3,
+        "desc": "供给充足,AI设计工具降低了门槛"
+      },
+      "销售/BD": {
+        "salary_cn": 18000,
+        "salary_us": 9000,
+        "salary_uk": 4200,
+        "salary_jp": 400000,
+        "availability": "充足",
+        "hire_difficulty": 0.3,
+        "desc": "销售容易招,但顶级Top Sales是稀缺资源"
+      },
+      "运营/市场": {
+        "salary_cn": 15000,
+        "salary_us": 7000,
+        "salary_uk": 3500,
+        "salary_jp": 350000,
+        "availability": "充足",
+        "hire_difficulty": 0.2,
+        "desc": "供过于求,AI运营工具进一步压缩需求"
+      },
+      "CTO/技术合伙人": {
+        "salary_cn": 60000,
+        "salary_us": 25000,
+        "salary_uk": 12000,
+        "salary_jp": 1200000,
+        "availability": "极稀缺",
+        "hire_difficulty": 0.95,
+        "desc": "真正能扛起技术大旗的CTO,永远是最难招的人"
+      },
+      "财务/法务": {
+        "salary_cn": 20000,
+        "salary_us": 10000,
+        "salary_uk": 5500,
+        "salary_jp": 500000,
+        "availability": "中等",
+        "hire_difficulty": 0.4,
+        "desc": "可以外包,但早期创业也需要兼职CFO/法务"
+      },
+      "AI训练师": {
+        "salary_cn": 35000,
+        "salary_us": 15000,
+        "availability": "稀缺",
+        "hire_difficulty": 0.8,
+        "desc": "新兴岗位,供给严重不足"
+      },
+      "低代码开发者": {
+        "salary_cn": 18000,
+        "salary_us": 8000,
+        "availability": "充足",
+        "hire_difficulty": 0.2,
+        "desc": "AI辅助编程降低了门槛"
+      }
+    },
+    "city_premium": {
+      "北京": 1.0,
+      "上海": 0.95,
+      "深圳": 0.9,
+      "杭州": 0.85,
+      "成都": 0.7,
+      "武汉": 0.65,
+      "旧金山/硅谷": 1.0,
+      "纽约": 0.95,
+      "波士顿": 0.85,
+      "西雅图": 0.85,
+      "奥斯汀": 0.75,
+      "伦敦": 1.0,
+      "剑桥": 0.8,
+      "曼彻斯特": 0.65,
+      "东京": 1.0,
+      "大阪": 0.75,
+      "福冈": 0.6
+    }
+  }
+}

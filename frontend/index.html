@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Idea Simulator — 6400亿组合·1000维·20000次MC·1024京全量推演</title>
+<style>
+:root{--bg:#060614;--card:#0e0e28;--bor:rgba(255,255,255,.045);--tx:#cccce8;--dim:rgba(255,255,255,.35);--ac:#8b7cf7;--gr:#00d2a0;--rd:#ff5e5e;--yl:#ffb830;--or:#ff7b42}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sans-serif;min-height:100vh;line-height:1.6}
+.mx{max-width:1000px;margin:0 auto;padding:14px}
+.hd{text-align:center;padding:36px 16px 20px}
+.hd h1{font-size:clamp(22px,5vw,38px);font-weight:100;letter-spacing:-.02em;margin-bottom:6px;background:linear-gradient(135deg,var(--ac),var(--gr));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hd p{color:var(--dim);font-size:12px}
+.card{background:var(--card);border:1px solid var(--bor);border-radius:16px;padding:24px;margin-bottom:18px}
+.card h2{font-weight:300;font-size:15px;margin-bottom:18px;color:var(--ac)}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.fg{display:flex;flex-direction:column;gap:3px}
+.fg label{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.02);border:1px solid var(--bor);color:var(--tx);padding:8px 10px;border-radius:7px;font-size:12px;font-family:inherit;outline:none;transition:.2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ac)}
+.fg select{appearance:auto;cursor:pointer;color:var(--tx);min-height:34px;background:rgba(255,255,255,.03);border:1px solid var(--bor);padding:8px 10px;border-radius:7px;font-size:12px;font-family:inherit}.fg select option{background:var(--card);color:var(--tx);padding:6px}
+.fw{grid-column:1/-1}
+.fw textarea{min-height:65px;resize:vertical;font-size:13px}
+.btn-row{display:flex;gap:10px;justify-content:center;margin:18px 0 0}
+.btn{font-family:inherit;cursor:pointer;border:none;font-weight:500;transition:.2s;font-size:13px;padding:10px 28px;border-radius:9px}
+.btn-go{background:var(--ac);color:#fff}.btn-go:hover{opacity:.9;transform:translateY(-1px)}.btn-go:disabled{opacity:.3;transform:none}
+.btn-d{background:transparent;border:1px solid var(--bor);color:var(--dim)}.btn-d:hover{border-color:var(--ac);color:var(--tx)}
+
+.res{display:none}
+.verdict{padding:16px 22px;border-radius:12px;text-align:center;margin-bottom:18px;font-size:13px;line-height:1.6}
+.verdict.green{background:rgba(0,210,160,.05);border:1px solid rgba(0,210,160,.12);color:var(--gr)}
+.verdict.yellow{background:rgba(255,184,48,.05);border:1px solid rgba(255,184,48,.12);color:var(--yl)}
+.verdict.orange{background:rgba(255,123,66,.05);border:1px solid rgba(255,123,66,.12);color:var(--or)}
+.verdict.red{background:rgba(255,94,94,.05);border:1px solid rgba(255,94,94,.12);color:var(--rd)}
+
+.top-r{display:flex;gap:24px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.gauge{position:relative;width:130px;height:130px;flex-shrink:0}
+.gauge svg{transform:rotate(-90deg)}
+.gauge .bg{fill:none;stroke:rgba(255,255,255,.03);stroke-width:8}
+.gauge .fg{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1s ease}
+.gauge .val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:100}
+.gauge .val span{font-size:13px;color:var(--dim)}
+.stats{display:flex;flex-direction:column;gap:6px;font-size:11px}
+.stats .s{display:flex;justify-content:space-between;gap:16px}.stats .s .l{color:var(--dim)}.stats .s .r{font-weight:500}
+
+.sec{font-size:14px;font-weight:300;margin:24px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--bor)}
+.grid-p{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.pc{background:var(--card);border:1px solid var(--bor);border-radius:11px;padding:14px;position:relative}
+.pc.rec{border-color:rgba(0,210,160,.2);box-shadow:0 0 20px rgba(0,210,160,.03)}
+.pc.nr{opacity:.4}
+.pc .tag{position:absolute;top:8px;right:8px;font-size:7px;padding:2px 6px;border-radius:4px;text-transform:uppercase}
+.tag.low{background:rgba(0,210,160,.1);color:var(--gr)}.tag.high{background:rgba(255,184,48,.1);color:var(--yl)}.tag.critical{background:rgba(255,94,94,.1);color:var(--rd)}
+.pc .pn{font-size:12px;font-weight:500;margin-bottom:6px;padding-right:50px}
+.pc .pr{font-size:26px;font-weight:100;margin-bottom:4px}
+.pc .pm{font-size:10px;color:var(--dim);line-height:1.6}
+.pc .pmt{display:flex;flex-wrap:wrap;gap:2px;margin-top:6px}
+.pc .pmt .t{font-size:8px;padding:1px 5px;border-radius:3px;background:rgba(139,124,247,.08);color:var(--ac)}
+.pc .pw{font-size:9px;color:var(--rd);margin-top:5px;padding:3px 5px;background:rgba(255,94,94,.03);border-radius:3px}
+
+.cc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:8px}
+.cc-card{background:rgba(255,255,255,.015);border:1px solid var(--bor);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;font-size:11px;transition:.2s}
+.cc-card:hover{border-color:var(--ac)}
+.cc-card .cc-flag{font-size:20px;flex-shrink:0}
+.cc-card .cc-rate{font-weight:600;font-size:15px;color:var(--gr)}
+.cc-card .cc-city{color:var(--dim);font-size:10px}
+
+.tml-wrap{max-height:350px;overflow-y:auto;border:1px solid var(--bor);border-radius:10px;margin-top:8px}
+.tml-r{display:flex;gap:12px;padding:10px 14px;border-bottom:1px solid var(--bor);font-size:10px;align-items:flex-start}
+.tml-r:last-child{border:none}
+.tml-r .tm{flex-shrink:0;width:32px;color:var(--ac);font-weight:500;text-align:right}
+.tml-r .td{flex:1}.tml-r .td .re{color:var(--rd);font-size:9px;margin-top:2px}
+.tml-r .ts{flex-shrink:0;text-align:right;font-size:9px;color:var(--dim)}
+
+.rpt{background:var(--card);border:1px solid var(--bor);border-radius:14px;padding:22px;margin-top:18px;line-height:1.8;font-size:13px}
+.rpt h2{font-weight:300;margin:16px 0 6px;color:var(--ac)}.rpt h2:first-child{margin-top:0}
+
+.status{text-align:center;padding:10px;color:var(--dim);font-size:12px;display:none}
+.status .dot{display:inline-block;width:5px;height:5px;background:var(--ac);border-radius:50%;animation:pulse 1s infinite;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+@media(max-width:640px){.g3,.g4{grid-template-columns:1fr}.grid-p{grid-template-columns:1fr}.top-r{flex-direction:column}.cc-grid{grid-template-columns:1fr 1fr}}
+</style></head>
+<body>
+<div class="mx">
+<div class="hd"><h1>Idea Simulator</h1><p>6354亿场景 · 1000维推演 · 20000次MC · 323城市 · 532行业 · 100偏锋 · 800蝴蝶 · 4国法律 · 7Agent · 172历史对标 · 37模型 · 10测试 · CI/CD</p></div>
+
+<div class="status" id="status"></div>
+
+<form class="card" onsubmit="return s()">
+<h2>通用推演 <span style="font-size:10px;color:var(--dim);font-weight:300">— 输入任何场景，AI进行四方推演</span></h2>
+<div class="fg fw" style="margin-bottom:14px"><textarea id="f-id" style="min-height:100px;font-size:14px" placeholder="在这里描述你的任何场景，越具体推演越准。&#10;&#10;例1（创业）：我在北京，有200万资金和3个前同事，想做AI跨境电商选品SaaS...&#10;例2（谈判）：下周三我去字节谈500万的AI合作项目，对方采购总监是我前同事...&#10;例3（求职）：我想跳槽到上海一家AI公司做产品总监，现在在美团P7...&#10;例4（投资）：朋友拉我投50万到他的Web3项目，他之前创业失败过一次...&#10;例5（搬家）：考虑从北京搬到成都，远程做独立开发，担心收入下降...&#10;&#10;只需填写这个框即可，下面信息可选填。"></textarea></div>
+<details style="margin-bottom:12px"><summary style="cursor:pointer;font-size:12px;color:var(--dim)">📋 详细信息（可选，填了更准）</summary>
+<div class="g3" style="margin-top:10px">
+<div class="fg fw" style="background:rgba(139,124,247,.05);padding:10px;border-radius:8px;border:1px solid rgba(139,124,247,.15);margin-bottom:8px"><label style="color:var(--ac);font-weight:500;font-size:12px">🔑 API密钥 <span style="color:var(--rd)">*必填</span></label><div style="display:flex;gap:8px"><input id="f-key" type="password" placeholder="sk-... 支持GPT-5.5/Claude/DeepSeek V4/GLM-5.1/Qwen3.5/Kimi/豆包等33个模型" style="flex:1"><input id="f-base" placeholder="自定义API地址(可选)" style="width:150px;background:rgba(255,255,255,.02);border:1px solid var(--bor);color:var(--tx);padding:8px;border-radius:7px;font-size:10px;font-family:inherit"><select id="f-model" style="width:210px;background:rgba(255,255,255,.03);border:1px solid var(--bor);color:var(--tx);padding:8px;border-radius:7px;font-size:11px;font-family:inherit">
+<optgroup label="OpenAI (2026.4)"><option value="gpt-5.5-instant">GPT-5.5 Instant</option><option value="gpt-5.5">GPT-5.5</option><option value="gpt-4o">GPT-4o</option><option value="o3">o3推理</option></optgroup>
+<optgroup label="Anthropic (2026.4)"><option value="claude-sonnet-4-6" selected>Claude Sonnet 4.6</option><option value="claude-opus-4-7">Claude Opus 4.7</option><option value="claude-haiku-4-5">Claude Haiku 4.5</option></optgroup>
+<optgroup label="Google (2026)"><option value="gemini-3.1-flash">Gemini 3.1 Flash</option><option value="gemini-3-deep-think">Gemini 3 Deep Think</option><option value="gemini-3-pro">Gemini 3 Pro</option></optgroup>
+<optgroup label="DeepSeek (V4 2026.4)"><option value="deepseek-v4">DeepSeek V4</option><option value="deepseek-v4-flash">DeepSeek V4 Flash</option><option value="deepseek-r1">DeepSeek R1</option></optgroup>
+<optgroup label="Alibaba Qwen"><option value="qwen3.5-plus">Qwen3.5 Plus</option><option value="qwen3-max-thinking">Qwen3 Max Think</option><option value="qwen-plus">通义千问Plus</option></optgroup>
+<optgroup label="Zhipu GLM"><option value="glm-5.1">GLM-5.1</option><option value="glm-5">GLM-5</option><option value="glm-4-flash">GLM-4 Flash</option></optgroup>
+<optgroup label="More (Kimi/豆包/MiniMax/etc)"><option value="kimi-k2.6">Kimi K2.6</option><option value="minimax-m2.5">MiniMax M2.5</option><option value="doubao-pro-32k">豆包Pro</option><option value="step-3.5-flash">Step3.5 Flash</option><option value="spark-x2">讯飞星火X2</option><option value="ernie-4.0">文心一言4.0</option><option value="hunyuan-pro">腾讯混元Pro</option><option value="grok-3">Grok-3</option><option value="mistral-large">Mistral Large</option><option value="siliconflow-deepseek">SiliconFlow</option><option value="groq-llama">Groq Llama</option></optgroup>
+</select></div></div>
+<div class="fg"><label>国家</label><select id="f-co"><option value="中国" selected>🇨🇳 中国</option><option value="美国">🇺🇸 美国</option><option value="英国">🇬🇧 英国</option><option value="日本">🇯🇵 日本</option></select></div>
+<div class="fg"><label>城市</label><input id="f-ci" placeholder="北京、上海、东京..."></div>
+<div class="fg"><label>推演模式</label><select id="f-mode"><option value="normal" selected>标准模式</option><option value="fringe">⚔️ 剑走偏锋 <span style="color:var(--rd);font-size:10px">(等你走投无路了再选)</span></option></select></div>
+<div class="fg"><label>蝴蝶效应</label><select id="f-butterfly"><option value="on" selected>开启</option><option value="off">关闭</option></select></div>
+<div class="fg"><label>行业 / 领域</label><input id="f-in" placeholder="AI、电商、医疗..."></div>
+<div class="fg"><label>可动用资金</label><input id="f-ca" placeholder="100万、500万..."></div>
+<div class="fg"><label>团队人数</label><input id="f-te" placeholder="3人、只有自己..."></div>
+<div class="fg"><label>背景 / 经验</label><input id="f-ex" placeholder="5年产品、刚毕业..."></div>
+<div class="fg"><label>学历 / 专业</label><input id="f-ed" placeholder="计算机硕士、辍学..."></div>
+<div class="fg"><label>核心优势</label><input id="f-ad" placeholder="有粉丝、认识投资人..."></div>
+</div></details>
+<div class="btn-row">
+<button type="submit" class="btn btn-go" id="bg">开始推演</button>
+<button type="button" class="btn btn-d" onclick="demo()">填入示例</button>
+<a href="/extreme" class="btn btn-d" style="text-decoration:none;background:rgba(255,77,77,.1);border-color:rgba(255,77,77,.2);color:var(--rd)">💀 绝境模式</a>
+</div>
+</form>
+
+<div class="res" id="res">
+<div class="verdict" id="ve"></div>
+<div class="top-r"><div class="gauge"><svg width="130" height="130" viewBox="0 0 130 130"><circle class="bg" cx="65" cy="65" r="53"/><circle class="fg" id="gf" cx="65" cy="65" r="53"/></svg><div class="val" id="gv">0<span>%</span></div></div>
+<div class="stats" id="st"></div></div>
+<div class="sec">四条策略路径</div><div class="grid-p" id="pg"></div>
+<div class="sec">全球更适合的城市（成功率更高）</div><div class="cc-grid" id="cc"></div>
+<div class="sec">24个月时间线</div><div class="tml-wrap" id="tl"></div>
+<div class="rpt" id="rp"></div>
+</div></div>
+
+<script>
+var C=2*Math.PI*53;
+var $=function(s){return document.querySelector(s)};
+function _old_demo(){$('#f-co').value='中国';$('#f-ci').value='北京';$('#f-in').value='AI大模型 SaaS';$('#f-ca').value='200万';$('#f-te').value='3个人(前同事)';$('#f-ex').value='在字节做了4年AI产品经理';$('#f-ed').value='硕士 计算机';$('#f-ad').value='北邮校友圈,认识天使投资人,懂跨境电商';$('#f-id').value='在北京做一个AI驱动的跨境电商选品SaaS——分析TikTok/Instagram热门内容和全球电商销售数据，用大模型自动推荐高潜力爆品给中小卖家，提供AI生成的营销文案和多语言翻译'}
+function g(v){const f=$('#gf'),o=C*(1-v/100);f.style.strokeDasharray=C;f.style.strokeDashoffset=o;f.style.stroke=v>=50?'var(--gr)':v>=30?'var(--yl)':v>=20?'var(--or)':'var(--rd)';$('#gv').innerHTML=v.toFixed(1)+'<span>%</span>'}
+function fm(n){return n>=1e8?(n/1e8).toFixed(1)+'亿':n>=1e4?(n/1e4).toFixed(0)+'万':n}
+
+async function s(){
+const id=$('#f-id').value.trim();if(!id){alert('请输入想法');return false}
+const apiKey=$('#f-key').value.trim();
+const p={industry:$('#f-in').value||'',capital_raw:$('#f-ca').value||'',team_raw:$('#f-te').value||'',experience:$('#f-ex').value||'',education:$('#f-ed').value||'',advantage:$('#f-ad').value||'',opponent:$('#f-opponent').value||'',deadline:$('#f-deadline').value||'',fringe_mode:$('#f-mode').value==='fringe',extreme_mode:false,butterfly_on:$('#f-butterfly').value==='on',api_key:apiKey,model:$("#f-model").value,api_base:$("#f-base").value||""};
+$('#bg').disabled=true;$('#res').style.display='block';$('#ve').className='verdict';$('#ve').textContent='';$('#st').innerHTML='';$('#pg').innerHTML='';$('#cc').innerHTML='';$('#tl').innerHTML='';$('#rp').innerHTML='';
+const st=document.querySelector('.status');st.style.display='block';
+
+try{
+const r=await fetch('/api/simulate/stream',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idea:id,profile:p})});
+const reader=r.body.getReader();const dec=new TextDecoder();let buf='',market=null,risk=null,strategy=null,cc=null;
+while(true){const{value,done}=await reader.read();if(done)break;buf+=dec.decode(value,{stream:true});const lines=buf.split('\n');buf=lines.pop()||'';
+for(const line of lines){if(!line.startsWith('data: ')||line.includes('[DONE]'))continue;
+try{const d=JSON.parse(line.slice(6));
+if(d.phase&&d.msg)st.innerHTML='<span class="dot"></span>'+d.msg;
+if(d.phase==='market_done')market=d.data;if(d.phase==='risk_done')risk=d.data;if(d.phase==='strategy_done')strategy=d.data;if(d.phase==='cross_country_done')cc=d.data;
+if(d.phase==='done'){
+const dd=d.data;const ds=dd.deep_sim||{};
+g(dd.final_rate||0);const color=dd.final_rate>=50?'green':dd.final_rate>=30?'yellow':dd.final_rate>=20?'orange':'red';
+const vtxt=dd.final_rate>=50?'可行! 综合成功率 '+dd.final_rate+'%':dd.final_rate>=30?'有风险，成功率仅 '+dd.final_rate+'%':dd.final_rate>=20?'困难，成功率仅 '+dd.final_rate+'%':'几乎不可能，成功率仅 '+dd.final_rate+'%';
+const fringeNote=$('#f-mode').value==='fringe'?' <span style="font-size:11px;color:var(--rd)">[剑走偏锋]</span>':'';
+const bfNote=$('#f-butterfly').value==='on'?' <span style="font-size:10px;color:var(--ac)">[蝴蝶效应]</span>':'';
+$('#ve').className='verdict '+color;$('#ve').innerHTML='<strong>'+vtxt+'</strong>'+fringeNote+bfNote;
+$('#st').innerHTML='<div class="s"><span class="l">行业基础</span><span class="r">'+dd.baseline_rate+'%</span></div><div class="s"><span class="l">背景匹配</span><span class="r" style="color:var(--ac)">'+dd.matched_rate+'%</span></div><div class="s"><span class="l">蒙特卡洛推演</span><span class="r" style="font-size:20px;color:var(--yl)">'+dd.final_rate+'%</span></div><div class="s"><span class="l">P10-P90区间</span><span class="r">'+(ds.stats?ds.stats.p10:'?')+'% ~ '+(ds.stats?ds.stats.p90:'?')+'%</span></div><div class="s"><span class="l">场景维度</span><span class="r">'+(ds.total_scenarios?ds.total_scenarios.macro+'宏观×'+ds.total_scenarios.shifts+'变革×'+ds.total_scenarios.personalities+'人因':'?')+'</span></div><div class="s"><span class="l">模拟次数</span><span class="r">'+((ds.iterations||0)+'次').replace(/\B(?=(\d{3})+(?!\d))/g,',')+'</span></div><div class="s"><span class="l">场景空间</span><span class="r" style="font-size:10px">'+((ds.total_scenarios?.total_combos||8100000000)/1e9).toFixed(0)+'B组合</span></div><div class="s"><span class="l">耗时</span><span class="r">'+dd.total_time_ms+'ms</span></div>';
+if(market){
+$('#pg').innerHTML='<div class="pc rec"><div class="pn">📊 市场分析</div><div class="pm">规模:'+(market.market_size||'?')+' | 增长:'+(market.growth_rate||'?')+' | 门槛:'+(market.entry_barrier||'?')+'</div><div class="pm" style="margin-top:4px">'+(market.analysis||'')+'</div></div>';}
+if(risk){
+$('#pg').innerHTML+='<div class="pc"><div class="pn">⚠️ 风险评估</div><div class="pm">综合风险:'+(risk.overall_risk||'?')+'</div>'+(risk.hidden_risks||[]).map(r=>'<div class="pw">💡 '+r+'</div>').join('')+'</div>';}
+// Deep sim: conditional probabilities
+const cp=ds.conditional_probabilities||[];
+if(cp.length){
+$('#pg').innerHTML+='<div class="pc" style="grid-column:1/-1"><div class="pn">🔮 关键事件对成功率的影响（条件概率）</div><div class="pm">'+cp.slice(0,6).map(c=>'<div style="display:flex;justify-content:space-between;margin:3px 0"><span>'+c.event+'</span><span style="color:'+(c.change>0?'var(--gr)':'var(--rd)')+'">'+c.base_rate+'% → <b>'+c.conditional_rate+'%</b> ('+(c.change>0?'+':'')+c.change+'%)</span></div>').join('')+'</div></div>';}
+// Best/Worst case
+if(ds.best_case){
+$('#pg').innerHTML+='<div class="pc rec"><div class="pn">🟢 最优情况</div><div class="pr" style="color:var(--gr)">'+ds.best_case.rate+'%</div><div class="pm">性格:「'+ds.best_case.personality+'」| 运气:'+(ds.best_case.luck>0?'+':'')+ds.best_case.luck.toFixed(2)+'<br>事件:'+(ds.best_case.events||[]).slice(0,2).join('，')||'平稳'+'</div></div>';}
+if(ds.worst_case){
+$('#pg').innerHTML+='<div class="pc"><div class="pn">🔴 最差情况</div><div class="pr" style="color:var(--rd)">'+ds.worst_case.rate+'%</div><div class="pm">性格:「'+ds.worst_case.personality+'」| 运气:'+(ds.worst_case.luck>0?'+':'')+ds.worst_case.luck.toFixed(2)+'<br>事件:'+(ds.worst_case.events||[]).slice(0,2).join('，')||'平稳'+'</div></div>';}
+// Gambler analysis
+if(ds.gambler_analysis&&ds.gambler_analysis.avg_rate){
+$('#pg').innerHTML+='<div class="pc"><div class="pn">🎰 如果敢赌一把</div><div class="pr" style="color:var(--or)">'+ds.gambler_analysis.avg_rate+'%</div><div class="pm">赌赢概率:'+ds.gambler_analysis.success_rate+'% | 赢了大赚，输了归零</div></div>';}
+// Sample narratives
+const sn=ds.sample_narratives||[];
+if(sn.length){
+$('#pg').innerHTML+='<div class="pc" style="grid-column:1/-1"><div class="pn">📖 推演故事（采样）</div><div class="pm">'+sn.map(n=>'<div style="margin:6px 0;padding:6px 8px;background:rgba(255,255,255,.02);border-radius:6px;font-size:11px">'+n+'</div>').join('')+'</div></div>';}
+if(strategy&&strategy.strategies){
+$('#pg').innerHTML+='<div class="sec" style="grid-column:1/-1">🎯 LLM策略建议</div>'+(strategy.strategies||[]).map(s=>'<div class="pc '+(s.type==='conservative'?'rec':'')+'"><div class="tag '+({conservative:'low',aggressive:'high',gray:'critical',speculative:'critical'}[s.type]||'high')+'">'+s.type+'</div><div class="pn">'+s.name+'</div><div class="pr" style="color:'+(s.success_probability>=50?'var(--gr)':s.success_probability>=30?'var(--yl)':'var(--rd)')+'">'+s.success_probability+'%</div><div class="pm">'+(s.steps||[]).slice(0,3).map((st,i)=>'Step '+(i+1)+': '+st).join('<br>')+'</div><div class="pm" style="margin-top:4px">'+s.time_months+'个月 | '+s.expected_outcome+'</div></div>').join('');}
+if(cc&&cc.length){
+$('#cc').innerHTML=cc.map(c=>'<div class="cc-card"><span class="cc-flag">'+(c.country==='中国'?'🇨🇳':c.country==='美国'?'🇺🇸':c.country==='英国'?'🇬🇧':'🇯🇵')+'</span><div><div class="cc-rate">'+c.rate+'%</div><div class="cc-city">'+c.country+' '+c.city+'</div></div></div>').join('');}
+// New engines display
+const br=dd.burn_rate,hm=dd.historical_match,ex=dd.exit_scenarios,se=dd.sensitivity||[];
+let extraHTML='';
+if(br){extraHTML+='<div class="sec">烧钱计算器</div><div class="pc rec"><div class="pn">Monthly Burn</div><div class="pr" style="color:var(--rd)">'+ (br.monthly_burn>=10000?(br.monthly_burn/10000).toFixed(1)+'万':br.monthly_burn) +'</div><div class="pm">跑道: '+br.runway_months+'个月 | '+br.death_date+'</div></div>';}
+if(hm&&hm.length){extraHTML+='<div class="sec">历史对标</div><div class="pc" style="grid-column:1/-1"><div class="pm">'+hm.map(h=>'<div style="margin:4px 0"><b>'+h.company+'</b> ('+h.year+') '+h.outcome+': '+h.lesson+'</div>').join('')+'</div></div>';}
+if(ex){extraHTML+='<div class="sec">退出场景</div><div class="pc"><div class="pn">IPO概率</div><div class="pr" style="color:var(--gr)">'+ex.ipo_prob+'%</div><div class="pm">估值: '+ex.typical_valuation_if_ipo+'</div></div><div class="pc"><div class="pn">被收购概率</div><div class="pr" style="color:var(--ac)">'+ex.acquire_prob+'%</div><div class="pm">价格: '+ex.typical_acquisition_price+'</div></div><div class="pc"><div class="pn">清算概率</div><div class="pr" style="color:var(--rd)">'+ex.liquidate_prob+'%</div></div>';}
+if(se.length){extraHTML+='<div class="sec">敏感度分析</div><div class="pc" style="grid-column:1/-1"><div class="pm">'+se.map(s=>'<div style="display:flex;justify-content:space-between;margin:3px 0"><span>'+s.scenario+'</span><span style="color:'+(s.change>0?'var(--gr)':'var(--rd)')+'">'+s.rate+'% ('+(s.change>0?'+':'')+s.change+'%)</span></div>').join('')+'</div></div>';}
+$('#pg').innerHTML+=extraHTML;
+$('#rp').innerHTML=(dd.report||'').replace(/\n/g,'<br>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+}
+}catch(e){}}}}st.style.display='none';$('#res').scrollIntoView({behavior:'smooth'});
+}catch(e){st.innerHTML='错误: '+e.message}
+$('#bg').disabled=false;return false
+}
+</script>
+</body>
+</html>
