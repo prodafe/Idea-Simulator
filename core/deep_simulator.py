@@ -44,9 +44,42 @@ class DeepSimulator:
         butterfly_on=profile.get("butterfly_on",True)
         country=profile.get("country","中国"); city_name=profile.get("city","北京")
         city=self._city(country,city_name)
-        ind=self._industry(industry)
-        base=ind.get("baseline_success_rate",10)
-        base=self._adjust(base,profile,city)
+
+        # ✅ 优先使用LLM估算的基准成功率（场景自适应），兜底用行业数据
+        llm_baseline = profile.get("_llm_baseline", 0)
+        sc_type = profile.get("_scenario_type", "other")
+        key_factors = profile.get("_key_factors", [])
+
+        if llm_baseline > 0:
+            base = llm_baseline
+        else:
+            ind = self._industry(industry)
+            base = ind.get("baseline_success_rate", 10)
+
+        # ✅ 只有商业场景才应用资金/团队/经验调整；日常/求职等场景不适用
+        business_types = {"business_startup","business_operation","investment"}
+        if sc_type in business_types or (not llm_baseline):
+            base = self._adjust(base, profile, city)
+        else:
+            # 非商业场景只做城市微调
+            base *= city.get("success_mod", 1.0)
+            if country == "中国": pass
+            elif country == "美国": base = min(99.5, base * 1.02)
+            elif country == "日本": base *= 0.96
+            elif country == "英国": base = min(99.5, base * 1.01)
+            base = min(99.8, max(0.2, base))
+        profile["_base_after_adjust"] = base  # 记录调整后基准
+
+        # ✅ 场景类型校准噪声：
+        #   daily_life: 低噪声(日常行为确定性高)
+        #   career_job: 中噪声(竞聘结果有波动)
+        #   business_startup: 高噪声(创业不确定性大)
+        noise_scale = {"daily_life":0.06,"career_job":0.11,"career_promotion":0.10,
+                       "business_startup":0.14,"business_operation":0.12,"investment":0.13,
+                       "negotiation":0.11,"relocation":0.09,"education":0.08,"legal":0.12,
+                       "health":0.14}.get(sc_type, 0.12)
+        profile["_noise_scale"] = noise_scale  # 传给MC循环使用
+
         extreme_mod=profile.get("extreme_mod",0)
         if extreme_mod:base=max(1,base*(1+extreme_mod))
         extreme_events=profile.get("extreme_events",[])
@@ -71,16 +104,33 @@ class DeepSimulator:
             traits=[t for t in TRAITS if not t.get("fringe")]
             fringe_list,fringe_prob=[],0
             relevant_shifts=[s for s in SHIFTS if industry in s.get("industries",[])]or SHIFTS[:5]
-            # ✅ 行业事件优先+模糊匹配+排除荒谬/投影事件（标准模式不需要科幻场景）
+            # ✅ 事件按idea文本关键词筛选 + 行业匹配 + 排除荒谬/投影
+            # 从idea中提取关键词用于事件筛选
+            idea_keywords = set()
+            for kw in re.split(r'[，。！？、\s,.!?\s]+', idea):
+                if len(kw) >= 2:
+                    idea_keywords.add(kw)
+            # 额外补充行业关键词
+            if industry:
+                for kw in re.split(r'[，。！？、\s,.!?\s]+', industry):
+                    if len(kw) >= 2:
+                        idea_keywords.add(kw)
+
             industry_macros=[]
             for m in MACRO.values():
                 inds=m.get("industries",[])
                 if not inds:continue
-                if m.get("absurd"):continue          # 排除荒谬事件(平行宇宙等)
-                if "[投影]" in m.get("name",""):continue  # 排除投影事件(保留真实锚定)
-                if industry in inds or any(industry in i or i in industry for i in inds):
+                if m.get("absurd"):continue
+                if "[投影]" in m.get("name",""):continue
+                # 匹配：行业包含 OR 事件名与idea关键词有交集
+                name_match = any(kw in m.get("name","") for kw in idea_keywords)
+                ind_match = any(industry in i or i in industry or any(kw in i for kw in idea_keywords) for i in inds)
+                if ind_match or name_match:
                     industry_macros.append(m)
             generic_macros=[m for m in MACRO.values() if not m.get("industries") and not m.get("absurd") and "[投影]" not in m.get("name","")]
+            # 通用事件也按关键词筛选
+            if idea_keywords:
+                generic_macros = [m for m in generic_macros if any(kw in m.get("name","") for kw in idea_keywords)] or generic_macros
             generic_macros.sort(key=lambda x:abs(x.get("impact",0)),reverse=True)
             relevant_macro=industry_macros+generic_macros[:30]
             if not relevant_macro:relevant_macro=[m for m in MACRO.values() if not m.get("absurd")][:20]
@@ -95,66 +145,89 @@ class DeepSimulator:
         exit_scenarios=self._exit_scenarios(industry,base)
         sensitivity=self._sensitivity(profile,industry,base,city)
 
-        # ✅ 动态成功阈值: 基于行业基准率 + MC实际可达范围校准
-        #   基准19%的行业，p90约14%，所以成功线设为基准的1.0倍
-        success_threshold = max(10, min(45, base * 1.0))
-        struggle_threshold = max(5, min(20, base * 0.5))
+        # ✅ 场景自适应成功阈值
+        #   daily_life: 低阈值(日常行为90%+才算成功)
+        #   business: 中阈值(达到基准就算不错)
+        #   career: 中阈值
+        threshold_map = {"daily_life":(0.85,0.6),"career_job":(0.85,0.5),"career_promotion":(0.8,0.5),
+                         "business_startup":(0.9,0.45),"business_operation":(0.85,0.5),
+                         "investment":(0.8,0.5),"negotiation":(0.8,0.5),"relocation":(0.85,0.6),
+                         "education":(0.85,0.5),"legal":(0.8,0.5),"health":(0.8,0.5)}
+        s_mult, st_mult = threshold_map.get(sc_type, (0.9, 0.5))
+        success_threshold = max(8, min(50, base * s_mult))
+        struggle_threshold = max(5, min(25, base * st_mult))
 
         # ── 蒙特卡洛 v10: 幂律分布+相关性 ──
         ae=AccuracyEngine();ce=ConstraintEngine();fact=ae.fact_anchor(profile)
-        constraint=ce.analyze(profile);cmod=constraint.get("total_constraint_modifier",0)
-        base=base*(1+cmod*0.4)
+        if sc_type != "daily_life":
+            constraint=ce.analyze(profile);cmod=constraint.get("total_constraint_modifier",0)
+            base=base*(1+cmod*0.4)
+        else:
+            constraint={"total_constraint_modifier":0}; cmod=0
         buckets={"success":0,"failure":0,"struggle":0}
         all_rates=[]; event_impact={}
         for i in range(self.iterations):
-            rate=base*(0.5+0.5*ae.power_law_sample(base/100))
+            rate=base*(0.5+0.4*ae.power_law_sample(base))
             active_macro=[]
-            for m in relevant_macro:
-                prob=m.get("prob",0.1)
-                if fringe_mode and m.get("absurd"):prob=min(0.65,prob*10)
-                # 行业相关事件概率加成30%
-                if m["name"] in industry_event_names:prob=min(0.55,prob*1.3)
-                if random.random()<prob:
-                    rate*=(1+m.get("impact",0))
-                    active_macro.append(m["name"])
-                    event_impact.setdefault(m["name"],[]).append(m.get("impact",0))
-                    rate=ae.apply_correlation(m["name"],rate)
 
-            shift=random.choice(relevant_shifts) if random.random()<0.22 else None
-            sn=shift["name"] if shift else ""
-            if shift:rate*=(1+shift.get("bonus",0))
+            # ✅ 日常行为：跳过宏观事件+行业变革(这些是商业/社会因素，与日常琐事无关)
+            if sc_type != "daily_life":
+                for m in relevant_macro:
+                    prob=m.get("prob",0.1)
+                    if fringe_mode and m.get("absurd"):prob=min(0.65,prob*10)
+                    # 行业相关事件概率加成30%
+                    if m["name"] in industry_event_names:prob=min(0.55,prob*1.3)
+                    if random.random()<prob:
+                        rate*=(1+m.get("impact",0))
+                        active_macro.append(m["name"])
+                        event_impact.setdefault(m["name"],[]).append(m.get("impact",0))
+                        rate=ae.apply_correlation(m["name"],rate)
 
-            p=random.choice(personas)if personas else{"name":"标准","boost":0}
-            t=random.choice(traits)if traits else{"name":"正常","boost":0}
-            luck=random.gauss(0,0.22 if fringe_mode else 0.15)
+                shift=random.choice(relevant_shifts) if random.random()<0.22 else None
+                sn=shift["name"] if shift else ""
+                if shift:rate*=(1+shift.get("bonus",0))
+            else:
+                shift, sn = None, ""
 
-            fm_name=""
-            if fringe_list and random.random()<fringe_prob:
-                fm=random.choice(fringe_list)
-                rate*=(1+fm.get("boost",0)); fm_name=fm["name"]
-                if random.random()<fm.get("fail_boost",0.3):rate*=(1-fm.get("fail_boost",0.3))
+            # ✅ 场景自适应噪声+性格/运气因素
+            if sc_type == "daily_life":
+                # 日常行为几乎不受性格/运气/宏观事件影响
+                p, t, luck = {"name":"标准","boost":0}, {"name":"正常","boost":0}, 0
+                fm_name = ""
+                ns = profile.get("_noise_scale", 0.06)
+                market_noise = random.gauss(0, ns*0.3)
+                rate *= (1 + market_noise)
+            else:
+                p=random.choice(personas)if personas else{"name":"标准","boost":0}
+                t=random.choice(traits)if traits else{"name":"正常","boost":0}
+                luck=random.gauss(0,0.22 if fringe_mode else 0.15)
 
-            rate*=(1+t.get("boost",0)+p.get("boost",0)+luck)
-            # 市场噪声(合并为单次，减少累积削减)
-            market_noise=random.gauss(0,0.10)+random.gauss(0,0.05)+random.gauss(0,city.get("competition",0.5)*0.08)
-            rate*=(1+market_noise)
+                fm_name=""
+                if fringe_list and random.random()<fringe_prob:
+                    fm=random.choice(fringe_list)
+                    rate*=(1+fm.get("boost",0)); fm_name=fm["name"]
+                    if random.random()<fm.get("fail_boost",0.3):rate*=(1-fm.get("fail_boost",0.3))
 
-            # 政策
-            rate*=(1+self._policy_impact(country,city_name,industry))
+                rate*=(1+t.get("boost",0)+p.get("boost",0)+luck)
+                # ✅ 场景自适应噪声：日常行为确定性高→低噪声，创业不确定性大→高噪声
+                ns = profile.get("_noise_scale", 0.12)
+                market_noise=random.gauss(0,ns)+random.gauss(0,ns*0.5)+random.gauss(0,city.get("competition",0.5)*ns*0.6)
+                rate*=(1+market_noise)
 
-            # 季节/时机效应
-            rate*=(1+seasonal_mod+random.gauss(0,0.02))
+            # ✅ 政策/季节/人才/蝴蝶 — 仅非日常场景
+            if sc_type != "daily_life":
+                rate*=(1+self._policy_impact(country,city_name,industry))
+                rate*=(1+seasonal_mod+random.gauss(0,0.02))
+                talent_pressure=self._talent_pressure(industry,country,city_name)
+                rate*=(1-random.uniform(0,talent_pressure*0.05))
 
-            # 人才市场压力
-            talent_pressure=self._talent_pressure(industry,country,city_name)
-            rate*=(1-random.uniform(0,talent_pressure*0.05))
-
-            # 蝴蝶
-            bf_name=""
-            if butterfly_on and BUTTERFLY and random.random()<0.06:
-                bf=random.choice(BUTTERFLY)
-                rate*=(1+bf.get("boost",0)); bf_name=bf.get("name","")
-                if bf.get("fringe")and not fringe_mode:rate=max(0.02,rate*0.35)
+                bf_name=""
+                if butterfly_on and BUTTERFLY and random.random()<0.06:
+                    bf=random.choice(BUTTERFLY)
+                    rate*=(1+bf.get("boost",0)); bf_name=bf.get("name","")
+                    if bf.get("fringe")and not fringe_mode:rate=max(0.02,rate*0.35)
+            else:
+                bf_name=""; talent_pressure=0
 
             rate=max(0.02,min(99.98,rate))
             outcome="success"if rate>=success_threshold else"struggle"if rate>=struggle_threshold else"failure"

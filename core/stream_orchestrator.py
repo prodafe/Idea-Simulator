@@ -33,7 +33,56 @@ class StreamOrchestrator:
             getattr(Config,"LLM_TIMEOUT",60)
         )
 
-    # ─── Agent 1: Context Analyst ───
+    # ─── Agent 0: Scenario Classifier (NEW — 场景自适应分类) ───
+    def classify_scenario(self, idea: str, profile: dict) -> dict:
+        """LLM识别场景类型+估算基准成功率+关键风险因素"""
+        prompt = f"""你是一个现实世界概率分析师。分析以下场景，判断类型并估算基准成功率。
+
+场景描述：{idea}
+用户背景：{json.dumps(profile, ensure_ascii=False)[:400]}
+
+步骤1: 判断场景类型（严格从下面选一个）：
+- daily_life: 日常行为（扔垃圾、买菜、取快递等几乎必成的事）
+- career_job: 求职应聘
+- career_promotion: 晋升/跳槽/薪资谈判
+- business_startup: 创业/开公司/新项目
+- business_operation: 经营中的决策（定价、扩张、裁员等）
+- investment: 投资理财
+- negotiation: 谈判/签约
+- relocation: 搬家/移民/换城市
+- education: 考试/申请学校
+- legal: 法律事务
+- health: 健康/医疗
+- other: 其他不明确场景
+
+步骤2: 估算基准成功率。必须基于真实世界数据，不能拍脑袋：
+- 日常小事：95-99.9%（几乎一定成功）
+- 求职（强背景）：30-60%（取决于匹配度）
+- 求职（弱背景）：5-20%
+- 创业：8-25%（全球创业存活率约10-20%）
+- 投资（保守）：40-70%
+- 投资（激进）：10-30%
+- 搬家/移民：70-95%
+- 考试（准备充分）：60-90%
+- 法律事务：40-80%（取决于案情）
+
+步骤3: 列出3-5个影响此场景的核心因素（正面+负面），每个含name/direction/magnitude/reason。
+
+只输出JSON：
+{{"scenario_type":"daily_life","baseline_rate":99.5,"key_factors":[{{"name":"几乎无阻碍","direction":"positive","magnitude":0.0,"reason":"日常琐事极少有失败可能"}}]}}
+JSON:"""
+        try:
+            text = self._llm(prompt, 600)
+            s = text.find("{"); e = text.rfind("}")+1
+            if s>=0 and e>s:
+                result = json.loads(text[s:e])
+                # 确保baseline_rate在合理范围
+                result["baseline_rate"] = max(0.5, min(99.5, float(result.get("baseline_rate",50))))
+                return result
+        except Exception:
+            pass
+        # 兜底：默认分类
+        return {"scenario_type":"other","baseline_rate":50.0,"key_factors":[]}
     def agent_context(self, idea: str, profile: dict) -> dict:
         """分析用户背景和想法的匹配度"""
         prompt = f"""分析以下创业者的背景与想法的匹配度。输出JSON:{{"match_score":0-100,"strengths":[],"gaps":[],"advice":"一句话建议"}}
@@ -364,6 +413,18 @@ JSON:"""
         yield {"phase":"init","msg":f"{label}启动: [{model}] + 7Agent + 400亿场景 + 网络搜索"}
         t0 = time.perf_counter()
 
+        # Phase 0: 场景自适应分类 (LLM估算基准成功率+关键因素)
+        yield {"phase":"classify","msg":"🎯 分析场景类型并估算基准成功率..."}
+        scenario = self.classify_scenario(idea, profile)
+        sc_type = scenario.get("scenario_type","other")
+        llm_baseline = scenario.get("baseline_rate",50)
+        key_factors = scenario.get("key_factors",[])
+        yield {"phase":"classify_done","data":{"scenario_type":sc_type,"baseline_rate":llm_baseline,"key_factors":key_factors}}
+        # 把场景分析结果写入profile供deep_simulator使用
+        profile["_scenario_type"] = sc_type
+        profile["_llm_baseline"] = llm_baseline
+        profile["_key_factors"] = key_factors
+
         # Phase 1: Context
         yield {"phase":"context","msg":"🔍 Agent 1/6: 分析背景匹配度..."}
         ctx = self.agent_context(idea, profile)
@@ -389,7 +450,7 @@ JSON:"""
         cc = self.agent_cross_country(idea, profile)
         yield {"phase":"cross_country_done","data":cc}
 
-        # Phase 6: Deep Monte Carlo Simulation
+        # Phase 6: Deep Monte Carlo Simulation (使用LLM估算的基准率)
         yield {"phase":"deep_sim","msg":"🎲 Agent 6/7: 500宏观×500行业变革×400角色×400特质×10000次MC..."}
         from core.deep_simulator import DeepSimulator
         iters = profile.get("_iterations", 5000)
@@ -399,22 +460,23 @@ JSON:"""
 
         # Phase 7: Report
         yield {"phase":"report","msg":"📝 Agent 7/7: 生成最终报告..."}
-        all_data = {"context":ctx,"market":market,"risk":risk,"strategy":strategy,"cross_country":cc,"deep_sim":deep_result}
+        all_data = {"context":ctx,"market":market,"risk":risk,"strategy":strategy,"cross_country":cc,"deep_sim":deep_result,"scenario":scenario}
         report = self.agent_report(idea, profile, all_data)
         yield {"phase":"report_done","data":{"report":report}}
 
-        # Final: compute success rate
-        ind = self._match_industry(profile.get("industry",""))
-        baseline = ind.get("baseline_success_rate",10)
+        # Final: 优先用LLM估算基准，兜底用行业数据
+        baseline = llm_baseline if llm_baseline > 0 else ind.get("baseline_success_rate",10) if (ind:=self._match_industry(profile.get("industry",""))) else 10
         city = self._match_city(profile.get("country","中国"),profile.get("city","北京"))
         final_rate = self._compute_final_rate(profile, baseline, city, ctx, market, risk)
 
         yield {"phase":"done","data":{
-            "baseline_rate":baseline,
+            "baseline_rate":round(baseline,1),
             "matched_rate":ctx.get("match_score",50),
             "adjusted_rate":round(final_rate,1),
             "final_rate":deep_result["success_probability"],
             "report":report,
+            "scenario_type":sc_type,
+            "key_factors":key_factors,
             "market":market,"risk":risk,"strategy":strategy,"cross_country":cc,
             "deep_sim":deep_result,
             "total_time_ms":round((time.perf_counter()-t0)*1000),
