@@ -88,9 +88,13 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 
 <form class="card" onsubmit="return s()">
 <h2>通用推演 <span style="font-size:10px;color:var(--dim);font-weight:300">— 输入任何场景，AI进行四方推演</span></h2>
-<div class="fg fw" style="margin-bottom:14px"><textarea id="f-id" style="min-height:100px;font-size:14px" placeholder="在这里描述你的任何场景，越具体推演越准。&#10;&#10;例1（创业）：我在北京，有200万资金和3个前同事，想做AI跨境电商选品SaaS...&#10;例2（谈判）：下周三我去字节谈500万的AI合作项目，对方采购总监是我前同事...&#10;例3（求职）：我想跳槽到上海一家AI公司做产品总监，现在在美团P7...&#10;例4（投资）：朋友拉我投50万到他的Web3项目，他之前创业失败过一次...&#10;例5（搬家）：考虑从北京搬到成都，远程做独立开发，担心收入下降...&#10;&#10;只需填写这个框即可，下面信息可选填。"></textarea></div>
-<details style="margin-bottom:12px"><summary style="cursor:pointer;font-size:12px;color:var(--dim)">📋 详细信息（可选，填了更准）</summary>
-<div class="g3" style="margin-top:10px">
+
+<div style="background:linear-gradient(135deg,rgba(139,124,247,.15),rgba(255,77,77,.1));padding:16px;border-radius:12px;border:2px solid rgba(139,124,247,.3);margin-bottom:16px">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+<span style="font-size:20px">🔑</span>
+<span style="color:var(--tx);font-weight:600;font-size:14px">接入大模型 <span style="color:var(--rd);font-size:13px">*必填，否则无法使用</span></span>
+<span style="font-size:10px;color:var(--dim);margin-left:auto">支持37个模型 · 一键接入</span>
+</div>
 <div class="fg fw" style="background:rgba(139,124,247,.05);padding:10px;border-radius:8px;border:1px solid rgba(139,124,247,.15);margin-bottom:8px"><label style="color:var(--ac);font-weight:500;font-size:12px">🔑 API密钥 <span style="color:var(--rd)">*必填</span></label><div style="display:flex;gap:8px"><input id="f-key" type="password" placeholder="sk-... 支持GPT-5.5/Claude/DeepSeek V4/GLM-5.1/Qwen3.5/Kimi/豆包等33个模型" style="flex:1"><input id="f-base" placeholder="自定义API地址(可选)" style="width:150px;background:rgba(255,255,255,.02);border:1px solid var(--bor);color:var(--tx);padding:8px;border-radius:7px;font-size:10px;font-family:inherit"><select id="f-model" style="width:210px;background:rgba(255,255,255,.03);border:1px solid var(--bor);color:var(--tx);padding:8px;border-radius:7px;font-size:11px;font-family:inherit">
 <optgroup label="OpenAI (2026.4)"><option value="gpt-5.5-instant">GPT-5.5 Instant</option><option value="gpt-5.5">GPT-5.5</option><option value="gpt-4o">GPT-4o</option><option value="o3">o3推理</option></optgroup>
 <optgroup label="Anthropic (2026.4)"><option value="claude-sonnet-4-6" selected>Claude Sonnet 4.6</option><option value="claude-opus-4-7">Claude Opus 4.7</option><option value="claude-haiku-4-5">Claude Haiku 4.5</option></optgroup>
@@ -100,6 +104,12 @@ body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,sa
 <optgroup label="Zhipu GLM"><option value="glm-5.1">GLM-5.1</option><option value="glm-5">GLM-5</option><option value="glm-4-flash">GLM-4 Flash</option></optgroup>
 <optgroup label="More (Kimi/豆包/MiniMax/etc)"><option value="kimi-k2.6">Kimi K2.6</option><option value="minimax-m2.5">MiniMax M2.5</option><option value="doubao-pro-32k">豆包Pro</option><option value="step-3.5-flash">Step3.5 Flash</option><option value="spark-x2">讯飞星火X2</option><option value="ernie-4.0">文心一言4.0</option><option value="hunyuan-pro">腾讯混元Pro</option><option value="grok-3">Grok-3</option><option value="mistral-large">Mistral Large</option><option value="siliconflow-deepseek">SiliconFlow</option><option value="groq-llama">Groq Llama</option></optgroup>
 </select></div></div>
+
+<div style="font-size:9px;color:var(--dim);margin-top:6px">密钥仅用于本次推演，不会存储。每个模型对应的API地址已预设，也可自定义。</div>
+</div>
+<div class="fg fw" style="margin-bottom:14px"><textarea id="f-id" style="min-height:100px;font-size:14px" placeholder="在这里描述你的任何场景，越具体推演越准。&#10;&#10;例1（创业）：我在北京，有200万资金和3个前同事，想做AI跨境电商选品SaaS...&#10;例2（谈判）：下周三我去字节谈500万的AI合作项目，对方采购总监是我前同事...&#10;例3（求职）：我想跳槽到上海一家AI公司做产品总监，现在在美团P7...&#10;例4（投资）：朋友拉我投50万到他的Web3项目，他之前创业失败过一次...&#10;例5（搬家）：考虑从北京搬到成都，远程做独立开发，担心收入下降...&#10;&#10;只需填写这个框即可，下面信息可选填。"></textarea></div>
+<details style="margin-bottom:12px"><summary style="cursor:pointer;font-size:12px;color:var(--dim)">📋 详细模式</summary>
+<div class="g3" style="margin-top:10px">
 <div class="fg"><label>国家</label><select id="f-co"><option value="中国" selected>🇨🇳 中国</option><option value="美国">🇺🇸 美国</option><option value="英国">🇬🇧 英国</option><option value="日本">🇯🇵 日本</option></select></div>
 <div class="fg"><label>城市</label><input id="f-ci" placeholder="北京、上海、东京..."></div>
 <div class="fg"><label>推演模式</label><select id="f-mode"><option value="normal" selected>标准模式</option><option value="fringe">⚔️ 剑走偏锋 <span style="color:var(--rd);font-size:10px">(等你走投无路了再选)</span></option></select></div>
