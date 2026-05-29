@@ -71,8 +71,22 @@ class DeepSimulator:
             traits=[t for t in TRAITS if not t.get("fringe")]
             fringe_list,fringe_prob=[],0
             relevant_shifts=[s for s in SHIFTS if industry in s.get("industries",[])]or SHIFTS[:5]
-            relevant_macro=[m for m in MACRO.values() if not m.get("industries")or industry in m["industries"]]
-            if not relevant_macro:relevant_macro=[m for m in MACRO.values() if not m.get("industries")][:10]
+            # ✅ 行业事件优先+模糊匹配+排除荒谬/投影事件（标准模式不需要科幻场景）
+            industry_macros=[]
+            for m in MACRO.values():
+                inds=m.get("industries",[])
+                if not inds:continue
+                if m.get("absurd"):continue          # 排除荒谬事件(平行宇宙等)
+                if "[投影]" in m.get("name",""):continue  # 排除投影事件(保留真实锚定)
+                if industry in inds or any(industry in i or i in industry for i in inds):
+                    industry_macros.append(m)
+            generic_macros=[m for m in MACRO.values() if not m.get("industries") and not m.get("absurd") and "[投影]" not in m.get("name","")]
+            generic_macros.sort(key=lambda x:abs(x.get("impact",0)),reverse=True)
+            relevant_macro=industry_macros+generic_macros[:30]
+            if not relevant_macro:relevant_macro=[m for m in MACRO.values() if not m.get("absurd")][:20]
+
+        # ✅ 行业事件名集合(用于概率加成+排序)
+        industry_event_names={m["name"] for m in industry_macros} if not fringe_mode else set()
 
         # ── 新增预计算 ──
         burn_data=self._calc_burn(profile,industry,country,city_name)
@@ -93,6 +107,8 @@ class DeepSimulator:
             for m in relevant_macro:
                 prob=m.get("prob",0.1)
                 if fringe_mode and m.get("absurd"):prob=min(0.65,prob*10)
+                # 行业相关事件概率加成30%
+                if m["name"] in industry_event_names:prob=min(0.55,prob*1.3)
                 if random.random()<prob:
                     rate*=(1+m.get("impact",0))
                     active_macro.append(m["name"])
@@ -152,8 +168,10 @@ class DeepSimulator:
         for ev,imps in event_impact.items():
             if len(imps)<5:continue
             cr=base*(1+sum(imps)/len(imps))
-            cond.append({"event":ev,"base_rate":round(base,1),"conditional_rate":round(max(0.02,min(99.98,cr)),1),"change":round(cr-base,1),"probability":round(len(imps)/n*100,1)})
-        cond.sort(key=lambda x:abs(x["change"]),reverse=True)
+            is_industry=ev in industry_event_names
+            cond.append({"event":ev,"base_rate":round(base,1),"conditional_rate":round(max(0.02,min(99.98,cr)),1),"change":round(cr-base,1),"probability":round(len(imps)/n*100,1),"industry_relevant":is_industry})
+        # ✅ 排序: 行业相关事件优先，再按影响度降序
+        cond.sort(key=lambda x:(not x.get("industry_relevant",False), -abs(x["change"])))
 
         best=max(self.history,key=lambda r:r.final_rate)
         worst=min(self.history,key=lambda r:r.final_rate)

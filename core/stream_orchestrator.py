@@ -452,6 +452,9 @@ JSON:"""
 
     def _match_industry(self, name: str) -> dict:
         ind = self.bm.get("industries",{})
+        # 优先精确匹配，再子串匹配
+        for k,v in ind.items():
+            if name == k: return v
         for k,v in ind.items():
             if name in k or k in name: return v
         return ind.get("企业服务SaaS",{"baseline_success_rate":10})
