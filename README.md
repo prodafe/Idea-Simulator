@@ -60,6 +60,14 @@ idea_simulator/
 └── tests/                  # 测试套件
 ```
 
+## 社区
+
+本项目期待各位的使用和优化，目前仍处于持续优化中 QwQ
+
+- 🐛 发现问题请提 [Issue](https://github.com/prodafe/Idea-Simulator/issues)
+- 💡 有好的想法欢迎 [PR](https://github.com/prodafe/Idea-Simulator/pulls)
+- ⭐ 如果觉得有用，给个 Star 支持一下
+
 ## 许可证
 
 MIT License
